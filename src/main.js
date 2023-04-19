@@ -1,15 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
+import App from './App.vue'
+import App2 from './App2.vue'
 
-  createApp({ //puedes crear n instancias, para cada div seria lo recomendado
-    data() {
-      return {
-        contador: 0
-      }
-    },
-    methods: {
-      aumentarContador() {
-        this.contador++
-      }
-    }
-  }).mount('#app')
+createApp(App).mount('#app')
+createApp(App2).mount('#app2')
