@@ -14,9 +14,9 @@ export default {
         "yellow" : "#F4CC66",
         "yellow-2" : "#F9BA4E",
         "brown" : "#E0BF7E",
-        "blue" : "#89939C",
+        "blue-1" : "#89939C",
         "blue-2" : "#828D96",
-        "blue-3" : "#7A8690",
+        "blue-3" : "#7C90A0",
       },
       fontFamily: {
         dancing: ['Dancing Script', 'cursive']

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<!--300x700-->
+<html lang="es">
+<!--350x420-->
+<!--420x600-->
 
 <head>
   <meta charset="UTF-8" />
@@ -12,27 +13,36 @@
 
 <body class="h-screen flex flex-col">
   <header>
-    <nav class="bg-black-0 w-full h-1/7">
+    <nav class="bg-black-0 w-full h-24">
       <ul class="flex justify-center items-center h-24">
         <li class="mr-4">
-          <figure class="self-center">
-            <img src="/src/img/menu_lineas.png" alt="menu" title="menu_lineas" class="w-7 h-7">
+          <figure>
+            <img src="/src/img/menu_lineas.png" alt="menu" title="menu_lineas" class="w-10 h-1/8">
           </figure>
         </li>
         <li>
-          <figure class="self-center">
-            <img src="/src/img/ico_tmd_amarillo.svg" alt="Montacarga" title="logo" class="w-52 h-16">
+          <figure>
+            <img src="/src/img/ico_tmd_amarillo.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
           </figure>
         </li>
       </ul>
     </nav>
   </header>
 
-  <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center" style="background-image: url('/src/img/fondo.jpeg')">
-    <figure class="self-center">
-      <img src="/src/img/fondo.jpeg" alt="fondo" title="fondo" class="hidden">
-    </figure>
-    <h1 class="text-white text-4xl font-dancing text-center self-center">Su mejor opción en Montacargas</h1>
+  <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col"
+    style="background-image: linear-gradient(to top right, rgba(252,252,252,0.1), rgba(122,134,144,0.9)), url('/src/img/fondo.jpeg');">
+    <div class="absolute inset-0 z-0">
+      <figure class="self-center">
+        <img src="/src/img/fondo.jpeg" alt="fondo" title="fondo" class="hidden ">
+      </figure>
+    </div>
+    <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción en
+    </h1>
+    <h1><span
+        class="text-yellow-2 text-5xl mix-blend-lighten font-dancing font-extrabold text-center">Montacargas</span></h1>
+
+    <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4">Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Optio eveniet voluptatum, maiores, necessitatibus qui ad laboriosam nemo</p>
     <div class="flex justify-end absolute bottom-0 right-0">
       <figure class="self-center order-last">
         <img src="/src/img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
@@ -40,25 +50,28 @@
     </div>
   </main>
 
+
+
+
   <footer>
     <nav class="bg-yellow w-full h-1/8">
       <ul class="flex justify-center items-center h-20">
-        <li>
+        <li class="ml-4 mr-4">
           <figure>
             <img src="/src/img/telefono_icon.png" alt="telefono" title="telefono" class="w-14 h-14">
           </figure>
         </li>
-        <li class="ml-2 mr-2">
+        <li class="ml-4 mr-4">
           <figure>
             <img src="/src/img/correo_icon.png" alt="correo" title="correo" class="w-14 h-14">
           </figure>
         </li>
-        <li class="ml-2 mr-2">
+        <li class="ml-4 mr-4">
           <figure>
             <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
           </figure>
         </li>
-        <li class="ml-2 mr-2">
+        <li class="ml-4 mr-4">
           <figure>
             <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="whatsapp" class="w-14 h-14">
           </figure>
@@ -67,7 +80,10 @@
     </nav>
   </footer>
 
-
+  <div id="app" class="w-14 h-14">
+    <p class="text-black text-5xl">Contador: {{ contador }}</p>
+    <button @click="aumentarContador">Aumentar contador</button>
+  </div>
   <script type="module" src="/src/main.js"></script>
 </body>
 
