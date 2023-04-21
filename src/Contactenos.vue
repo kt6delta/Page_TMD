@@ -101,7 +101,7 @@ export default {
                     </div>
                 </div>
 
-                <label for="message" class="block font-medium text-gray mb-2">Mensaje:</label>
+                <label for="message" class="block text-gray text-xl font-serif italic mb-2">Mensaje:</label>
                 <textarea id="message" name="message" rows="4"
                     class="form-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow"></textarea>
 
