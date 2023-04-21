@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [ //Agregue las rutas
     "./index.html",
@@ -23,6 +24,6 @@ export default {
       }
     }
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
 
