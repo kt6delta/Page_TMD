@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import MenuLateral from './MenuLateral.vue'
+import Contactenos from './Contactenos.vue'
 
 
 createApp(App).mount('#app')
-createApp(MenuLateral).mount('#MenuLateral')
+createApp(Contactenos).mount('#contactenos')

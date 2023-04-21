@@ -12,10 +12,13 @@ export default {
   <!--350x420-->
   <!--420x600-->
 
-  <div v-if="mostrarMenu" class="bg-yellow w-full h-screen flex flex-col">
-    <figure class="ml-8 mt-10 w-8 h-8">
-      <img src="src/img/x_icon.png" alt="Montacarga" title="logo">
-    </figure>
+  <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
+    <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
+      <figure>
+        <img src="img/x_icon.png" alt="X" title="salir">
+      </figure>
+    </button>
+
     <figure class="mx-auto w-80 h-28">
       <img src="src/img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
     </figure>
@@ -37,14 +40,14 @@ export default {
     </ul>
   </div>
 
-  <div v-if="!mostrarMenu">
-    <header class="h-screen flex flex-col">
-      <nav class="bg-black-0 w-full h-24">
-        <ul class="flex justify-center items-center h-24">
+  <div v-if="!mostrarMenu" class="w-full h-screen" >
+    <header class="h-1/7 flex flex-col">
+      <nav class="bg-black-0 w-full h-1/7">
+        <ul class="flex justify-center items-center h-1/7">
           <li class="mr-4">
             <button @click="mostrarMenu = !mostrarMenu">
               <figure>
-                <img src="/src/img/menu_lineas.png" alt="menu" title="menu_lineas" class="w-10 h-1/8">
+                <img src="/src/img/menu_lineas.png" alt="menu" title="menu" class="w-10 h-1/8">
               </figure>
             </button>
 
@@ -81,35 +84,42 @@ export default {
       </div>
     </main>
 
-
-
-
-    <footer>
-      <nav class="bg-yellow w-full h-1/8">
-        <ul class="flex justify-center items-center h-20">
+    <footer class="w-full h-24">
+      <nav class="bg-yellow-2">
+        <ul class="flex justify-center items-center h-24">
           <li class="ml-4 mr-4">
-            <figure>
+            <a href="#">
+              <figure>
               <img src="/src/img/telefono_icon.png" alt="telefono" title="telefono" class="w-14 h-14">
             </figure>
+            </a>
           </li>
           <li class="ml-4 mr-4">
-            <figure>
+            <a href="#">
+              <figure>
               <img src="/src/img/correo_icon.png" alt="correo" title="correo" class="w-14 h-14">
             </figure>
+            </a>
           </li>
           <li class="ml-4 mr-4">
-            <figure>
+            <a href="#">
+              <figure>
               <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
             </figure>
+            </a>
           </li>
           <li class="ml-4 mr-4">
-            <figure>
+            <a href="#">
+              <figure>
               <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="whatsapp" class="w-14 h-14">
             </figure>
+            </a>
           </li>
         </ul>
       </nav>
-  </footer>
-</div></template>
+    </footer>
+
+  </div>
+</template>
 
 <style scoped></style>

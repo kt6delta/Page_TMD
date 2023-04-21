@@ -12,6 +12,9 @@ RUN npm install -g npm
 # Instala las dependencias de Vue 3 con Vite y Tailwind CSS 3
 RUN yarn add vue@latest vite@4.2.1 tailwindcss@3.3.1 postcss@8.4.21 autoprefixer@10.4.14
 
+RUN npm install @tailwindcss/forms
+RUN npm run build
+
 # Expone el puerto 5173
 EXPOSE 5173
 
