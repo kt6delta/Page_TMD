@@ -118,27 +118,27 @@ export default {
             <div class="text-center">
                 <a href="#">
                     <figure class=" flex flex-col items-center">
-                        <img src="/src/img/telefono_icon.png" alt="telefono" title="telefono" class="w-16 h-16">
+                        <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326" class="w-16 h-16">
                     </figure>
                     <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 601 5408640<br>(+57)
                         3244298326</p>
                 </a>
                 <a href="#">
                     <figure class=" flex flex-col items-center">
-                        <img src="/src/img/correo_icon.png" alt="correo" title="correo" class="w-16 h-16">
+                        <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com" class="w-16 h-16">
                     </figure>
                     <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">gestion@tecnimontacargasdual.com
                     </p>
                 </a>
                 <a href="#">
                     <figure class=" flex flex-col items-center">
-                        <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="whatsapp" class="w-16 h-16">
+                        <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-16 h-16">
                     </figure>
                     <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 3168770708</p>
                 </a>
                 <a href="#">
                     <figure class=" flex flex-col items-center">
-                        <img src="/src/img/mapa.png" alt="facebook" title="facebook" class="w-16 h-16">
+                        <img src="/src/img/mapa.png" alt="mapa" title="Carrera 108 # 22F -21" class="w-16 h-16">
                     </figure>
                     <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">Carrera 108 # 22F -21<br>Bogotá DC
                         - (Colombia)</p>
@@ -150,10 +150,12 @@ export default {
                     width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="w-1/6 h-1/6 mt-4">
-                    <svg viewBox="0 0 100 100">
+                    <a href="#">
+                        <svg viewBox="0 0 100 100">
                         <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
                         <rect x="0" y="90" width="100" height="10" fill="#fcfcfc" stroke-width="1.4" />
                     </svg>
+                    </a>
                 </div>
             </div>
         </main>
@@ -164,14 +166,14 @@ export default {
                     <li class="ml-4 mr-4">
                         <a href="#">
                             <figure>
-                                <img src="/src/img/telefono_icon.png" alt="telefono" title="telefono" class="w-14 h-14">
+                                <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326" class="w-14 h-14">
                             </figure>
                         </a>
                     </li>
                     <li class="ml-4 mr-4">
                         <a href="#">
                             <figure>
-                                <img src="/src/img/correo_icon.png" alt="correo" title="correo" class="w-14 h-14">
+                                <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
                             </figure>
                         </a>
                     </li>
@@ -185,7 +187,7 @@ export default {
                     <li class="ml-4 mr-4">
                         <a href="#">
                             <figure>
-                                <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="whatsapp" class="w-14 h-14">
+                                <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
                             </figure>
                         </a>
                     </li>
