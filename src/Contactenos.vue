@@ -60,13 +60,13 @@ export default {
             </nav>
         </header>
 
-        <main class="bg-white w-full h-3/4 relative flex items-center flex-col">
-            <figure class="w-full h-64">
-                <img src="#" alt="contactenos" title="contactenos">
+        <main class="bg-white w-full h-3/4 relative">
+            <div class="flex items-center flex-col">
+            <figure class="w-full h-1/4">
+                <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
             </figure>
-            <p class="text-black-0 text-2xl font-serif font-bold text-center">
-                Diligencie el formulario y pronto
-                estaremos en contacto con usted
+            <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4">
+                Diligencie el formulario y pronto estaremos en contacto con usted
             </p>
             <form class="w-64 mt-6">
                 <input
@@ -114,6 +114,48 @@ export default {
 
                 </div>
             </form>
+            </div>
+            <div class="text-center">
+                <a href="#">
+                    <figure class=" flex flex-col items-center">
+                        <img src="/src/img/telefono_icon.png" alt="telefono" title="telefono" class="w-16 h-16">
+                    </figure>
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 601 5408640<br>(+57)
+                        3244298326</p>
+                </a>
+                <a href="#">
+                    <figure class=" flex flex-col items-center">
+                        <img src="/src/img/correo_icon.png" alt="correo" title="correo" class="w-16 h-16">
+                    </figure>
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">gestion@tecnimontacargasdual.com
+                    </p>
+                </a>
+                <a href="#">
+                    <figure class=" flex flex-col items-center">
+                        <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="whatsapp" class="w-16 h-16">
+                    </figure>
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 3168770708</p>
+                </a>
+                <a href="#">
+                    <figure class=" flex flex-col items-center">
+                        <img src="/src/img/mapa.png" alt="facebook" title="facebook" class="w-16 h-16">
+                    </figure>
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">Carrera 108 # 22F -21<br>Bogotá DC
+                        - (Colombia)</p>
+                </a>
+            </div>
+            <div class="flex flex-col items-center">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.125562552674!2d-74.14504795920652!3d4.68241572552794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9db07b05ee2d%3A0x7e11bf0a9122222d!2sTecnimontacargas%20Dual%20Ltda!5e0!3m2!1ses!2sco!4v1682447221490!5m2!1ses!2sco"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="w-1/6 h-1/6">
+                    <svg viewBox="0 0 100 100">
+                        <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
+                        <rect x="0" y="90" width="100" height="10" fill="#fcfcfc" stroke-width="1.4" />
+                    </svg>
+                </div>
+            </div>
         </main>
 
         <footer class="w-full h-24">
