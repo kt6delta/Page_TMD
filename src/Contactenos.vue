@@ -65,7 +65,7 @@ export default {
             <figure class="w-full h-1/4">
                 <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
             </figure>
-            <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4">
+            <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
                 Diligencie el formulario y pronto estaremos en contacto con usted
             </p>
             <form class="w-64 mt-6">
@@ -147,9 +147,9 @@ export default {
             <div class="flex flex-col items-center">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.125562552674!2d-74.14504795920652!3d4.68241572552794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9db07b05ee2d%3A0x7e11bf0a9122222d!2sTecnimontacargas%20Dual%20Ltda!5e0!3m2!1ses!2sco!4v1682447221490!5m2!1ses!2sco"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="w-1/6 h-1/6">
+                <div class="w-1/6 h-1/6 mt-4">
                     <svg viewBox="0 0 100 100">
                         <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
                         <rect x="0" y="90" width="100" height="10" fill="#fcfcfc" stroke-width="1.4" />
