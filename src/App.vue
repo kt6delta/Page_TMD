@@ -40,7 +40,7 @@ export default {
     </ul>
   </div>
 
-  <div v-if="!mostrarMenu" class="w-full h-screen" >
+  <div v-if="!mostrarMenu" class="w-full h-screen">
     <header class="h-1/7 flex flex-col">
       <nav class="bg-black-0 w-full h-1/7">
         <ul class="flex justify-center items-center h-1/7">
@@ -90,29 +90,30 @@ export default {
           <li class="ml-4 mr-4">
             <a href="#">
               <figure>
-              <img src="/src/img/telefono_icon.png" alt="telefono" title="telefono" class="w-14 h-14">
-            </figure>
+                <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326" class="w-14 h-14">
+              </figure>
             </a>
           </li>
           <li class="ml-4 mr-4">
             <a href="#">
               <figure>
-              <img src="/src/img/correo_icon.png" alt="correo" title="correo" class="w-14 h-14">
-            </figure>
+                <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
+                  class="w-14 h-14">
+              </figure>
             </a>
           </li>
           <li class="ml-4 mr-4">
             <a href="#">
               <figure>
-              <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
-            </figure>
+                <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
+              </figure>
             </a>
           </li>
           <li class="ml-4 mr-4">
             <a href="#">
               <figure>
-              <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="whatsapp" class="w-14 h-14">
-            </figure>
+                <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
+              </figure>
             </a>
           </li>
         </ul>
