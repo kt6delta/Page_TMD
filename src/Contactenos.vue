@@ -3,9 +3,22 @@ export default {
     data() {
         return {
             mostrarMenu: false,
+            showImage: false
         };
     },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll)
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll)
+    },
+    methods: {
+        handleScroll() {
+            this.showImage = window.scrollY < window.innerHeight
+        }
+    }
 };
+
 </script>
 
 <template>
@@ -62,58 +75,58 @@ export default {
 
         <main class="bg-white w-full h-3/4 relative">
             <div class="flex items-center flex-col">
-            <figure class="w-full h-1/4">
-                <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
-            </figure>
-            <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
-                Diligencie el formulario y pronto estaremos en contacto con usted
-            </p>
-            <form class="w-64 mt-6">
-                <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none  focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4"
-                    id="name" type="text" placeholder="Nombre">
+                <figure class="w-full h-1/4">
+                    <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
+                </figure>
+                <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
+                    Diligencie el formulario y pronto estaremos en contacto con usted
+                </p>
+                <form class="w-64 mt-6">
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none  focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4"
+                        id="name" type="text" placeholder="Nombre">
 
-                <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4"
-                    id="name" type="text" placeholder="Correo">
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4"
+                        id="name" type="text" placeholder="Correo">
 
-                <input
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4"
-                    id="name" type="text" placeholder="Telefono">
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4"
+                        id="name" type="text" placeholder="Telefono">
 
-                <div class="relative">
-                    <select
-                        class="block shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4 focus:bg-gray focus:text-white ">
-                        <option>Ciudad</option>
-                        <option>Bogotá</option>
-                        <option>Medellín</option>
-                        <option>Cali</option>
-                        <option>Barranquilla</option>
-                        <option>Cartagena</option>
-                        <option>Bucaramanga</option>
-                    </select>
-                    <div class="absolute h-10 inset-y-0 right-0 flex items-center pointer-events-none">
-                        <div class="border-b-2 border-gray w-52 mt-6"></div>
-                        <svg class="h-8 w-8 text-gray ml-auto mb-1 mr-4" viewBox="0 0 100 100"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="100,100 20,100 100,20" fill="currentColor" stroke="none" />
-                        </svg>
+                    <div class="relative">
+                        <select
+                            class="block shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4 focus:bg-gray focus:text-white ">
+                            <option>Ciudad</option>
+                            <option>Bogotá</option>
+                            <option>Medellín</option>
+                            <option>Cali</option>
+                            <option>Barranquilla</option>
+                            <option>Cartagena</option>
+                            <option>Bucaramanga</option>
+                        </select>
+                        <div class="absolute h-10 inset-y-0 right-0 flex items-center pointer-events-none">
+                            <div class="border-b-2 border-gray w-52 mt-6"></div>
+                            <svg class="h-8 w-8 text-gray ml-auto mb-1 mr-4" viewBox="0 0 100 100"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="100,100 20,100 100,20" fill="currentColor" stroke="none" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
 
-                <label for="message" class="block text-gray text-xl font-serif italic mb-2">Mensaje:</label>
-                <textarea id="message" name="message" rows="4"
-                    class="form-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow"></textarea>
+                    <label for="message" class="block text-gray text-xl font-serif italic mb-2">Mensaje:</label>
+                    <textarea id="message" name="message" rows="4"
+                        class="form-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow"></textarea>
 
-                <div class="flex items-center justify-between">
-                    <button
-                        class=" bg-black hover:bg-gray text-white text-xl font-serif font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
-                        type="button">
-                        Enviar
-                    </button>
+                    <div class="flex items-center justify-between">
+                        <button
+                            class=" bg-black hover:bg-gray text-white text-xl font-serif font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
+                            type="button">
+                            Enviar
+                        </button>
 
-                </div>
-            </form>
+                    </div>
+                </form>
             </div>
             <div class="text-center">
                 <a href="#">
@@ -125,7 +138,8 @@ export default {
                 </a>
                 <a href="#">
                     <figure class=" flex flex-col items-center">
-                        <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com" class="w-16 h-16">
+                        <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
+                            class="w-16 h-16">
                     </figure>
                     <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">gestion@tecnimontacargasdual.com
                     </p>
@@ -152,11 +166,16 @@ export default {
                 <div class="w-1/6 h-1/6 mt-4">
                     <a href="#">
                         <svg viewBox="0 0 100 100">
-                        <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
-                        <rect x="0" y="90" width="100" height="10" fill="#fcfcfc" stroke-width="1.4" />
-                    </svg>
+                            <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
+                            <rect x="0" y="90" width="100" height="10" fill="#fcfcfc" stroke-width="1.4" />
+                        </svg>
                     </a>
                 </div>
+            </div>
+            <div class="fixed bottom-2 right-1" v-show="showImage">
+                <figure class="self-center order-last">
+                    <img src="/src/img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
+                </figure>
             </div>
         </main>
 
@@ -173,7 +192,8 @@ export default {
                     <li class="ml-4 mr-4">
                         <a href="#">
                             <figure>
-                                <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
+                                <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
+                                    class="w-14 h-14">
                             </figure>
                         </a>
                     </li>
@@ -187,7 +207,8 @@ export default {
                     <li class="ml-4 mr-4">
                         <a href="#">
                             <figure>
-                                <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
+                                <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708"
+                                    class="w-14 h-14">
                             </figure>
                         </a>
                     </li>
