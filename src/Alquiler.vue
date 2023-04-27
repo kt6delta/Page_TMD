@@ -51,8 +51,8 @@ export default {
 
     <div v-if="!mostrarMenu">
         <header class="h-1/7 flex flex-col">
-            <nav class="bg-black-0 w-full h-1/7">
-                <ul class="flex justify-center items-center h-1/7">
+            <nav class="bg-black-0 w-full h-full">
+                <ul class="flex justify-center items-center h-full">
                     <li class="mr-4">
                         <button @click="mostrarMenu = !mostrarMenu">
                             <figure>
@@ -75,11 +75,11 @@ export default {
         <main class="bg-white w-full h-3/4 relative">
             <div class="flex items-center flex-col">
                 <figure class="w-full h-1/6">
-                    <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
+                    <img src="/src/img/frente-TMD.jpeg" alt="montacarga" title="alquiler">
                 </figure>
-                <p class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
+                <h2 class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
                     Montacargas
-                </p>
+                </h2>
                 <p class="text-gray text-xl font-serif text-center mx-2 mb-4">
                     <span class="transform -skew-x-12 inline-block">Actualmente nuestro servicio de alquiler cuenta con una flota amplia de máquinas y consideramos
                         que nuestro éxito está fundamentado en la calidad de nuestros equipos,</span>
@@ -91,11 +91,11 @@ export default {
                     </span>
                 </p>
                 <figure class="w-full h-1/6">
-                    <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
+                    <img src="/src/img/frente-TMD.jpeg" alt="bateria de traccion" title="alquiler">
                 </figure>
-                <p class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
+                <h2 class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
                     Baterias de Traccion
-                </p>
+                </h2>
                 <p class="text-gray text-xl font-serif text-center mx-1 mb-4">
                     <span class="transform -skew-x-12 inline-block">Largas jornadas de trabajo y sus baterías no las soportan, en Tecnimontacargas Dual encontrarás una
                     línea de baterías nuevas y seminuevas para la venta y alquiler. 12V 24V 36V 48V 80V.</span>
@@ -103,7 +103,7 @@ export default {
             </div>
             <div class="fixed bottom-2 right-1" v-show="showImage">
                 <figure class="self-center order-last">
-                    <img src="/src/img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
+                    <img src="/src/img/caht_icon.png" alt="chat" title="chate con nosotros" class="w-14 h-14">
                 </figure>
             </div>
         </main>

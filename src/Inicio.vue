@@ -42,8 +42,8 @@ export default {
 
   <div v-if="!mostrarMenu" class="w-full h-screen">
     <header class="h-1/7 flex flex-col">
-      <nav class="bg-black-0 w-full h-1/7">
-        <ul class="flex justify-center items-center h-1/7">
+      <nav class="bg-black-0 w-full h-full">
+        <ul class="flex justify-center items-center h-full">
           <li class="mr-4">
             <button @click="mostrarMenu = !mostrarMenu">
               <figure>
@@ -123,4 +123,8 @@ export default {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/*background: #bdc3c7;  /* fallback for old browsers */
+/*background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+/*background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+</style>
