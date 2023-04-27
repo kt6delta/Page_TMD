@@ -51,8 +51,8 @@ export default {
 
     <div v-if="!mostrarMenu">
         <header class="h-1/7 flex flex-col">
-            <nav class="bg-black-0 w-full h-1/7">
-                <ul class="flex justify-center items-center h-1/7">
+            <nav class="bg-black-0 w-full h-full">
+                <ul class="flex justify-center items-center h-full">
                     <li class="mr-4">
                         <button @click="mostrarMenu = !mostrarMenu">
                             <figure>
@@ -75,14 +75,14 @@ export default {
         <main class="bg-white w-full h-3/4 relative">
             <div class="flex items-center flex-col">
                 <figure class="w-full h-1/6">
-                    <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
+                    <img src="/src/img/frente-TMD.jpeg" alt="Mecanico_Reparando" title="Mantenimiento">
                 </figure>
                 <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
                     Más que un servicio creamos un sistema general de rendimiento para sus equipos.
                 </p>
-                <p class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
+                <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
                     Montacargas
-                </p>
+                </h2>
                 <p class="text-gray text-xl font-serif text-center mx-2 mb-4">
                     <span class="transform -skew-x-12 inline-block"> Programas de capacitación que aseguran el rendimiento
                         del equipo y del colaborador,</span>
@@ -100,11 +100,11 @@ export default {
                     </li>
                 </ol>
                 <figure class="w-full h-1/6">
-                    <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
+                    <img src="/src/img/frente-TMD.jpeg" alt="montacarga_Jungheinrich" title="montacarga_Jungheinrich">
                 </figure>
-                <p class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
+                <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
                     Servicio técnico especialistas en Jungheinrich
-                </p>
+                </h2>
                 <p class="text-gray text-xl font-serif text-center mx-1 mb-4">
                     <span class="transform -skew-x-12 inline-block">Apoyamos a nuestros clientes para mantener sus equipos
                         100% operativos, seguros y</span>
@@ -112,11 +112,11 @@ export default {
                         actividad de los mismos.</span>
                 </p>
                 <figure class="w-full h-1/6">
-                    <img src="/src/img/frente-TMD.jpeg" alt="contactenos" title="contactenos">
+                    <img src="/src/img/frente-TMD.jpeg" alt="portaestibas" title="portaestibas">
                 </figure>
-                <p class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
+                <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
                     Servicio técnico portaestibas
-                </p>
+                </h2>
                 <p class="text-gray text-xl font-serif text-center mx-1 mb-4">
                     <span class="transform -skew-x-12 inline-block">Contamos con dos tipos de mantenimiento
                         preventivo-correctivo y para que su operación</span>

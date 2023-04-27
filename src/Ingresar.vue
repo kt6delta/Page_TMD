@@ -63,19 +63,27 @@ export default {
         <main class="bg-white w-full h-5/6 relative my-2">
             <div class="w-full h-full flex items-center justify-center flex-col">
                 <h2 class="text-gray text-3xl font-serif font-bold text-center">
-                    Registrarse
+                    Ingresar
                 </h2>
-                <form class="bg-white shadow-md rounded px-3 pt-3 pb-4 mb-4 w-5/6">
+                <form class="bg-white shadow-md rounded px-3 pt-3 pb-4 mb-4">
                     <div class="mb-4">
                         <label class="block text-gray font-serif italic text-xl font-bold mb-2" for="username">
-                            Correo
+                            Usuario
                         </label>
-                        <div class="relative">
-                            <input
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
-                                id="username" type="text" placeholder="Ingrese su usuario">
-                            <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="/src/img/correo_icon.png" alt="">
-                        </div>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
+                            id="username" type="text" placeholder="Ingrese su usuario">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray font-serif italic text-xl font-bold mb-2" for="password">
+                            Contraseña
+                        </label>
+                        <input
+                            class="shadow appearance-none border border-yellow-2 rounded w-full py-2 px-3 text-gray font-serif italic text-base mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                            id="password" type="password" placeholder="Ingrese su contraseña">
+                        <a class="text-yellow-2 text-sm italic" href="#">
+                            ¿Olvidó su contraseña?
+                        </a>
                     </div>
                     <div class="flex items-center justify-center">
                         <button

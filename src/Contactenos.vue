@@ -52,8 +52,8 @@ export default {
 
     <div v-if="!mostrarMenu">
         <header class="h-1/7 flex flex-col">
-            <nav class="bg-black-0 w-full h-1/7">
-                <ul class="flex justify-center items-center h-1/7">
+            <nav class="bg-black-0 w-full h-full">
+                <ul class="flex justify-center items-center h-full">
                     <li class="mr-4">
                         <button @click="mostrarMenu = !mostrarMenu">
                             <figure>
