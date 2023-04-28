@@ -18,7 +18,6 @@ export default {
         }
     }
 };
-
 </script>
 
 <template>
@@ -60,7 +59,6 @@ export default {
                                 <img src="/src/img/menu_lineas.png" alt="menu" title="menu" class="w-10 h-1/8">
                             </figure>
                         </button>
-
                     </li>
                     <li>
                         <button>
@@ -215,6 +213,5 @@ export default {
                 </ul>
             </nav>
         </footer>
-
     </div>
 </template>
