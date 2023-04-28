@@ -74,16 +74,16 @@ export default {
                     <h2 class="text-yellow-2 text-4xl font-serif font-bold text-center m-4">
                         Venta
                     </h2>
+                    
                     <button class=" w-full h-36 mb-5">
-                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente">
-                            <h3
-                                class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
+                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente1">
+                            <h3 class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
                                 Repuestos
                             </h3>
                         </div>
                     </button>
                     <button class=" w-full h-36 mb-5">
-                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente">
+                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente2">
                             <h3
                                 class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
                                 Porta estibas manuales
@@ -91,7 +91,7 @@ export default {
                         </div>
                     </button>
                     <button class=" w-full h-36 mb-5">
-                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente">
+                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente3">
                             <h3
                                 class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
                                 Montacargas
@@ -110,9 +110,19 @@ export default {
 </template>
 
 <style scoped>
-#gradiente {
+#gradiente1{
     /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/fondo.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/fondo.jpeg');/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/r1.jpg');/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#gradiente2{
+    /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/porta_estiba.jpg');/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#gradiente3{
+    /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/montacarga.jpg');/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
  </style>

@@ -83,7 +83,7 @@ export default {
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
                                     id="username" type="text" placeholder="Ingrese su usuario">
-                                <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="/src/img/correo_icon.png" alt="">
+                                <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="/src/img/persona_icono.webp" alt="">
                             </div>
                         </div>
                         <div class="flex items-center justify-center">
@@ -105,19 +105,19 @@ export default {
                         <button
                             class="inline-flex bg-white py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="/src/img/facebook_icon.png" alt="face">
+                            <img class="w-5 h-5" src="/src/img/google_icon.png" alt="google">
                             <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Google</p>
                         </button>
                         <button
                             class="inline-flex bg-white py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="/src/img/facebook_icon.png" alt="face">
+                            <img class="w-5 h-5" src="/src/img/facebook_icon.png" alt="facebook">
                             <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Facebook</p>
                         </button>
                         <button
                             class="inline-flex bg-white py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="/src/img/facebook_icon.png" alt="face">
+                            <img class="w-5 h-5" src="/src/img/apple_icon.png" alt="apple">
                             <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continua con Apple</p>
                         </button>
                     </div>

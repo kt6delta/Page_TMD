@@ -84,7 +84,7 @@ export default {
             <main class="bg-white w-full h-3/4 relative">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/6">
-                        <img src="/src/img/frente-TMD.jpeg" alt="Mecanico_Reparando" title="Mantenimiento">
+                        <img src="/src/img/mantenimineto.jpeg" alt="Mecanico_Reparando" title="Mantenimiento">
                     </figure>
                     <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
                         Más que un servicio creamos un sistema general de rendimiento para sus equipos.
@@ -124,7 +124,7 @@ export default {
                             actividad de los mismos.</span>
                     </p>
                     <figure class="w-full h-1/6">
-                        <img src="/src/img/frente-TMD.jpeg" alt="portaestibas" title="portaestibas">
+                        <img src="/src/img/porta_estiba_2.jpg" alt="portaestibas" title="portaestibas">
                     </figure>
                     <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
                         Servicio técnico portaestibas
