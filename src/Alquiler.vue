@@ -50,7 +50,7 @@ export default {
                 </li>
 
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
+                    <router-link to="/Alquiler"  @click="mostrarMenu = !mostrarMenu">Alquiler</router-link>
                 </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Mantenimiento"

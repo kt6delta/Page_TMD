@@ -41,7 +41,7 @@ export default {
                     <router-link to="/Mantenimiento"
                         @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
+                    <router-link to="/Venta" @click="mostrarMenu = !mostrarMenu">Venta</router-link></li>
             </ul>
         </div>
 

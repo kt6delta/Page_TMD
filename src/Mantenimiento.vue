@@ -46,12 +46,11 @@ export default {
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Contactenos" @click="mostrarContenido = !mostrarContenido">Contactenos</router-link>
                 </li>
-
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link></li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Mantenimiento"
-                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
+                    @click="mostrarMenu = !mostrarMenu">Mantenimiento</router-link></li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
             </ul>
