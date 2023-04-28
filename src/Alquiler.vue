@@ -88,7 +88,7 @@ export default {
             <main class="bg-white w-full h-3/4 relative">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/6">
-                        <img src="/src/img/frente-TMD.jpeg" alt="montacarga" title="alquiler">
+                        <img src="/src/img/montacarga.jpeg" alt="montacarga" title="alquiler">
                     </figure>
                     <h2 class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
                         Montacargas
@@ -107,7 +107,7 @@ export default {
                         </span>
                     </p>
                     <figure class="w-full h-1/6">
-                        <img src="/src/img/frente-TMD.jpeg" alt="bateria de traccion" title="alquiler">
+                        <img src="/src/img/bateria.jpeg" alt="bateria de traccion" title="alquiler">
                     </figure>
                     <h2 class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
                         Baterias de Traccion
