@@ -27,7 +27,7 @@ export default {
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link></li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link></li>
+                    <router-link to="/Ingresar" @click="mostrarMenu = !mostrarMenu">Ingresar</router-link></li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
                 </li>

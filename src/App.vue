@@ -2,8 +2,8 @@
 export default {
   data() {
     return {
-      mostrarMenu: false,
-      mostrarContenido: true
+      mostrarContenido: true,
+      mostrarMenu: false
     };
   },
 };
@@ -12,9 +12,6 @@ export default {
 <template>
   <!--350x420-->
   <!--420x600-->
-
-  <router-view v-if="!mostrarContenido"></router-view>
-
   <div v-if="mostrarContenido">
     <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
       <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
@@ -28,7 +25,7 @@ export default {
       </figure>
       <ul class="items-center text-center">
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-            to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link></li>
+            to="/" @click="mostrarMenu = !mostrarMenu" >Inicio</router-link></li>
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
             to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link></li>
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
@@ -126,14 +123,16 @@ export default {
       </footer>
     </div>
   </div>
+  <router-view v-else="mostrarContenido"></router-view>
 </template>
 
 <style scoped>
 #gradiente {
   /*background: #bdc3c7;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top right, rgba(252,252,252,0.1),rgba(122,134,144,0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
+  background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
   /* Chrome 10-25, Safari 5.1-6 */
-  background-image: linear-gradient(to top right, rgba(252,252,252,0.1),rgba(122,134,144,0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
+  background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}/*122,134,144,0.9)*/
-</style>
+}
+
+/*122,134,144,0.9)*/</style>
