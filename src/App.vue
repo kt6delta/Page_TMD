@@ -38,11 +38,11 @@ export default {
         </li>
 
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-            to="/Alquiler" @click="mostrarContenido= !mostrarContenido">Alquiler</router-link></li>
+            to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link></li>
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-            to="/Mantenimiento" @click="mostrarContenido= !mostrarContenido">Mantenimiento</router-link></li>
+            to="/Mantenimiento" @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-            to="/Venta" @click="mostrarContenido= !mostrarContenido">Venta</router-link></li>
+            to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
       </ul>
     </div>
     <div v-if="!mostrarMenu" class="w-full h-screen">
@@ -52,7 +52,7 @@ export default {
             <li class="mr-4">
               <button @click="mostrarMenu = !mostrarMenu">
                 <figure>
-                  <img src="/src/img/menu_lineas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                  <img src="/src/img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
                 </figure>
               </button>
 
@@ -60,7 +60,7 @@ export default {
             <li>
               <button>
                 <figure>
-                  <img src="/src/img/ico_tmd_amarillo.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
+                  <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
                 </figure>
               </button>
             </li>
@@ -68,8 +68,7 @@ export default {
         </nav>
       </header>
 
-      <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col"
-        style="background-image: linear-gradient(to top right, rgba(252,252,252,0.1), rgba(122,134,144,0.9)), url('/src/img/fondo.jpeg');">
+      <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col" id="gradiente">
         <div class="absolute inset-0 z-0">
           <figure class="self-center">
             <img src="/src/img/fondo.jpeg" alt="fondo" title="fondo" class="hidden ">
@@ -130,7 +129,11 @@ export default {
 </template>
 
 <style scoped>
-/*background: #bdc3c7;  /* fallback for old browsers */
-/*background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-/*background: linear-gradient(to top, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+#gradiente {
+  /*background: #bdc3c7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top right, rgba(252,252,252,0.1),rgba(122,134,144,0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
+  /* Chrome 10-25, Safari 5.1-6 */
+  background-image: linear-gradient(to top right, rgba(252,252,252,0.1),rgba(122,134,144,0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}/*122,134,144,0.9)*/
 </style>
