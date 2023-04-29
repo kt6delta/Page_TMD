@@ -58,12 +58,12 @@ export default {
 
                         </li>
                         <li>
-                            <button>
+                            <router-link to="/" tag="button">
                                 <figure>
                                     <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
-                            </button>
+                            </router-link>
                         </li>
                     </ul>
                 </nav>

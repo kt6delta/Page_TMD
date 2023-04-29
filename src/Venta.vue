@@ -25,9 +25,11 @@ export default {
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link></li>
+                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link></li>
+                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
                 </li>
@@ -36,12 +38,15 @@ export default {
                 </li>
 
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link></li>
+                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Mantenimiento"
-                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
+                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Venta" @click="mostrarMenu = !mostrarMenu">Venta</router-link></li>
+                    <router-link to="/Venta" @click="mostrarMenu = !mostrarMenu">Venta</router-link>
+                </li>
             </ul>
         </div>
 
@@ -58,12 +63,12 @@ export default {
 
                         </li>
                         <li>
-                            <button>
+                            <router-link to="/" tag="button">
                                 <figure>
                                     <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
-                            </button>
+                            </router-link>
                         </li>
                     </ul>
                 </nav>
@@ -74,16 +79,19 @@ export default {
                     <h2 class="text-yellow-2 text-4xl font-serif font-bold text-center m-4">
                         Venta
                     </h2>
-                    
+
                     <button class=" w-full h-36 mb-5">
-                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente1">
-                            <h3 class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
+                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center"
+                            id="gradiente1">
+                            <h3
+                                class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
                                 Repuestos
                             </h3>
                         </div>
                     </button>
                     <button class=" w-full h-36 mb-5">
-                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente2">
+                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center"
+                            id="gradiente2">
                             <h3
                                 class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
                                 Porta estibas manuales
@@ -91,7 +99,8 @@ export default {
                         </div>
                     </button>
                     <button class=" w-full h-36 mb-5">
-                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center" id="gradiente3">
+                        <div class="bg-no-repeat bg-cover w-full h-full relative flex items-center justify-center"
+                            id="gradiente3">
                             <h3
                                 class="text-white text-3xl mix-blend-hard-light font-serif font-bold transform -skew-x-12 hover:text-yellow-2">
                                 Montacargas
@@ -110,19 +119,23 @@ export default {
 </template>
 
 <style scoped>
-#gradiente1{
+#gradiente1 {
     /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
     /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/r1.jpg');/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('img/r1.jpg');
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-#gradiente2{
+
+#gradiente2 {
     /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
     /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/porta_estiba.jpg');/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('img/porta_estiba.jpg');
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-#gradiente3{
+
+#gradiente3 {
     /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
     /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/montacarga.jpg');/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
- </style>
+    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('img/montacarga.jpg');
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}</style>
