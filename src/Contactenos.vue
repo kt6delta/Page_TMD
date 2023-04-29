@@ -87,7 +87,7 @@ export default {
             <main class="bg-white w-full h-3/4 relative dark:bg-gray">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/4">
-                        <img src="/src/img/monntacarga2.jpg" alt="contactenos" title="contactenos">
+                        <img src="/src/img/monntacarga2.jpg" alt="contactenos" title="contactenos" class="mx-auto">
                     </figure>
                     <p class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
                         Diligencie el formulario y pronto estaremos en contacto con usted
