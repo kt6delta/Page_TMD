@@ -60,7 +60,7 @@ export default {
             </ul>
         </div>
 
-        <div v-if="!mostrarMenu">
+        <div v-if="!mostrarMenu" class=" bg-yellow-2">
             <header class="h-1/7 flex flex-col">
                 <nav class="bg-black-0 w-full h-full">
                     <ul class="flex justify-center items-center h-full">
@@ -195,8 +195,8 @@ export default {
             </main>
 
             <footer class="w-full h-24">
-                <nav class="bg-yellow-2">
-                    <ul class="flex justify-center items-center h-24">
+                <nav class="bg-yellow-2 h-full">
+                    <ul class="flex justify-center items-center h-full">
                         <li class="ml-4 mr-4">
                             <a href="#focusUser">
                                 <figure>

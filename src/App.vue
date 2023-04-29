@@ -25,7 +25,7 @@ export default {
       </figure>
       <ul class="items-center text-center">
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-            to="/" @click="mostrarMenu = !mostrarMenu" >Inicio</router-link></li>
+            to="/" @click="mostrarMenu = !mostrarMenu">Inicio</router-link></li>
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
             to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link></li>
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
@@ -42,7 +42,7 @@ export default {
             to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
       </ul>
     </div>
-    <div v-if="!mostrarMenu" class="w-full h-screen">
+    <div v-if="!mostrarMenu" class="w-full h-screen bg-yellow-2">
       <header class="h-1/7 flex flex-col">
         <nav class="bg-black-0 w-full h-full">
           <ul class="flex justify-center items-center h-full">
@@ -55,7 +55,7 @@ export default {
 
             </li>
             <li>
-              <button> 
+              <button>
                 <figure>
                   <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
                 </figure>
@@ -77,8 +77,9 @@ export default {
             class="text-yellow-2 text-5xl mix-blend-lighten font-dancing font-extrabold text-center">Montacargas</span>
         </h1>
 
-        <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4">Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Optio eveniet voluptatum, maiores, necessitatibus qui ad laboriosam nemo</p>
+        <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">¡Agilizar tu operación
+          de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con
+          servicios de reparación y mantenimiento.</p>
         <div class="flex justify-end absolute bottom-0 right-0">
           <figure class="self-center order-last">
             <img src="/src/img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
@@ -87,8 +88,8 @@ export default {
       </main>
 
       <footer class="w-full h-24">
-        <nav class="bg-yellow-2">
-          <ul class="flex justify-center items-center h-24">
+        <nav class="bg-yellow-2 h-full">
+          <ul class="flex justify-center items-center h-full">
             <li class="ml-4 mr-4">
               <router-link to="/Contactenos">
                 <figure>

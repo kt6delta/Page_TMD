@@ -45,7 +45,7 @@ export default {
             </ul>
         </div>
 
-        <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray">
+        <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <header class="h-1/7 flex flex-col">
                 <nav class="bg-black-0 w-full h-full">
                     <ul class="flex justify-center items-center h-full">
