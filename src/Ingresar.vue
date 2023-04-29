@@ -119,7 +119,7 @@ export default {
                         <button
                             class="inline-flex bg-white py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="/src/img/facebook_icon.png" alt="face">
+                            <img class="w-4 h-6" src="/src/img/facebook_icon.png" alt="face">
                             <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Facebook</p>
                         </button>
                         <button
