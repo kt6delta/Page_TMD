@@ -50,7 +50,7 @@ export default {
             </ul>
         </div>
 
-        <div v-if="!mostrarMenu" class="w-full h-screen">
+        <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray">
             <header class="h-1/7 flex flex-col">
                 <nav class="bg-black-0 w-full h-full">
                     <ul class="flex justify-center items-center h-full">
@@ -74,7 +74,7 @@ export default {
                 </nav>
             </header>
 
-            <main class="bg-white w-full h-5/6 relative">
+            <main class="bg-white dark:bg-gray w-full h-5/6 relative">
                 <div class="w-full h-full flex items-center justify-center flex-col">
                     <h2 class="text-yellow-2 text-4xl font-serif font-bold text-center m-4">
                         Venta

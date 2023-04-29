@@ -84,12 +84,12 @@ export default {
                 </nav>
             </header>
 
-            <main class="bg-white w-full h-3/4 relative">
+            <main class="bg-white w-full h-3/4 relative dark:bg-gray">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/4">
                         <img src="/src/img/monntacarga2.jpg" alt="contactenos" title="contactenos">
                     </figure>
-                    <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
+                    <p class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
                         Diligencie el formulario y pronto estaremos en contacto con usted
                     </p>
                     <form class="w-64 mt-6">
@@ -107,7 +107,7 @@ export default {
 
                         <div class="relative">
                             <select
-                                class="block shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4 focus:bg-gray focus:text-white ">
+                                class="block shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4 focus:bg-gray focus:text-white">
                                 <option>Tipo de servicio</option>
                                 <option>Alquiler</option>
                                 <option>Mantenimiento</option>
@@ -140,7 +140,7 @@ export default {
                         <figure class=" flex flex-col items-center">
                             <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326" class="w-16 h-16">
                         </figure>
-                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 601 5408640<br>(+57)
+                    <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">(+57) 601 5408640<br>(+57)
                             3244298326</p>
                     <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                         <figure class=" flex flex-col items-center">
@@ -148,7 +148,7 @@ export default {
                                 class="w-16 h-16">
                         </figure>
                     </a>
-                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">
+                    <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">
                             gestion@tecnimontacargasdual.com
                         </p>
                     <a href="https://wa.me/573168770708" target="_blank">
@@ -156,27 +156,33 @@ export default {
                             <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-16 h-16">
                         </figure>
                     </a>
-                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 3168770708</p>
+                    <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">(+57) 3168770708</p>
                     <a
                         href="https://www.google.com/maps/place/Tecnimontacargas+Dual+Ltda/@4.68237,-74.14496,17z/data=!4m6!3m5!1s0x8e3f9db07b05ee2d:0x7e11bf0a9122222d!8m2!3d4.68237!4d-74.14496!16s%2Fg%2F11gtz7t5y3?hl=es" target="_blank">
                         <figure class=" flex flex-col items-center">
                             <img src="/src/img/mapa.png" alt="mapa" title="Carrera 108 # 22F -21" class="w-16 h-16">
                         </figure>
                     </a>
-                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">Carrera 108 # 22F -21<br>Bogotá
+                    <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">Carrera 108 # 22F -21<br>Bogotá
                             DC
                             - (Colombia)</p>
                 </div>
                 <div class="flex flex-col items-center">
-                    <iframe
+                    <iframe id="map"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.125562552674!2d-74.14504795920652!3d4.68241572552794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9db07b05ee2d%3A0x7e11bf0a9122222d!2sTecnimontacargas%20Dual%20Ltda!5e0!3m2!1ses!2sco!4v1682447221490!5m2!1ses!2sco"
                         width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="w-1/6 h-1/6 mt-4">
-                        <a href="#">
+                        <a class="dark:hidden" href="#">
                             <svg viewBox="0 0 100 100">
                                 <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
                                 <rect x="0" y="90" width="100" height="10" fill="#fcfcfc" stroke-width="1.4" />
+                            </svg>
+                        </a>
+                        <a class="hidden dark:block" href="#">
+                            <svg viewBox="0 0 100 100">
+                                <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
+                                <rect x="0" y="90" width="100" height="10" fill="#595959" stroke-width="1.4" />
                             </svg>
                         </a>
                     </div>

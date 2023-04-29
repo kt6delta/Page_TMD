@@ -84,25 +84,24 @@ export default {
                 </nav>
             </header>
 
-            <main class="bg-white w-full h-3/4 relative">
+            <main class="bg-white dark:bg-gray w-full h-3/4 relative">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/6">
                         <img src="/src/img/mantenimineto.jpeg" alt="Mecanico_Reparando" title="Mantenimiento">
                     </figure>
-                    <p class="text-black-0 text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
+                    <p class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
                         Más que un servicio creamos un sistema general de rendimiento para sus equipos.
                     </p>
                     <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
                         Montacargas
                     </h2>
-                    <p class="text-gray text-xl font-serif text-center mx-2 mb-4">
+                    <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-2 mb-4">
                         <span class="transform -skew-x-12 inline-block"> Programas de capacitación que aseguran el
-                            rendimiento
-                            del equipo y del colaborador,</span>
+                            rendimiento del equipo y del colaborador,</span>
                         <span class="transform -skew-x-12 inline-block">gracias al uso seguro de los equipos y de las
                             baterías.</span>
                     </p>
-                    <ol class="list-disc text-gray text-xl font-serif text-center mx-2 mb-4 ">
+                    <ol class="list-disc text-gray dark:text-gray-light text-xl font-serif text-center mx-2 mb-4 ">
                         <li>
                             <span class="transform -skew-x-12 inline-block">Programas de mantenimiento específico</span>
                             <br><span class="transform -skew-x-12 inline-block">para sus
@@ -118,13 +117,11 @@ export default {
                     <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
                         Servicio técnico especialistas en Jungheinrich
                     </h2>
-                    <p class="text-gray text-xl font-serif text-center mx-1 mb-4">
+                    <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-1 mb-4">
                         <span class="transform -skew-x-12 inline-block">Apoyamos a nuestros clientes para mantener sus
-                            equipos
-                            100% operativos, seguros y</span>
+                            equipos 100% operativos, seguros y</span>
                         <span class="transform -skew-x-12 inline-block">confiables, asegurándoles respaldo y confiabilidad
-                            en la
-                            actividad de los mismos.</span>
+                            en la actividad de los mismos.</span>
                     </p>
                     <figure class="w-full h-1/6">
                         <img src="/src/img/porta_estiba_2.jpg" alt="portaestibas" title="portaestibas">
@@ -132,7 +129,7 @@ export default {
                     <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
                         Servicio técnico portaestibas
                     </h2>
-                    <p class="text-gray text-xl font-serif text-center mx-1 mb-4">
+                    <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-1 mb-4">
                         <span class="transform -skew-x-12 inline-block">Contamos con dos tipos de mantenimiento
                             preventivo-correctivo y para que su operación</span>
                         <span class="transform -skew-x-12 inline-block">no se vea afectada prestamos nuestros portaestibas
