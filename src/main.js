@@ -27,11 +27,5 @@ const router = createRouter({
 
   export default router
 createApp(App).use(router).mount('#app')
-//createApp(Contactenos).mount('#contactenos')
-//createApp(Alquiler).mount('#alquiler')
-//createApp(Mantenimiento).mount('#mantenimiento')
-//createApp(Venta).mount("#venta")
-//createApp(Ingresar).mount("#ingresar")
-//createApp(Registrarse).mount("#registrarse")
 
 //<router-link to="/contacto" tag="button">Contacto</router-link>

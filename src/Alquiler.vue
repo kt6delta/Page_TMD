@@ -50,7 +50,7 @@ export default {
                 </li>
 
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler"  @click="mostrarMenu = !mostrarMenu">Alquiler</router-link>
+                    <router-link to="/Alquiler" @click="mostrarMenu = !mostrarMenu">Alquiler</router-link>
                 </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Mantenimiento"
@@ -74,12 +74,12 @@ export default {
 
                         </li>
                         <li>
-                            <button>
+                            <router-link to="/" tag="button">
                                 <figure>
                                     <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
-                            </button>
+                            </router-link>
                         </li>
                     </ul>
                 </nav>
@@ -124,20 +124,19 @@ export default {
                     </figure>
                 </div>
             </main>
-
             <footer class="w-full h-24">
                 <nav class="bg-yellow-2">
                     <ul class="flex justify-center items-center h-24">
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <router-link to="/Contactenos">
                                 <figure>
                                     <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326"
                                         class="w-14 h-14">
                                 </figure>
-                            </a>
+                            </router-link>
                         </li>
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                                 <figure>
                                     <img src="/src/img/correo_icon.png" alt="correo"
                                         title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
@@ -145,14 +144,14 @@ export default {
                             </a>
                         </li>
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
                                 <figure>
                                     <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
                                 </figure>
                             </a>
                         </li>
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <a href="https://wa.me/573168770708" target="_blank">
                                 <figure>
                                     <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708"
                                         class="w-14 h-14">
@@ -160,7 +159,8 @@ export default {
                             </a>
                         </li>
                     </ul>
-            </nav>
-        </footer>
+                </nav>
+            </footer>
+        </div>
     </div>
-</div></template>
+</template>

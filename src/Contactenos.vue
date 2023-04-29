@@ -22,8 +22,6 @@ export default {
 </script>
 
 <template>
-    <router-view v-if="!mostrarContenido"></router-view>
-
     <div v-if="mostrarContenido">
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
             <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
@@ -37,9 +35,11 @@ export default {
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link></li>
+                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link></li>
+                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
                 </li>
@@ -48,12 +48,15 @@ export default {
                 </li>
 
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link></li>
+                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Mantenimiento"
-                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
+                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
+                    <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link>
+                </li>
             </ul>
         </div>
 
@@ -67,14 +70,15 @@ export default {
                                     <img src="/src/img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
                                 </figure>
                             </button>
+
                         </li>
                         <li>
-                            <button>
+                            <router-link to="/" tag="button">
                                 <figure>
                                     <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
-                            </button>
+                            </router-link>
                         </li>
                     </ul>
                 </nav>
@@ -132,37 +136,36 @@ export default {
                         </div>
                     </form>
                 </div>
-                <div class="text-center">
-                    <a href="#">
+                <div id="focusUser" class="text-center">
                         <figure class=" flex flex-col items-center">
                             <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326" class="w-16 h-16">
                         </figure>
-                        <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 601 5408640<br>(+57)
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 601 5408640<br>(+57)
                             3244298326</p>
-                    </a>
-                    <a href="#">
+                    <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                         <figure class=" flex flex-col items-center">
                             <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
                                 class="w-16 h-16">
                         </figure>
-                        <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">
+                    </a>
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">
                             gestion@tecnimontacargasdual.com
                         </p>
-                    </a>
-                    <a href="#">
+                    <a href="https://wa.me/573168770708" target="_blank">
                         <figure class=" flex flex-col items-center">
                             <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-16 h-16">
                         </figure>
-                        <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 3168770708</p>
                     </a>
-                    <a href="#">
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">(+57) 3168770708</p>
+                    <a
+                        href="https://www.google.com/maps/place/Tecnimontacargas+Dual+Ltda/@4.68237,-74.14496,17z/data=!4m6!3m5!1s0x8e3f9db07b05ee2d:0x7e11bf0a9122222d!8m2!3d4.68237!4d-74.14496!16s%2Fg%2F11gtz7t5y3?hl=es" target="_blank">
                         <figure class=" flex flex-col items-center">
                             <img src="/src/img/mapa.png" alt="mapa" title="Carrera 108 # 22F -21" class="w-16 h-16">
                         </figure>
-                        <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">Carrera 108 # 22F -21<br>Bogotá
+                    </a>
+                    <p class="mb-4 text-black-0 text-xl font-serif transform -skew-x-12">Carrera 108 # 22F -21<br>Bogotá
                             DC
                             - (Colombia)</p>
-                    </a>
                 </div>
                 <div class="flex flex-col items-center">
                     <iframe
@@ -189,7 +192,7 @@ export default {
                 <nav class="bg-yellow-2">
                     <ul class="flex justify-center items-center h-24">
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <a href="#focusUser">
                                 <figure>
                                     <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326"
                                         class="w-14 h-14">
@@ -197,7 +200,7 @@ export default {
                             </a>
                         </li>
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <a href="#focusUser">
                                 <figure>
                                     <img src="/src/img/correo_icon.png" alt="correo"
                                         title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
@@ -205,14 +208,14 @@ export default {
                             </a>
                         </li>
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <a href="#focusUser">
                                 <figure>
                                     <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
                                 </figure>
-                            </a>
+                            </a> <router-view v-if="!mostrarContenido"></router-view>
                         </li>
                         <li class="ml-4 mr-4">
-                            <a href="#">
+                            <a href="#focusUser">
                                 <figure>
                                     <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708"
                                         class="w-14 h-14">
@@ -224,4 +227,5 @@ export default {
             </footer>
         </div>
     </div>
+    <router-view v-if="!mostrarContenido"></router-view>
 </template>

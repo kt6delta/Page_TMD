@@ -55,7 +55,7 @@ export default {
 
             </li>
             <li>
-              <button>
+              <button> 
                 <figure>
                   <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
                 </figure>
@@ -97,26 +97,26 @@ export default {
               </router-link>
             </li>
             <li class="ml-4 mr-4">
-              <router-link to="/Contactenos">
+              <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                 <figure>
                   <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
                     class="w-14 h-14">
                 </figure>
-              </router-link>
+              </a>
             </li>
             <li class="ml-4 mr-4">
-              <router-link to="/Contactenos">
+              <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
                 <figure>
                   <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
                 </figure>
-              </router-link>
+              </a>
             </li>
             <li class="ml-4 mr-4">
-              <router-link to="/Contactenos">
+              <a href="https://wa.me/573168770708" target="_blank">
                 <figure>
                   <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
                 </figure>
-              </router-link>
+              </a>
             </li>
           </ul>
         </nav>
@@ -134,5 +134,4 @@ export default {
   background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-/*122,134,144,0.9)*/</style>
+</style>

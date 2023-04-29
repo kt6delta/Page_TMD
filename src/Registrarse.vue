@@ -25,9 +25,11 @@ export default {
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link></li>
+                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link></li>
+                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Registrarse" @click="mostrarMenu = !mostrarMenu">Registrarse</router-link>
                 </li>
@@ -36,12 +38,15 @@ export default {
                 </li>
 
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link></li>
+                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
                     <router-link to="/Mantenimiento"
-                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
+                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link>
+                </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
+                    <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link>
+                </li>
             </ul>
         </div>
 
@@ -58,12 +63,12 @@ export default {
 
                         </li>
                         <li>
-                            <button>
+                            <router-link to="/" tag="button">
                                 <figure>
                                     <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
-                            </button>
+                            </router-link>
                         </li>
                     </ul>
                 </nav>
@@ -83,7 +88,8 @@ export default {
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
                                     id="username" type="text" placeholder="Ingrese su usuario">
-                                <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="/src/img/persona_icono.webp" alt="">
+                                <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="/src/img/persona_icono.webp"
+                                    alt="">
                             </div>
                         </div>
                         <div class="flex items-center justify-center">
@@ -123,8 +129,8 @@ export default {
                     </div>
                 </div>
             </main>
-        </div>
     </div>
+</div>
 </template>
 
 <style scoped></style>
