@@ -1,7 +1,7 @@
 # Vue 3 + Vite + tailwind3+ docker
 
 Usa npm run dev para correr y luego abre el local host en el puerto que indica por defecto el 5173
-ademas para agregar la carpeta node_modules y las configuraciones previas usar los comandos: npm install -g vite, npm install vite --save-dev, npm install tailwindcss --save-dev, npm install autoprefixer, npm install vue-router
+ademas para agregar la carpeta node_modules y las configuraciones previas usar los comandos: npm install -g vite, npm install vite --save-dev, npm install tailwindcss --save-dev, npm install autoprefixer, npm install vue-router,npm install --save-dev @rollup/plugin-image
 
 
 Tambien se puede ejecutar docker, docker-compose build,docker-compose up –d y luego abrir en una paguina localhost:5173 
