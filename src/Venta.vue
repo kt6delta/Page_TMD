@@ -16,12 +16,12 @@ export default {
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
             <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
                 <figure>
-                    <img src="src/img/x_icon.png" alt="X" title="salir">
+                    <img src="./img/x_icon.png" alt="X" title="salir">
                 </figure>
             </button>
 
             <figure class="mx-auto w-80 h-28">
-                <img src="src/img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
+                <img src="./img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
@@ -50,14 +50,14 @@ export default {
             </ul>
         </div>
 
-        <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
+        <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">/
             <header class="h-1/7 flex flex-col">
                 <nav class="bg-black-0 w-full h-full">
                     <ul class="flex justify-center items-center h-full">
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="/src/img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -65,7 +65,7 @@ export default {
                         <li>
                             <router-link to="/" tag="button">
                                 <figure>
-                                    <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
+                                    <img src="./img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
                             </router-link>
@@ -110,7 +110,7 @@ export default {
                 </div>
                 <div class="fixed bottom-2 right-1" v-show="showImage">
                     <figure class="self-center order-last">
-                        <img src="/src/img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
+                        <img src="./img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
                     </figure>
                 </div>
             </main>

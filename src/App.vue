@@ -16,12 +16,12 @@ export default {
     <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
       <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
         <figure>
-          <img src="src/img/x_icon.png" alt="X" title="salir">
+          <img src="./img/x_icon.png" alt="X" title="salir">
         </figure>
       </button>
 
       <figure class="mx-auto w-80 h-28">
-        <img src="src/img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
+        <img src="./img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
       </figure>
       <ul class="items-center text-center">
         <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
@@ -49,7 +49,7 @@ export default {
             <li class="mr-4">
               <button @click="mostrarMenu = !mostrarMenu">
                 <figure>
-                  <img src="/src/img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                  <img src="./img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
                 </figure>
               </button>
 
@@ -57,7 +57,7 @@ export default {
             <li>
               <button>
                 <figure>
-                  <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
+                  <img src="./img/ico_tmd_white_n.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
                 </figure>
               </button>
             </li>
@@ -68,7 +68,7 @@ export default {
       <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col" id="gradiente">
         <div class="absolute inset-0 z-0">
           <figure class="self-center">
-            <img src="/src/img/fondo.jpeg" alt="fondo" title="fondo" class="hidden ">
+            <img src="./img/fondo.jpeg" alt="fondo" title="fondo" class="hidden ">
           </figure>
         </div>
         <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción en
@@ -82,7 +82,7 @@ export default {
           servicios de reparación y mantenimiento.</p>
         <div class="flex justify-end absolute bottom-0 right-0">
           <figure class="self-center order-last">
-            <img src="/src/img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
+            <img src="./img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
           </figure>
         </div>
       </main>
@@ -93,14 +93,14 @@ export default {
             <li class="ml-4 mr-4">
               <router-link to="/Contactenos">
                 <figure>
-                  <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326" class="w-14 h-14">
+                  <img src="./img/telefono_icon.png" alt="telefono" title="3244298326" class="w-14 h-14">
                 </figure>
               </router-link>
             </li>
             <li class="ml-4 mr-4">
               <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                 <figure>
-                  <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
+                  <img src="./img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
                     class="w-14 h-14">
                 </figure>
               </a>
@@ -108,14 +108,14 @@ export default {
             <li class="ml-4 mr-4">
               <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
                 <figure>
-                  <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
+                  <img src="./img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
                 </figure>
               </a>
             </li>
             <li class="ml-4 mr-4">
               <a href="https://wa.me/573168770708" target="_blank">
                 <figure>
-                  <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
+                  <img src="./img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
                 </figure>
               </a>
             </li>

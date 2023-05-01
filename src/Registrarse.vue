@@ -16,12 +16,12 @@ export default {
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
             <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
                 <figure>
-                    <img src="src/img/x_icon.png" alt="X" title="salir">
+                    <img src="./img/x_icon.png" alt="X" title="salir">
                 </figure>
             </button>
 
             <figure class="mx-auto w-80 h-28">
-                <img src="src/img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
+                <img src="./img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
@@ -57,7 +57,7 @@ export default {
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="/src/img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -65,7 +65,7 @@ export default {
                         <li>
                             <router-link to="/" tag="button">
                                 <figure>
-                                    <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
+                                    <img src="./img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
                             </router-link>
@@ -88,7 +88,7 @@ export default {
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline dark:placeholder:text-white dark:text-gray-light dark:bg-blue-1" 
                                     id="username" type="text" placeholder="Ingrese su usuario">
-                                <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="/src/img/persona_icono.webp"
+                                <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="./img/persona_icono.webp"
                                     alt="">
                             </div>
                         </div>
@@ -111,19 +111,19 @@ export default {
                         <button
                             class="inline-flex bg-white dark:bg-yellow-2  py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white  w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="/src/img/google_icon.png" alt="google">
+                            <img class="w-5 h-5" src="./img/google_icon.png" alt="google">
                             <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Google</p>
                         </button>
                         <button
                             class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="/src/img/facebook_icon.png" alt="facebook">
+                            <img class="w-5 h-5" src="./img/facebook_icon.png" alt="facebook">
                             <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Facebook</p>
                         </button>
                         <button
                             class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="/src/img/apple_icon.png" alt="apple">
+                            <img class="w-5 h-5" src="./img/apple_icon.png" alt="apple">
                             <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continua con Apple</p>
                         </button>
                     </div>

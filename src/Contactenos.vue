@@ -26,12 +26,12 @@ export default {
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
             <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
                 <figure>
-                    <img src="src/img/x_icon.png" alt="X" title="salir">
+                    <img src="./img/x_icon.png" alt="X" title="salir">
                 </figure>
             </button>
 
             <figure class="mx-auto w-80 h-28">
-                <img src="src/img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
+                <img src="./img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
@@ -67,7 +67,7 @@ export default {
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="/src/img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -75,7 +75,7 @@ export default {
                         <li>
                             <router-link to="/" tag="button">
                                 <figure>
-                                    <img src="/src/img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
+                                    <img src="./img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
                             </router-link>
@@ -87,7 +87,7 @@ export default {
             <main class="bg-white w-full h-3/4 relative dark:bg-gray">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/4">
-                        <img src="/src/img/monntacarga2.jpg" alt="contactenos" title="contactenos" class="mx-auto">
+                        <img src="./img/monntacarga2.jpg" alt="contactenos" title="contactenos" class="mx-auto">
                     </figure>
                     <p class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
                         Diligencie el formulario y pronto estaremos en contacto con usted
@@ -128,7 +128,7 @@ export default {
 
                         <div class="flex items-center justify-between">
                             <button
-                                class=" bg-black hover:bg-gray text-white text-xl font-serif font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
+                                class="bg-black hover:bg-gray text-white text-xl font-serif font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
                                 type="button">
                                 Enviar
                             </button>
@@ -138,13 +138,13 @@ export default {
                 </div>
                 <div id="focusUser" class="text-center">
                         <figure class=" flex flex-col items-center">
-                            <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326" class="w-16 h-16">
+                            <img src="./img/telefono_icon.png" alt="telefono" title="3244298326" class="w-16 h-16">
                         </figure>
                     <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">(+57) 601 5408640<br>(+57)
                             3244298326</p>
                     <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                         <figure class=" flex flex-col items-center">
-                            <img src="/src/img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
+                            <img src="./img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
                                 class="w-16 h-16">
                         </figure>
                     </a>
@@ -153,14 +153,14 @@ export default {
                         </p>
                     <a href="https://wa.me/573168770708" target="_blank">
                         <figure class=" flex flex-col items-center">
-                            <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-16 h-16">
+                            <img src="./img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-16 h-16">
                         </figure>
                     </a>
                     <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">(+57) 3168770708</p>
                     <a
                         href="https://www.google.com/maps/place/Tecnimontacargas+Dual+Ltda/@4.68237,-74.14496,17z/data=!4m6!3m5!1s0x8e3f9db07b05ee2d:0x7e11bf0a9122222d!8m2!3d4.68237!4d-74.14496!16s%2Fg%2F11gtz7t5y3?hl=es" target="_blank">
                         <figure class=" flex flex-col items-center">
-                            <img src="/src/img/mapa.png" alt="mapa" title="Carrera 108 # 22F -21" class="w-16 h-16">
+                            <img src="./img/mapa.png" alt="mapa" title="Carrera 108 # 22F -21" class="w-16 h-16">
                         </figure>
                     </a>
                     <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">Carrera 108 # 22F -21<br>Bogotá
@@ -189,7 +189,7 @@ export default {
                 </div>
                 <div class="fixed bottom-2 right-1" v-show="showImage">
                     <figure class="self-center order-last">
-                        <img src="/src/img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
+                        <img src="./img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
                     </figure>
                 </div>
             </main>
@@ -200,7 +200,7 @@ export default {
                         <li class="ml-4 mr-4">
                             <a href="#focusUser">
                                 <figure>
-                                    <img src="/src/img/telefono_icon.png" alt="telefono" title="3244298326"
+                                    <img src="./img/telefono_icon.png" alt="telefono" title="3244298326"
                                         class="w-14 h-14">
                                 </figure>
                             </a>
@@ -208,7 +208,7 @@ export default {
                         <li class="ml-4 mr-4">
                             <a href="#focusUser">
                                 <figure>
-                                    <img src="/src/img/correo_icon.png" alt="correo"
+                                    <img src="./img/correo_icon.png" alt="correo"
                                         title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
                                 </figure>
                             </a>
@@ -216,14 +216,14 @@ export default {
                         <li class="ml-4 mr-4">
                             <a href="#focusUser">
                                 <figure>
-                                    <img src="/src/img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
+                                    <img src="./img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
                                 </figure>
                             </a> <router-view v-if="!mostrarContenido"></router-view>
                         </li>
                         <li class="ml-4 mr-4">
                             <a href="#focusUser">
                                 <figure>
-                                    <img src="/src/img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708"
+                                    <img src="./img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708"
                                         class="w-14 h-14">
                                 </figure>
                             </a>
