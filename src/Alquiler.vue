@@ -46,7 +46,7 @@ export default {
                     <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
                 </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Contactenos" @click="mostrarContenido = !mostrarContenido">Contactenos</router-link>
+                    <router-link to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
                 </li>
 
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
@@ -128,7 +128,7 @@ export default {
                 <nav class="bg-yellow-2 h-full">
                     <ul class="flex justify-center items-center h-full">
                         <li class="ml-4 mr-4">
-                            <router-link to="/Contactenos">
+                            <router-link to="/Contacto">
                                 <figure>
                                     <img src="./img/telefono_icon.png" alt="telefono" title="3244298326"
                                         class="w-14 h-14">

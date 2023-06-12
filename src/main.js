@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import './style.css'
 
 import App from './App.vue'
-import Contactenos from './Contactenos.vue'
+import Contacto from './Contacto.vue'
 import Alquiler from './Alquiler.vue'
 import Mantenimiento from './Mantenimiento.vue'
 import Venta from './Venta.vue'
@@ -13,7 +13,7 @@ import Registrarse from './Registrarse.vue'
 
 const routes = [
     { path: '/', name: 'Inicio', component: App },
-    { path: '/Contactenos', name: "Contactenos", component: Contactenos},
+    { path: '/Contacto', name: "Contacto", component: Contacto},
     { path: '/Alquiler', name: "Alquiler", component: Alquiler },
     { path: '/Mantenimiento', name: "Mantenimiento", component: Mantenimiento },
     { path: '/Venta', name: "Venta", component: Venta },
