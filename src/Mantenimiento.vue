@@ -20,7 +20,7 @@ let bandera = true;
           </div>
 
           <div
-          class="w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
+            class="w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
 
             <router-link @click="bandera = false" to="/">Inicio</router-link>
             <a href="">Alquiler</a>

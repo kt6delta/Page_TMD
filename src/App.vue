@@ -22,8 +22,9 @@ let bandera = true;
             <img src="../src/components/icons/Logo_nonary.svg" class="w-56 py-2 ml-4">
           </div>
 
-          <div class="w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
-            
+          <div
+            class="w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
+
             <router-link @click="bandera = false" to="/">Inicio</router-link>
             <a href="">Alquiler</a>
             <router-link @click="bandera = false" to="/Mantenimiento">Mantenimiento</router-link>

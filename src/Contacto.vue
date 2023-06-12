@@ -25,7 +25,7 @@ let bandera = true;
             <router-link @click="bandera = false" to="/">Inicio</router-link>
             <a href="">Alquiler</a>
             <router-link @click="bandera = false" to="/Mantenimiento">Mantenimiento</router-link>
-            
+
           </div>
 
           <div
