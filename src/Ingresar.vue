@@ -32,7 +32,7 @@ export default {
                     <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
                 </li>
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Contactenos" @click="mostrarContenido = !mostrarContenido">Contactenos</router-link>
+                    <router-link to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
                 </li>
 
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
