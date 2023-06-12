@@ -1,4 +1,0 @@
-# Archivos y carpetas que deben ignorarse
-node_modules
-dist
-.git
