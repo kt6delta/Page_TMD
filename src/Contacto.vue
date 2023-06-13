@@ -1,12 +1,12 @@
 <script >
-let bandera = true;
 export default {
     data() {
         return {
             mostrarMenu: false,
             showImage: false,
             mostrarContenido: true,
-            windowWidth: window.innerWidth
+            windowWidth: window.innerWidth,
+            bandera : true
         };
     },
     mounted() {
