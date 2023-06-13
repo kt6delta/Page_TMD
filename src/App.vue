@@ -19,12 +19,12 @@ let bandera = true;
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
           <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
             <figure>
-              <img src="./img/x_icon.png" alt="X" title="salir">
+              <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
             </figure>
           </button>
 
           <figure class="mx-auto w-80 h-28">
-            <img src="./img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
+            <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
           </figure>
           <ul class="items-center text-center">
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
