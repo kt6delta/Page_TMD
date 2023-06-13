@@ -26,7 +26,7 @@ export default {
 <template>
   <div>
     <!--350x640-->
-    <div v-if="windowWidth < 640">
+    <div v-if="windowWidth < 1024">
       <div v-if="mostrarContenido">
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
           <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">

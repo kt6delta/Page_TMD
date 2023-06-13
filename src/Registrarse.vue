@@ -24,7 +24,7 @@ export default {
 <template>
     <div>
         <!-- 350x640-->
-        <div v-if="windowWidth < 640">
+        <div v-if="windowWidth < 1024">
             <router-view v-if="!mostrarContenido"></router-view>
 
             <div v-if="mostrarContenido">
