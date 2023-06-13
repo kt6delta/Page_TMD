@@ -5,6 +5,7 @@ export default {
       mostrarMenu: false,
       mostrarContenido: true,
       windowWidth: window.innerWidth,
+      bandera : true
     };
   },
   mounted() {
@@ -20,13 +21,11 @@ export default {
   },
 };
 
-let bandera = true;
 </script>
 
 <template>
   <div>
-    <!--350x420-->
-    <!--420x640-->
+    <!--350x640-->
     <div v-if="windowWidth < 640">
       <div v-if="mostrarContenido">
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
@@ -144,7 +143,7 @@ let bandera = true;
       </div>
       <router-view v-else="mostrarContenido"></router-view>
     </div>
-    <!--750x1200-->
+    <!--1000-->
     <div v-else>
       <main class="w-full h-screen " v-if="bandera">
 
