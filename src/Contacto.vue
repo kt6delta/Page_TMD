@@ -5,16 +5,22 @@ export default {
         return {
             mostrarMenu: false,
             showImage: false,
-            mostrarContenido: true
+            mostrarContenido: true,
+            windowWidth: window.innerWidth
         };
     },
     mounted() {
         window.addEventListener('scroll', this.handleScroll)
+        window.addEventListener('resize', this.handleResize)
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.handleScroll)
+        window.removeEventListener('resize', this.handleResize)
     },
     methods: {
+        handleResize() {
+            this.windowWidth = window.innerWidth;
+        },
         handleScroll() {
             this.showImage = window.scrollY < window.innerHeight
         }
@@ -25,7 +31,7 @@ export default {
 <template>
     <div>
         <!-- 350x640-->
-        <div v-if="$vuetify.breakpoint.sm">
+        <div v-if="windowWidth < 640">
             <div v-if="mostrarContenido">
                 <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
                     <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
