@@ -2,19 +2,31 @@
 export default {
   data() {
     return {
+      mostrarMenu: false,
       mostrarContenido: true,
-      mostrarMenu: false
+      windowWidth: window.innerWidth,
+      bandera : true
     };
   },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      this.windowWidth = window.innerWidth;
+    },
+  },
 };
-let bandera = true;
+
 </script>
 
 <template>
   <div>
-    <!--350x420-->
-    <!--420x640-->
-    <div v-if="$vuetify.breakpoint.sm">
+    <!--350x640-->
+    <div v-if="windowWidth < 1024">
       <div v-if="mostrarContenido">
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
           <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
@@ -131,8 +143,8 @@ let bandera = true;
       </div>
       <router-view v-else="mostrarContenido"></router-view>
     </div>
-    <!--750x1200-->
-    <div v-else> 
+    <!--1000-->
+    <div v-else>
       <main class="w-full h-screen " v-if="bandera">
 
         <nav class="w-full h-20 shadow-lg bg-primary  fixed z-30">
@@ -328,6 +340,4 @@ let bandera = true;
   background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
-.hola {}
 </style>

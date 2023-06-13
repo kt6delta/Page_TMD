@@ -12,7 +12,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
-To add the node_modules folder and the previous configurations use the commands:
+To add the node_modules folder and the previous configurations use the commands in linux:
 
 ```sh
 npm install -g vite
@@ -22,7 +22,11 @@ npm install autoprefixer
 npm install vue-router
 npm install --save-dev @rollup/plugin-image
 ```
+on windows:
 
+```sh
+npm install -i
+```
 ### Compile and Hot-Reload for Development
 
 Use the command to run the development version
