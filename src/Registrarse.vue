@@ -3,8 +3,20 @@ export default {
     data() {
         return {
             mostrarMenu: false,
-            mostrarContenido: true
+            mostrarContenido: true,
+            windowWidth: window.innerWidth
         };
+    },
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    },
+    methods: {
+        handleResize() {
+            this.windowWidth = window.innerWidth;
+        },
     },
 };
 </script>
@@ -12,7 +24,7 @@ export default {
 <template>
     <div>
         <!-- 350x640-->
-        <div v-if="$vuetify.breakpoint.sm">
+        <div v-if="windowWidth < 640">
             <router-view v-if="!mostrarContenido"></router-view>
 
             <div v-if="mostrarContenido">
@@ -139,6 +151,7 @@ export default {
                 </div>
             </div>
         </div>
+        <!--700-->
         <div v-else>
             <main class="w-full h-screen">
 
