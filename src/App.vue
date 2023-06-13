@@ -329,5 +329,4 @@ let bandera = true;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.hola {}
 </style>

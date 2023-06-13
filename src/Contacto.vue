@@ -451,6 +451,3 @@ export default {
     </div>
 </template>
 
-<style>
-.hola {}
-</style>
