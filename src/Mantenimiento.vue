@@ -207,14 +207,17 @@ export default {
         <div v-else>
 
             <main class="w-full h-screen">
+                <!--nav-->
+
                 <nav class="w-full h-20 shadow-lg bg-primary  fixed z-30">
+
                     <div class="container mx-auto w-full h-20 flex flex-row justify-center">
-                        <div class="w-1/3">
+                        <div class="w-auto lg:w-1/3">
                             <img src="../src/components/icons/Logo_nonary.svg" class="w-56 py-2 ml-4">
                         </div>
 
                         <div
-                            class="w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
+                            class="w-auto lg:w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
 
                             <router-link @click="bandera = false" to="/">Inicio</router-link>
                             <a href="">Alquiler</a>
@@ -223,7 +226,7 @@ export default {
                         </div>
 
                         <div
-                            class="w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
+                            class="w-auto lg:w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
                             <a href="">
                                 <img src="../src/components/icons/carrito.svg" class="w-10">
                             </a>
@@ -232,8 +235,6 @@ export default {
                         </div>
 
                     </div>
-
-
 
                 </nav>
 
@@ -245,7 +246,7 @@ export default {
                             <div class="bg-black w-full h-full opacity-70"></div>
                         </div>
                         <p
-                            class="w-3/6 p-20 pr-34 bg-nonary opacity-80 font-Fuente_terciaria text-center text-6xl absolute text-primary rounded-md">
+                            class="w-4/6 xl:w-3/6 p-20 bg-nonary opacity-80 font-Fuente_terciaria text-center text-6xl absolute text-primary rounded-md">
                             Más que un servicio creamos un sistema general de
                             rendimiento para sus equipos</p>
                     </div>
@@ -258,7 +259,7 @@ export default {
 
                     <div class="container mx-auto w-full h-full flex flex-row">
 
-                        <div class="w-1/2 h-full  p-32 ">
+                        <div class="w-1/2 h-full py-32 px-20 xl:px-32">
                             <div class="w-full h-full bg-montacarga_2 bg-cover bg-bottom rounded-md"></div>
                         </div>
 
@@ -266,9 +267,9 @@ export default {
 
                             <div class="w-full h-full bg-nonary rounded-md flex flex-col justify-center items-center">
 
-                                <h1 class="font-Fuente_terciaria text-septenary text-center text-7xl">Montacargas</h1>
+                                <h1 class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">Montacargas</h1>
                                 <ul
-                                    class="pt-5 list-disc list-outside font-Fuente_primaria text-primary text-4xl space-y-2">
+                                    class="pt-5 list-disc list-outside font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl space-y-2">
                                     <li>Programas de mantenimiento específico para sus necesidades individuales.</li>
                                     <li>Importación y venta de repuestos</li>
                                 </ul>
@@ -290,11 +291,11 @@ export default {
 
                             <div class="w-full h-full bg-nonary rounded-md flex flex-col justify-center items-center">
 
-                                <h1 class="font-Fuente_terciaria text-septenary text-center text-7xl">Servicio técnico
+                                <h1 class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">Servicio técnico
                                     especialistas en
                                     Jungheinrich
                                 </h1>
-                                <p class="pt-5 font-Fuente_primaria text-primary text-4xl space-y-2 text-center">Apoyamos a
+                                <p class="pt-5 font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl  space-y-2 text-center">Apoyamos a
                                     nuestros
                                     clientes para mantener sus equipos 100% operativos, seguros y confiables,
                                     asegurándoles respaldo y confiabilidad en la actividad de los mismos.</p>
@@ -303,7 +304,7 @@ export default {
 
                         </div>
 
-                        <div class="w-1/2 h-full  p-32 ">
+                        <div class="w-1/2 h-full  py-32 px-20 xl:px-32">
                             <div class="w-full h-full bg-jungher bg-cover bg-bottom rounded-md"></div>
 
                         </div>
@@ -317,7 +318,7 @@ export default {
 
                     <div class="container mx-auto w-full h-full flex flex-row">
 
-                        <div class="w-1/2 h-full  p-32 ">
+                        <div class="w-1/2 h-full  py-32 px-20 xl:px-32">
 
                             <div class="w-full h-full bg-portaestiba bg-cover bg-bottom rounded-md">
 
@@ -329,9 +330,9 @@ export default {
 
                             <div class="w-full h-full bg-nonary rounded-md flex flex-col justify-center items-center">
 
-                                <h1 class="font-Fuente_terciaria text-septenary text-center text-7xl">Servicio técnico
+                                <h1 class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">Servicio técnico
                                     portaestibas</h1>
-                                <p class="pt-5 font-Fuente_primaria text-primary text-4xl space-y-2 text-center">Contamos
+                                <p class="pt-5 font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl space-y-2 text-center">Contamos
                                     con dos tipos de
                                     mantenimiento preventivo-correctivo y para que su operación no se vea afectada prestamos
                                     nuestros
