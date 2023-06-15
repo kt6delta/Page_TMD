@@ -6,7 +6,7 @@ export default {
             showImage: false,
             mostrarContenido: true,
             windowWidth: window.innerWidth,
-            bandera : true
+            bandera: true
         };
     },
     mounted() {
@@ -257,14 +257,17 @@ export default {
         <div v-else>
             <main class="w-full h-screen">
 
+                <!--nav-->
+
                 <nav class="w-full h-20 shadow-lg bg-primary  fixed z-30">
+
                     <div class="container mx-auto w-full h-20 flex flex-row justify-center">
-                        <div class="w-1/3">
+                        <div class="w-auto lg:w-1/3">
                             <img src="../src/components/icons/Logo_nonary.svg" class="w-56 py-2 ml-4">
                         </div>
 
                         <div
-                            class="w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
+                            class="w-auto lg:w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
 
                             <router-link @click="bandera = false" to="/">Inicio</router-link>
                             <a href="">Alquiler</a>
@@ -273,7 +276,7 @@ export default {
                         </div>
 
                         <div
-                            class="w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
+                            class="w-auto lg:w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
                             <a href="">
                                 <img src="../src/components/icons/carrito.svg" class="w-10">
                             </a>
@@ -283,26 +286,24 @@ export default {
 
                     </div>
 
-
-
                 </nav>
 
                 <!--formulario y foto-->
 
-                <section class=" w-full h-5/6 pt-20 bg-nonary flex flex-row">
+                <section class=" w-full h-screen pt-20 bg-nonary flex flex-row">
 
-                    <div class=" w-1/2 h-full bg-montacarga bg-left bg-cover "></div>
+                    <div class="grayscale w-3/5 h-full bg-montacarga bg-center xl:bg-left bg-cover "></div>
 
-                    <div class="container mx-auto w-1/2 h-full px-20 py-2 flex flex-col space-y-5">
+                    <div class="container mx-auto w-2/5 h-full px-20 py-4 2xl:py-14 flex flex-col items-center space-y-5">
                         <div>
-                            <h1 class="p-5 text-center text-primary font-Fuente_secundaria text-5xl">Contactactenos</h1>
+                            <h1 class="p-10 text-primary font-Fuente_secundaria text-5xl">Contactactenos</h1>
                         </div>
-                        <div class="mb-5">
+                        <div class="">
                             <label for="Nombre" class="block text-primary font-Fuente_terciaria text-xl text-start">Ingrese
                                 el
                                 nombre</label>
                             <input type="text"
-                                class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
+                                class="w-96 bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
                                 placeholder="Nombre">
                         </div>
 
@@ -311,7 +312,7 @@ export default {
                                 el correo
                                 electronico</label>
                             <input type="text"
-                                class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
+                                class="w-96 bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
                                 placeholder="Correo electronico">
                         </div>
                         <div class="">
@@ -319,7 +320,7 @@ export default {
                                 class="block text-primary font-Fuente_terciaria text-xl text-start">Ingresa el
                                 telefono</label>
                             <input type="text"
-                                class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg font-Fuente_terciaria focus:outline-none focus:bg-white"
+                                class="w-96 bg-white mt-2 h-10 appearance-none rounded shadow-lg font-Fuente_terciaria focus:outline-none focus:bg-white"
                                 placeholder="Telefono">
                         </div>
 
@@ -328,7 +329,7 @@ export default {
                                 class="block text-primary font-Fuente_terciaria text-xl text-start">Indique el
                                 tipo de servicio</label>
                             <textarea type="text"
-                                class="w-full bg-white mt-2 h-32 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"></textarea>
+                                class="w-96 bg-white mt-2 h-32 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"></textarea>
                         </div>
 
                         <div class="w-full flex items-center justify-center">

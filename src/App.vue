@@ -145,16 +145,21 @@ export default {
     </div>
     <!--1000-->
     <div v-else>
+
+
       <main class="w-full h-screen " v-if="bandera">
 
+        <!--nav-->
+
         <nav class="w-full h-20 shadow-lg bg-primary  fixed z-30">
+
           <div class="container mx-auto w-full h-20 flex flex-row justify-center">
-            <div class="w-1/3">
+            <div class="w-auto lg:w-1/3">
               <img src="../src/components/icons/Logo_nonary.svg" class="w-56 py-2 ml-4">
             </div>
 
             <div
-              class="w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
+              class="w-auto lg:w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
 
               <router-link @click="bandera = false" to="/">Inicio</router-link>
               <a href="">Alquiler</a>
@@ -163,7 +168,7 @@ export default {
             </div>
 
             <div
-              class="w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
+              class="w-auto lg:w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
               <a href="">
                 <img src="../src/components/icons/carrito.svg" class="w-10">
               </a>
@@ -173,25 +178,25 @@ export default {
 
           </div>
 
-
-
         </nav>
 
+        <!--seccion 1-->
 
         <section id="home" class="w-full h-full flex flex-col ">
 
           <div class="w-full h-5/6 bg-principal bg-cover bg-center relative "></div>
 
-
+          <!--Parte 1 titulo-->
+          
           <div class="w-full h-5/6 absolute ">
             <div class="container mx-auto w-full h-full flex flex-col justify-center">
-              <p class="w-2/6 h-1/4 font-Fuente_secundaria text-nonary text-start text-6xl ">
+              <p class="w-2/6 h-1/4 font-Fuente_secundaria text-nonary text-start text-5xl xl:text-6xl ">
                 Nos especializamos en soluciones para montacargas
               </p>
               <router-link to="/Contacto">
 
                 <button @click="bandera = false"
-                  class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg rounded-md shadow-md ">
+                  class="w-28 h-12 xl:h-14 xl:mt-5 bg-septenary font-Fuente_primaria text-sm rounded-md shadow-md ">
                   Alquila Aquí!
                 </button>
 
@@ -201,8 +206,8 @@ export default {
           </div>
 
           <!-- frase motivadora-->
-          <div class="w-full h-1/6 bg-nonary">
-            <div class="ontainer mx-auto w-full h-full py-10 flex flex-col ">
+          <div class="w-full h-auto bg-nonary">
+            <div class="container mx-auto w-full h-full py-10 flex flex-col ">
               <p class="w-full h-10  text-septenary font-Fuente_primaria text-center text-3xl">En TecniMontacargas</p>
               <p class="w-full h-1/2  text-primary font-Fuente_primaria text-center text-3xl">"Más que un servicio creamos
                 un sistema general de
@@ -253,9 +258,9 @@ export default {
 
         <!--Seccion tres/informacion empresa  y contactanos -->
 
-        <section class="bg-nonary w-full px-56 py-28 flex flex-row justify-center">
+        <section class="bg-nonary w-full flex flex-row justify-center pt-14 xl:pb-14">
 
-          <div class="w-1/2 h-96 flex flex-row justify-center relative">
+          <div class="w-1/2 flex flex-row justify-center relative">
             <div class="bg-septenary w-28 h-28 z-0"></div>
             <div class="w-72 h-96"></div>
             <div class="w-72 h-44 z-10 m-14 absolute">
@@ -264,7 +269,7 @@ export default {
           </div>
 
           <!--texto acerca de nosotros-->
-          <div class="w-1/2 py-32">
+          <div class="w-1/2 py-14 lg:py-24 pr-20 xl:pr-56 ">
             <h1 class="pb-5 text-5xl font-Fuente_primaria text-septenary text-center">acerca de nosotros</h1>
             <p class="py-4 text-justify font-Fuente_terciaria text-primary text-3xl">
               Nuestra compañía de alquiler de montacargas ofrece soluciones logísticas y de manejo de materiales para
