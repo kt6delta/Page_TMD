@@ -16,12 +16,12 @@ export default {
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
             <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
                 <figure>
-                    <img src="./img/x_icon.png" alt="X" title="salir">
+                    <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
                 </figure>
             </button>
 
             <figure class="mx-auto w-80 h-28">
-                <img src="./img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
+                <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
@@ -57,7 +57,7 @@ export default {
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="./img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu" class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -65,7 +65,7 @@ export default {
                         <li>
                             <router-link to="/" tag="button">
                                 <figure>
-                                    <img src="./img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
+                                    <img src="./components/icons/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
                             </router-link>
@@ -110,7 +110,7 @@ export default {
                 </div>
                 <div class="fixed bottom-2 right-1" v-show="showImage">
                     <figure class="self-center order-last">
-                        <img src="./img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
+                        <img src="./components/img/chat_icon_cel.png" alt="chat" title="chat" class="w-14 h-14">
                     </figure>
                 </div>
             </main>
@@ -122,20 +122,20 @@ export default {
 #gradiente1 {
     /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
     /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('img/r1.jpg');
+    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('components/img/repuestos_2.jpg');
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #gradiente2 {
     /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
     /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('img/porta_estiba.jpg');
+    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('components/img/portaestiba_2.jpg');
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #gradiente3 {
     /*background: rgba(124,144,160,0.9);  /* fallback for old browsers */
     /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('img/montacarga.jpg');
+    background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('components/img/montacarga_6.jpg');
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }</style>
