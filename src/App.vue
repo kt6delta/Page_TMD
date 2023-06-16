@@ -64,7 +64,7 @@ export default {
                 <li class="mr-4">
                   <button @click="mostrarMenu = !mostrarMenu">
                     <figure>
-                      <img src="./img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                      <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu" class="w-10 h-1/8">
                     </figure>
                   </button>
 
@@ -72,7 +72,7 @@ export default {
                 <li>
                   <button>
                     <figure>
-                      <img src="./img/ico_tmd_white_n.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
+                      <img src="./components/icons/ico_tmd_white_n.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
                     </figure>
                   </button>
                 </li>
@@ -84,7 +84,7 @@ export default {
             id="gradiente">
             <div class="absolute inset-0 z-0">
               <figure class="self-center">
-                <img src="./img/fondo.jpeg" alt="fondo" title="fondo" class="hidden ">
+                <img src="./components/img/fondo_cel.jpeg" alt="fondo" title="fondo" class="hidden ">
               </figure>
             </div>
             <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción
@@ -99,7 +99,7 @@ export default {
               servicios de reparación y mantenimiento.</p>
             <div class="flex justify-end absolute bottom-0 right-0">
               <figure class="self-center order-last">
-                <img src="./img/caht_icon.png" alt="chat" title="chat" class="w-14 h-14">
+                <img src="./components/img/chat_icon_cel.png" alt="chat" title="chat" class="w-14 h-14">
               </figure>
             </div>
           </main>
@@ -110,14 +110,14 @@ export default {
                 <li class="ml-4 mr-4">
                   <router-link to="/Contacto">
                     <figure>
-                      <img src="./img/telefono_icon.png" alt="telefono" title="3244298326" class="w-14 h-14">
+                      <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326" class="w-14 h-14">
                     </figure>
                   </router-link>
                 </li>
                 <li class="ml-4 mr-4">
                   <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                     <figure>
-                      <img src="./img/correo_icon.png" alt="correo" title="gestion@tecnimontacargasdual.com"
+                      <img src="./components/img/correo_icon_cel.png" alt="correo" title="gestion@tecnimontacargasdual.com"
                         class="w-14 h-14">
                     </figure>
                   </a>
@@ -125,14 +125,14 @@ export default {
                 <li class="ml-4 mr-4">
                   <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
                     <figure>
-                      <img src="./img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
+                      <img src="./components/img/facebook_icon_cel.png" alt="facebook" title="facebook" class="w-12 h-14">
                     </figure>
                   </a>
                 </li>
                 <li class="ml-4 mr-4">
                   <a href="https://wa.me/573168770708" target="_blank">
                     <figure>
-                      <img src="./img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
+                      <img src="./components/img/whatsap_icon_cel.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
                     </figure>
                   </a>
                 </li>
@@ -340,9 +340,9 @@ export default {
 <style scoped>
 #gradiente {
   /*background: #bdc3c7;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
+  background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/components/img/fondo_cel.jpeg');
   /* Chrome 10-25, Safari 5.1-6 */
-  background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/img/fondo.jpeg');
+  background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/components/img/fondo_cel.jpeg');
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 </style>

@@ -28,12 +28,12 @@ export default {
         <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
             <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
                 <figure>
-                    <img src="./img/x_icon.png" alt="X" title="salir">
+                    <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
                 </figure>
             </button>
 
             <figure class="mx-auto w-80 h-28">
-                <img src="./img/ico_tmd_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
+                <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
             </figure>
             <ul class="items-center text-center">
                 <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
@@ -68,7 +68,7 @@ export default {
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="./img/menu_lineas_blancas.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu" class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -76,7 +76,7 @@ export default {
                         <li>
                             <router-link to="/" tag="button">
                                 <figure>
-                                    <img src="./img/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
+                                    <img src="./components/icons/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                         class="w-64 h-1/8">
                                 </figure>
                             </router-link>
@@ -88,7 +88,7 @@ export default {
             <main class="bg-white dark:bg-gray w-full h-3/4 relative">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/6">
-                        <img src="./img/montacarga.jpeg" alt="montacarga" title="alquiler">
+                        <img src="./components/img/montacarga_5.jpeg" alt="montacarga" title="alquiler">
                     </figure>
                     <h2 class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
                         Montacargas
@@ -107,7 +107,7 @@ export default {
                         </span>
                     </p>
                     <figure class="w-full h-1/6">
-                        <img src="./img/bateria.jpeg" alt="bateria de traccion" title="alquiler">
+                        <img src="./components/img/bateria.jpeg" alt="bateria de traccion" title="alquiler">
                     </figure>
                     <h2 class="text-yellow-2 text-3xl font-serif font-bold text-center mx-4 mt-4 mb-1">
                         Baterias de Traccion
@@ -120,7 +120,7 @@ export default {
                 </div>
                 <div class="fixed bottom-2 right-1" v-show="showImage">
                     <figure class="self-center order-last">
-                        <img src="./img/caht_icon.png" alt="chat" title="chate con nosotros" class="w-14 h-14">
+                        <img src="./components/img/chat_icon_cel.png" alt="chat" title="chate con nosotros" class="w-14 h-14">
                     </figure>
                 </div>
             </main>
@@ -130,7 +130,7 @@ export default {
                         <li class="ml-4 mr-4">
                             <router-link to="/Contacto">
                                 <figure>
-                                    <img src="./img/telefono_icon.png" alt="telefono" title="3244298326"
+                                    <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326"
                                         class="w-14 h-14">
                                 </figure>
                             </router-link>
@@ -138,7 +138,7 @@ export default {
                         <li class="ml-4 mr-4">
                             <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                                 <figure>
-                                    <img src="./img/correo_icon.png" alt="correo"
+                                    <img src="./components/img/correo_icon_cel.png" alt="correo"
                                         title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
                                 </figure>
                             </a>
@@ -146,14 +146,14 @@ export default {
                         <li class="ml-4 mr-4">
                             <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
                                 <figure>
-                                    <img src="./img/facebook_icon.png" alt="facebook" title="facebook" class="w-12 h-14">
+                                    <img src="./components/img/facebook_icon_cel.png" alt="facebook" title="facebook" class="w-12 h-14">
                                 </figure>
                             </a>
                         </li>
                         <li class="ml-4 mr-4">
                             <a href="https://wa.me/573168770708" target="_blank">
                                 <figure>
-                                    <img src="./img/whatsap_icon.png" alt="whatsapp" title="(+57) 3168770708"
+                                    <img src="./components/img/whatsap_icon_cel.png" alt="whatsapp" title="(+57) 3168770708"
                                         class="w-14 h-14">
                                 </figure>
                             </a>
