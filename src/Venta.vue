@@ -6,7 +6,7 @@ export default {
     components: {
     MenuLateral,
     Footer_Cel,
-    MenuBarra_Cel
+    MenuBarra_Cel,
 },
     data() {
         return {
@@ -73,7 +73,6 @@ export default {
                         </div>
                     </button>
                 </div>
-                <Chat_Flotante />
             </main>
         </div>
     </div>
