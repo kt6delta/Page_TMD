@@ -11,6 +11,7 @@ export default {
       mostrarMenu: false,
       mostrarContenido: true,
       windowWidth: window.innerWidth,
+      padre: 'App',
       bandera: true
     };
   },
@@ -39,7 +40,7 @@ export default {
     <!--350x640-->
     <div v-if="windowWidth < 1024">
       <div v-if="mostrarContenido">
-        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/>       
+        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/>       
         <div v-if="!mostrarMenu" class="w-full h-screen bg-yellow-2">
           <header class="h-1/7 flex flex-col">
             <nav class="bg-black-0 w-full h-full">
