@@ -3,20 +3,21 @@ import MenuLateral from './components/MenuLateral_Cel.vue';
 import Footer_Cel from './components/Footer_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
 import Chat_Flotante from './components/Chat_Flotante.vue';
+import MenuBarra_PC from './components/MenuBarra_PC.vue';
 export default {
     components: {
         MenuLateral,
         Footer_Cel,
         MenuBarra_Cel,
-        Chat_Flotante
+        Chat_Flotante,
+        MenuBarra_PC
     },
   data() {
     return {
       mostrarMenu: false,
       mostrarContenido: true,
       windowWidth: window.innerWidth,
-      padre: 'App',
-      bandera: true
+      padre: 'App'
     };
   },
   mounted() {
@@ -74,38 +75,11 @@ export default {
     <div v-else>
 
 
-      <main class="w-full h-screen " v-if="bandera">
+      <main class="w-full h-screen " v-if="mostrarContenido">
 
         <!--nav-->
 
-        <nav class="w-full h-20 shadow-lg bg-primary  fixed z-30">
-
-          <div class="container mx-auto w-full h-20 flex flex-row justify-center">
-            <div class="w-auto lg:w-1/3">
-              <img src="../src/components/icons/Logo_nonary.svg" class="w-56 py-2 ml-4">
-            </div>
-
-            <div
-              class="w-auto lg:w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
-
-              <router-link @click="bandera = false" to="/">Inicio</router-link>
-              <a href="">Alquiler</a>
-              <router-link @click="bandera = false" to="/Mantenimiento">Mantenimiento</router-link>
-
-            </div>
-
-            <div
-              class="w-auto lg:w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
-              <a href="">
-                <img src="../src/components/icons/carrito.svg" class="w-10">
-              </a>
-              <a href="">Ingresar</a>
-              <a class="text-nonary">Registrarse</a>
-            </div>
-
-          </div>
-
-        </nav>
+        <MenuBarra_PC :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido"/> 
 
         <!--seccion 1-->
 
@@ -122,7 +96,7 @@ export default {
               </p>
               <router-link to="/Contacto">
 
-                <button @click="bandera = false"
+                <button @click="mostrarContenido = false"
                   class="w-28 h-12 xl:h-14 xl:mt-5 bg-septenary font-Fuente_primaria text-sm rounded-md shadow-md ">
                   Alquila Aquí!
                 </button>
@@ -258,7 +232,7 @@ export default {
 
 
       </main>
-      <router-view v-if="!bandera">
+      <router-view v-if="!mostrarContenido">
       </router-view>
     </div>
   </div>
