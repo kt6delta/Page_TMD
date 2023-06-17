@@ -12,10 +12,12 @@
                 </li>
                 <li>
                     <button>
+                        <router-link  to="../">
                         <figure>
                             <img src="./icons/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
                                 class="w-64 h-1/8">
                         </figure>
+                    </router-link>
                     </button>
                 </li>
             </ul>
