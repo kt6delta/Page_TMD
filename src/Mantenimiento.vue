@@ -11,7 +11,8 @@ export default {
             mostrarMenu: false,
             showImage: false,
             mostrarContenido: true,
-            windowWidth: window.innerWidth
+            windowWidth: window.innerWidth,
+            padre: 'Mantenimiento'
         };
     },
     mounted() {
@@ -46,7 +47,7 @@ export default {
             <router-view v-if="!mostrarContenido"></router-view>
 
             <div v-if="mostrarContenido">
-                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu"
+                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu"
                     @actualizar-contenido="actualizarContenido" />
 
                 <div v-if="!mostrarMenu" class="dark:bg-gray bg-white">

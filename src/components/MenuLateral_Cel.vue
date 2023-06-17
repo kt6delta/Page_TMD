@@ -10,36 +10,38 @@
         </figure>
         <ul class="items-center text-center">
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                    to="../App" @click="OcultarMenu">Inicio</router-link></li>
+                    to="../" @click="Ubicacion('App')">Inicio</router-link></li>
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                    to="../Ingresar" @click="ChangeContenido">Ingresar</router-link></li>
+                    to="../Ingresar" @click="Ubicacion('Ingresar')">Ingresar</router-link></li>
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                    to="../Registrarse" @click="ChangeContenido">Registrarse</router-link></li>
+                    to="../Registrarse" @click="Ubicacion('Registrarse')">Registrarse</router-link></li>
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                    to="../Contacto" @click="ChangeContenido">Contacto</router-link>
+                    to="../Contacto" @click="Ubicacion('Contacto')">Contacto</router-link>
             </li>
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                    to="../Alquiler" @click="ChangeContenido">Alquiler</router-link></li>
+                    to="../Alquiler" @click="Ubicacion('Alquiler')">Alquiler</router-link></li>
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                    to="../Mantenimiento" @click="ChangeContenido">Mantenimiento</router-link></li>
+                    to="../Mantenimiento" @click="Ubicacion('Mantenimiento')">Mantenimiento</router-link></li>
             <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                    to="../Venta" @click="ChangeContenido">Venta</router-link></li>
+                    to="../Venta" @click="Ubicacion('Venta')">Venta</router-link></li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-    return {
-        texto: ""
-    };
-  },
     methods: {
+        Ubicacion(texto) {
+            if (texto === this.PadreProp) {
+                this.OcultarMenu();
+            } else {
+                this.ChangeContenido();
+            }
+        },
         ChangeContenido() {
             this.$emit('actualizar-contenido', !this.contenidoProp);
         },
-        OcultarMenu(){
+        OcultarMenu() {
             this.$emit('actualizar-menu', !this.menuProp);
         }
     },
@@ -50,6 +52,10 @@ export default {
         },
         contenidoProp: {
             type: Boolean,
+            required: true,
+        },
+        PadreProp: {
+            type: String,
             required: true,
         },
     },

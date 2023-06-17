@@ -7,7 +7,8 @@ export default {
     data() {
         return {
             mostrarMenu: false,
-            mostrarContenido: true
+            mostrarContenido: true,
+            padre: 'Ingresar'
         };
     },
     methods: {
@@ -25,7 +26,7 @@ export default {
     <router-view v-if="!mostrarContenido"></router-view>
 
     <div v-if="mostrarContenido">
-        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu"
+        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu"
             @actualizar-contenido="actualizarContenido" />
         <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <header class="h-1/7 flex flex-col">

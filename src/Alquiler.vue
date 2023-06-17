@@ -10,7 +10,8 @@ export default {
         return {
             mostrarMenu: false,
             showImage: false,
-            mostrarContenido: true
+            mostrarContenido: true,
+            padre: 'Alquiler'
         };
     },
     mounted() {
@@ -37,42 +38,7 @@ export default {
     <router-view v-if="!mostrarContenido"></router-view>
 
     <div v-if="mostrarContenido">
-        <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
-            <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
-                <figure>
-                    <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
-                </figure>
-            </button>
-
-            <figure class="mx-auto w-80 h-28">
-                <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
-            </figure>
-            <ul class="items-center text-center">
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
-                </li>
-
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler" @click="mostrarMenu = !mostrarMenu">Alquiler</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Mantenimiento"
-                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link>
-                </li>
-            </ul>
-        </div>
+        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/>
         <div v-if="!mostrarMenu" class=" bg-yellow-2">
             <header class="h-1/7 flex flex-col">
                 <nav class="bg-black-0 w-full h-full">

@@ -12,6 +12,7 @@ export default {
             showImage: false,
             mostrarContenido: true,
             windowWidth: window.innerWidth,
+            padre: 'Contacto',
             bandera: true
         };
     },
@@ -45,7 +46,7 @@ export default {
         <!-- 350x640-->
         <div v-if="windowWidth < 640">
             <div v-if="mostrarContenido">
-                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu" />
+                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu" />
                 <div v-if="!mostrarMenu" class=" bg-yellow-2">
                     <header class="h-1/7 flex flex-col">
                         <nav class="bg-black-0 w-full h-full">
