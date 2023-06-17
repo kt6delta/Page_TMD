@@ -4,13 +4,15 @@ import Footer_Cel from './components/Footer_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
 import Chat_Flotante from './components/Chat_Flotante.vue';
 import MenuBarra_PC from './components/MenuBarra_PC.vue';
+import Footer_PC from './components/Footer_PC.vue';
 export default {
     components: {
         MenuLateral,
         Footer_Cel,
         MenuBarra_Cel,
         Chat_Flotante,
-        MenuBarra_PC
+        MenuBarra_PC,
+        Footer_PC
     },
   data() {
     return {
@@ -48,13 +50,21 @@ export default {
         <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/>       
         <div v-show="!mostrarMenu" class="w-full h-screen bg-yellow-2">
           <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/> 
-          <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col"
+          <main v-if="windowWidth < 768"  class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col"
             id="gradiente">
-            <div class="absolute inset-0 z-0">
-              <figure class="self-center">
-                <img src="./components/img/fondo_cel.jpeg" alt="fondo" title="fondo" class="hidden ">
-              </figure>
-            </div>
+            <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción 
+              en
+            </h1>
+            <h1><span
+                class="text-yellow-2 text-5xl mix-blend-lighten font-dancing font-extrabold text-center">Montacargas</span>
+            </h1>
+            <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">¡Agilizar tu operación
+              de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con
+              servicios de reparación y mantenimiento.</p>
+            <Chat_Flotante />
+          </main>
+          <main v-if="windowWidth >= 768" class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col"
+            id="fondo">
             <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción
               en
             </h1>
@@ -181,53 +191,7 @@ export default {
 
         </section>
         <!-- fqa y enlaces extra -->
-
-        <footer class="h-52 px-32 bg-septenary">
-
-          <div class="container mx-auto flex flex-row justify-center items-center">
-            <div class="lg:order-2 lg:w-1/3">
-              <div class="flex flex-col items-center p-2">
-                <img src="../src/components/icons/Logo_primary.svg" class="w-72">
-                <div class="bg-primary w-80 h-1"></div>
-              </div>
-              <div class="flex flex-row justify-center p-2 space-x-4">
-                <a href="https://wa.me/573168770708">
-                  <img src="../src/components/icons/whatsapp.svg" class="w-10">
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100089647335119">
-                  <img src="../src/components/icons/facebook.svg" class="w-10">
-                </a>
-                <a href="mailto:gestion@tecnimontacargasdual.com">
-                  <img src="../src/components/icons/mail.svg" class="w-11">
-                </a>
-
-              </div>
-            </div>
-
-            <div class="w-1/3 text-left text-xl font-Fuente_primaria text-primary">
-              <ul class="">
-                <li>hola</li>
-                <li>hola</li>
-                <li>hola</li>
-              </ul>
-            </div>
-
-
-
-            <div class="order-3 w-1/3 text-right text-xl font-Fuente_primaria text-primary">
-              <ul>
-                <li>hola</li>
-                <li>hola</li>
-                <li>hola</li>
-              </ul>
-            </div>
-
-          </div>
-
-        </footer>
-
-
-
+        <Footer_PC />
         <!--Seccion uno/imagen y texto -->
 
 
@@ -241,9 +205,16 @@ export default {
 <style scoped>
 #gradiente {
   /*background: #bdc3c7;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/components/img/fondo_cel.jpeg');
+  background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/components/img/jungher.jpg');
   /* Chrome 10-25, Safari 5.1-6 */
-  background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/components/img/fondo_cel.jpeg');
+  background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/components/img/jungher.jpg');
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#fondo{
+    /*background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url("/src/components/img/principal_2.jpg");
+  /* Chrome 10-25, Safari 5.1-6 */
+  background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url("/src/components/img/principal_2.jpg");
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 </style>
