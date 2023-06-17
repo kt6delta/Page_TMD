@@ -1,8 +1,10 @@
 <script>
 import MenuLateral from './components/MenuLateral_Cel.vue';
+import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
 export default {
     components: {
-        MenuLateral
+        MenuLateral,
+        MenuBarra_Cel
     },
     data() {
         return {
@@ -42,29 +44,7 @@ export default {
                 <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu"
                     @actualizar-contenido="actualizarContenido" />
                 <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
-                    <header class="h-1/7 flex flex-col">
-                        <nav class="bg-black-0 w-full h-full">
-                            <ul class="flex justify-center items-center h-full">
-                                <li class="mr-4">
-                                    <button @click="mostrarMenu = !mostrarMenu">
-                                        <figure>
-                                            <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu"
-                                                class="w-10 h-1/8">
-                                        </figure>
-                                    </button>
-
-                                </li>
-                                <li>
-                                    <router-link to="/" tag="button">
-                                        <figure>
-                                            <img src="./components/icons/ico_tmd_white_n.svg" alt="Montacarga" title="logo"
-                                                class="w-64 h-1/8">
-                                        </figure>
-                                    </router-link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </header>
+                    <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"/> 
 
                     <main class="bg-white dark:bg-gray w-full h-5/6 relative my-2">
                         <div class="w-full h-full flex items-center justify-center flex-col">
