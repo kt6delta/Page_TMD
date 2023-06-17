@@ -1,5 +1,11 @@
 <script >
+import MenuLateral from './components/MenuLateral_Cel.vue';
+import Footer_Cel from './components/Footer_Cel.vue';
 export default {
+    components: {
+        MenuLateral,
+        Footer_Cel
+    },
     data() {
         return {
             mostrarMenu: false,
@@ -23,6 +29,12 @@ export default {
         },
         handleScroll() {
             this.showImage = window.scrollY < window.innerHeight
+        },
+        actualizarMenu(nuevoValor) {
+            this.mostrarMenu = nuevoValor;
+        },
+        actualizarContenido(nuevoValor) {
+            this.mostrarContenido = nuevoValor;
         }
     }
 };
@@ -33,44 +45,7 @@ export default {
         <!-- 350x640-->
         <div v-if="windowWidth < 640">
             <div v-if="mostrarContenido">
-                <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
-                    <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
-                        <figure>
-                            <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
-                        </figure>
-                    </button>
-
-                    <figure class="mx-auto w-80 h-28">
-                        <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
-                    </figure>
-                    <ul class="items-center text-center">
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Registrarse"
-                                @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Contacto" @click="mostrarMenu = !mostrarMenu">Contacto</router-link>
-                        </li>
-
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Mantenimiento"
-                                @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link>
-                        </li>
-                    </ul>
-                </div>
-
+                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu" />
                 <div v-if="!mostrarMenu" class=" bg-yellow-2">
                     <header class="h-1/7 flex flex-col">
                         <nav class="bg-black-0 w-full h-full">
@@ -99,7 +74,8 @@ export default {
                     <main class="bg-white w-full h-3/4 relative dark:bg-gray">
                         <div class="flex items-center flex-col">
                             <figure class="w-full h-1/4">
-                                <img src="./components/img/monntacarga_4.jpg" alt="Contacto" title="Contacto" class="mx-auto">
+                                <img src="./components/img/monntacarga_4.jpg" alt="Contacto" title="Contacto"
+                                    class="mx-auto">
                             </figure>
                             <p
                                 class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
@@ -151,15 +127,16 @@ export default {
                         </div>
                         <div id="focusUser" class="text-center">
                             <figure class=" flex flex-col items-center">
-                                <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326" class="w-16 h-16">
+                                <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326"
+                                    class="w-16 h-16">
                             </figure>
                             <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">(+57)
                                 601 5408640<br>(+57)
                                 3244298326</p>
                             <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
                                 <figure class=" flex flex-col items-center">
-                                    <img src="./components/img/correo_icon_cel.png" alt="correo" title="gestion@tecnimontacargasdual.com"
-                                        class="w-16 h-16">
+                                    <img src="./components/img/correo_icon_cel.png" alt="correo"
+                                        title="gestion@tecnimontacargasdual.com" class="w-16 h-16">
                                 </figure>
                             </a>
                             <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">
@@ -176,7 +153,8 @@ export default {
                             <a href="https://www.google.com/maps/place/Tecnimontacargas+Dual+Ltda/@4.68237,-74.14496,17z/data=!4m6!3m5!1s0x8e3f9db07b05ee2d:0x7e11bf0a9122222d!8m2!3d4.68237!4d-74.14496!16s%2Fg%2F11gtz7t5y3?hl=es"
                                 target="_blank">
                                 <figure class=" flex flex-col items-center">
-                                    <img src="./components/img/mapa_icon_cel.png" alt="mapa" title="Carrera 108 # 22F -21" class="w-16 h-16">
+                                    <img src="./components/img/mapa_icon_cel.png" alt="mapa" title="Carrera 108 # 22F -21"
+                                        class="w-16 h-16">
                                 </figure>
                             </a>
                             <p class="mb-4 text-black-0 dark:text-gray-light text-xl font-serif transform -skew-x-12">
@@ -210,45 +188,7 @@ export default {
                             </figure>
                         </div>
                     </main>
-
-                    <footer class="w-full h-24">
-                        <nav class="bg-yellow-2 h-full">
-                            <ul class="flex justify-center items-center h-full">
-                                <li class="ml-4 mr-4">
-                                    <a href="#focusUser">
-                                        <figure>
-                                            <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326"
-                                                class="w-14 h-14">
-                                        </figure>
-                                    </a>
-                                </li>
-                                <li class="ml-4 mr-4">
-                                    <a href="#focusUser">
-                                        <figure>
-                                            <img src="./components/img/correo_icon_cel.png" alt="correo"
-                                                title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
-                                        </figure>
-                                    </a>
-                                </li>
-                                <li class="ml-4 mr-4">
-                                    <a href="#focusUser">
-                                        <figure>
-                                            <img src="./components/img/facebook_icon_cel.png" alt="facebook" title="facebook"
-                                                class="w-12 h-14">
-                                        </figure>
-                                    </a> <router-view v-if="!mostrarContenido"></router-view>
-                                </li>
-                                <li class="ml-4 mr-4">
-                                    <a href="#focusUser">
-                                        <figure>
-                                            <img src="./components/img/whatsap_icon_cel.png" alt="whatsapp" title="(+57) 3168770708"
-                                                class="w-14 h-14">
-                                        </figure>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    <Footer_Cel />
                 </div>
             </div>
             <router-view v-if="!mostrarContenido"></router-view>

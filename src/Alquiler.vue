@@ -1,5 +1,11 @@
 <script >
+import MenuLateral from './components/MenuLateral_Cel.vue';
+import Footer_Cel from './components/Footer_Cel.vue';
 export default {
+    components: {
+        MenuLateral,
+        Footer_Cel
+    },
     data() {
         return {
             mostrarMenu: false,
@@ -16,6 +22,12 @@ export default {
     methods: {
         handleScroll() {
             this.showImage = window.scrollY < window.innerHeight
+        },
+        actualizarMenu(nuevoValor) {
+            this.mostrarMenu = nuevoValor;
+        },
+        actualizarContenido(nuevoValor) {
+            this.mostrarContenido = nuevoValor;
         }
     }
 };
@@ -68,7 +80,8 @@ export default {
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu"
+                                        class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -120,47 +133,12 @@ export default {
                 </div>
                 <div class="fixed bottom-2 right-1" v-show="showImage">
                     <figure class="self-center order-last">
-                        <img src="./components/img/chat_icon_cel.png" alt="chat" title="chate con nosotros" class="w-14 h-14">
+                        <img src="./components/img/chat_icon_cel.png" alt="chat" title="chate con nosotros"
+                            class="w-14 h-14">
                     </figure>
                 </div>
             </main>
-            <footer class="w-full h-24">
-                <nav class="bg-yellow-2 h-full">
-                    <ul class="flex justify-center items-center h-full">
-                        <li class="ml-4 mr-4">
-                            <router-link to="/Contacto">
-                                <figure>
-                                    <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326"
-                                        class="w-14 h-14">
-                                </figure>
-                            </router-link>
-                        </li>
-                        <li class="ml-4 mr-4">
-                            <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
-                                <figure>
-                                    <img src="./components/img/correo_icon_cel.png" alt="correo"
-                                        title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="ml-4 mr-4">
-                            <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
-                                <figure>
-                                    <img src="./components/img/facebook_icon_cel.png" alt="facebook" title="facebook" class="w-12 h-14">
-                                </figure>
-                            </a>
-                        </li>
-                        <li class="ml-4 mr-4">
-                            <a href="https://wa.me/573168770708" target="_blank">
-                                <figure>
-                                    <img src="./components/img/whatsap_icon_cel.png" alt="whatsapp" title="(+57) 3168770708"
-                                        class="w-14 h-14">
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </footer>
+            <Footer_Cel />
         </div>
     </div>
 </template>

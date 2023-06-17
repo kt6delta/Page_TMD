@@ -1,5 +1,9 @@
-<script >
+<script>
+import MenuLateral from './components/MenuLateral_Cel.vue';
 export default {
+    components: {
+        MenuLateral
+    },
     data() {
         return {
             mostrarMenu: false,
@@ -17,6 +21,12 @@ export default {
         handleResize() {
             this.windowWidth = window.innerWidth;
         },
+        actualizarMenu(nuevoValor) {
+            this.mostrarMenu = nuevoValor;
+        },
+        actualizarContenido(nuevoValor) {
+            this.mostrarContenido = nuevoValor;
+        }
     },
 };
 </script>
@@ -28,43 +38,8 @@ export default {
             <router-view v-if="!mostrarContenido"></router-view>
 
             <div v-if="mostrarContenido">
-                <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
-                    <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
-                        <figure>
-                            <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
-                        </figure>
-                    </button>
-
-                    <figure class="mx-auto w-80 h-28">
-                        <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
-                    </figure>
-                    <ul class="items-center text-center">
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Registrarse" @click="mostrarMenu = !mostrarMenu">Registrarse</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
-                        </li>
-
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Mantenimiento"
-                                @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link>
-                        </li>
-                    </ul>
-                </div>
-
+                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu"
+                    @actualizar-contenido="actualizarContenido" />
                 <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
                     <header class="h-1/7 flex flex-col">
                         <nav class="bg-black-0 w-full h-full">
@@ -106,8 +81,8 @@ export default {
                                         <input
                                             class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline dark:placeholder:text-white dark:text-gray-light dark:bg-blue-1"
                                             id="username" type="text" placeholder="Ingrese su usuario">
-                                        <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1" src="./components/img/persona_icono_cel.webp"
-                                            alt="">
+                                        <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1"
+                                            src="./components/img/persona_icono_cel.webp" alt="">
                                     </div>
                                 </div>
                                 <div class="flex items-center justify-center">

@@ -1,10 +1,27 @@
 <script >
+import MenuLateral from './components/MenuLateral_Cel.vue';
+import Footer_Cel from './components/Footer_Cel.vue';
 export default {
+    components: {
+        MenuLateral,
+        Footer_Cel
+    },
     data() {
         return {
             mostrarMenu: false,
             mostrarContenido: true
         };
+    },
+    methods: {
+        handleResize() {
+            this.windowWidth = window.innerWidth;
+        },
+        actualizarMenu(nuevoValor) {
+            this.mostrarMenu = nuevoValor;
+        },
+        actualizarContenido(nuevoValor) {
+            this.mostrarContenido = nuevoValor;
+        }
     },
 };
 </script>
@@ -13,51 +30,18 @@ export default {
     <router-view v-if="!mostrarContenido"></router-view>
 
     <div v-if="mostrarContenido">
-        <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
-            <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
-                <figure>
-                    <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
-                </figure>
-            </button>
+        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu"
+            @actualizar-contenido="actualizarContenido" />
 
-            <figure class="mx-auto w-80 h-28">
-                <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
-            </figure>
-            <ul class="items-center text-center">
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
-                </li>
-
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Mantenimiento"
-                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Venta" @click="mostrarMenu = !mostrarMenu">Venta</router-link>
-                </li>
-            </ul>
-        </div>
-
-        <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">/
+        <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <header class="h-1/7 flex flex-col">
                 <nav class="bg-black-0 w-full h-full">
                     <ul class="flex justify-center items-center h-full">
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu"
+                                        class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -138,4 +122,5 @@ export default {
     /*background: -webkit-linear-gradient(to top right, rgba(41,46,73,0.1), rgba(83,105,118,0.8), rgba(124,144,160,0.9)), url('img/bateria.jpeg'); /* Chrome 10-25, Safari 5.1-6 */
     background-image: linear-gradient(to top right, rgba(41, 46, 73, 0.1), rgba(83, 105, 118, 0.8), rgba(124, 144, 160, 0.9)), url('components/img/montacarga_6.jpg');
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}</style>
+}
+</style>
