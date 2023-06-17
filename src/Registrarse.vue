@@ -43,7 +43,7 @@ export default {
             <div v-if="mostrarContenido">
                 <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu"
                     @actualizar-contenido="actualizarContenido" />
-                <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
+                <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
                     <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"/> 
 
                     <main class="bg-white dark:bg-gray w-full h-5/6 relative my-2">

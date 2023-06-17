@@ -1,5 +1,5 @@
 <template>
-    <div v-if="menuProp" class="bg-yellow-2 w-full h-screen flex flex-col">
+    <div v-show="menuProp" class="bg-yellow-2 w-full h-screen flex flex-col">
         <button @click="menuProp = !menuProp" class="ml-8 mt-10 w-8 h-8">
             <figure>
                 <img src="./img/x_icon_cel.png" alt="X" title="salir">

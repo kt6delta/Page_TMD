@@ -2,11 +2,13 @@
 import MenuLateral from './components/MenuLateral_Cel.vue';
 import Footer_Cel from './components/Footer_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
+import Chat_Flotante from './components/Chat_Flotante.vue';
 export default {
     components: {
         MenuLateral,
         Footer_Cel,
-        MenuBarra_Cel
+        MenuBarra_Cel,
+        Chat_Flotante
     },
   data() {
     return {
@@ -43,8 +45,8 @@ export default {
     <div v-if="windowWidth < 1024">
       <div v-if="mostrarContenido">
         <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/>       
-        <div v-if="!mostrarMenu" class="w-full h-screen bg-yellow-2">
-          <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"/> 
+        <div v-show="!mostrarMenu" class="w-full h-screen bg-yellow-2">
+          <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/> 
           <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col"
             id="gradiente">
             <div class="absolute inset-0 z-0">
@@ -61,11 +63,7 @@ export default {
             <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">¡Agilizar tu operación
               de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con
               servicios de reparación y mantenimiento.</p>
-            <div class="flex justify-end absolute bottom-0 right-0">
-              <figure class="self-center order-last">
-                <img src="./components/img/chat_icon_cel.png" alt="chat" title="chat" class="w-14 h-14">
-              </figure>
-            </div>
+            <Chat_Flotante />
           </main>
           <Footer_Cel />
         </div>

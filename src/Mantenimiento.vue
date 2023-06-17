@@ -2,35 +2,31 @@
 import MenuLateral from './components/MenuLateral_Cel.vue';
 import Footer_Cel from './components/Footer_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
+import Chat_Flotante from './components/Chat_Flotante.vue';
 export default {
     components: {
-        MenuLateral,
-        Footer_Cel,
-        MenuBarra_Cel
-    },
+    MenuLateral,
+    Footer_Cel,
+    MenuBarra_Cel,
+    Chat_Flotante
+},
     data() {
         return {
             mostrarMenu: false,
-            showImage: false,
             mostrarContenido: true,
             windowWidth: window.innerWidth,
             padre: 'Mantenimiento'
         };
     },
     mounted() {
-        window.addEventListener('scroll', this.handleScroll)
         window.addEventListener('resize', this.handleResize)
     },
     beforeUnmount() {
-        window.removeEventListener('resize', this.handleResize);
         window.removeEventListener('scroll', this.handleScroll)
     },
     methods: {
         handleResize() {
             this.windowWidth = window.innerWidth;
-        },
-        handleScroll() {
-            this.showImage = window.scrollY < window.innerHeight
         },
         actualizarMenu(nuevoValor) {
             this.mostrarMenu = nuevoValor;
@@ -52,7 +48,7 @@ export default {
                 <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu"
                     @actualizar-contenido="actualizarContenido" />
 
-                <div v-if="!mostrarMenu" class="dark:bg-gray bg-white">
+                <div v-show="!mostrarMenu" class="dark:bg-gray bg-white">
                     <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"/> 
 
                     <main class="bg-white dark:bg-gray w-full h-3/4 relative">
@@ -116,11 +112,7 @@ export default {
                                     el tiempo que demore la refracción</span>
                             </p>
                         </div>
-                        <div class="fixed bottom-2 right-1" v-show="showImage">
-                            <figure class="self-center order-last">
-                                <img src="./components/img/chat_icon_cel.png" alt="chat" title="chat" class="w-14 h-14">
-                            </figure>
-                        </div>
+                        <Chat_Flotante />
                     </main>
 
                     <Footer_Cel />
