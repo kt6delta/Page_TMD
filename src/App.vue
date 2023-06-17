@@ -1,11 +1,17 @@
 <script >
+import MenuLateral from './components/MenuLateral_Cel.vue';
+import Footer_Cel from './components/Footer_Cel.vue';
 export default {
+    components: {
+        MenuLateral,
+        Footer_Cel
+    },
   data() {
     return {
       mostrarMenu: false,
       mostrarContenido: true,
       windowWidth: window.innerWidth,
-      bandera : true
+      bandera: true
     };
   },
   mounted() {
@@ -18,9 +24,14 @@ export default {
     handleResize() {
       this.windowWidth = window.innerWidth;
     },
+    actualizarMenu(nuevoValor) {
+      this.mostrarMenu  = nuevoValor;
+    },
+    actualizarContenido(nuevoValor) {
+      this.mostrarContenido = nuevoValor;
+    }
   },
 };
-
 </script>
 
 <template>
@@ -28,35 +39,7 @@ export default {
     <!--350x640-->
     <div v-if="windowWidth < 1024">
       <div v-if="mostrarContenido">
-        <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
-          <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
-            <figure>
-              <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
-            </figure>
-          </button>
-
-          <figure class="mx-auto w-80 h-28">
-            <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
-          </figure>
-          <ul class="items-center text-center">
-            <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                to="/" @click="mostrarMenu = !mostrarMenu">Inicio</router-link></li>
-            <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link></li>
-            <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link></li>
-            <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
-            </li>
-
-            <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link></li>
-            <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                to="/Mantenimiento" @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
-            <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray"><router-link
-                to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
-          </ul>
-        </div>
+        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido"/>       
         <div v-if="!mostrarMenu" class="w-full h-screen bg-yellow-2">
           <header class="h-1/7 flex flex-col">
             <nav class="bg-black-0 w-full h-full">
@@ -67,7 +50,6 @@ export default {
                       <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu" class="w-10 h-1/8">
                     </figure>
                   </button>
-
                 </li>
                 <li>
                   <button>
@@ -79,7 +61,6 @@ export default {
               </ul>
             </nav>
           </header>
-
           <main class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col"
             id="gradiente">
             <div class="absolute inset-0 z-0">
@@ -93,7 +74,6 @@ export default {
             <h1><span
                 class="text-yellow-2 text-5xl mix-blend-lighten font-dancing font-extrabold text-center">Montacargas</span>
             </h1>
-
             <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">¡Agilizar tu operación
               de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con
               servicios de reparación y mantenimiento.</p>
@@ -103,42 +83,7 @@ export default {
               </figure>
             </div>
           </main>
-
-          <footer class="w-full h-24">
-            <nav class="bg-yellow-2 h-full">
-              <ul class="flex justify-center items-center h-full">
-                <li class="ml-4 mr-4">
-                  <router-link to="/Contacto">
-                    <figure>
-                      <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326" class="w-14 h-14">
-                    </figure>
-                  </router-link>
-                </li>
-                <li class="ml-4 mr-4">
-                  <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
-                    <figure>
-                      <img src="./components/img/correo_icon_cel.png" alt="correo" title="gestion@tecnimontacargasdual.com"
-                        class="w-14 h-14">
-                    </figure>
-                  </a>
-                </li>
-                <li class="ml-4 mr-4">
-                  <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
-                    <figure>
-                      <img src="./components/img/facebook_icon_cel.png" alt="facebook" title="facebook" class="w-12 h-14">
-                    </figure>
-                  </a>
-                </li>
-                <li class="ml-4 mr-4">
-                  <a href="https://wa.me/573168770708" target="_blank">
-                    <figure>
-                      <img src="./components/img/whatsap_icon_cel.png" alt="whatsapp" title="(+57) 3168770708" class="w-14 h-14">
-                    </figure>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </footer>
+          <Footer_Cel />
         </div>
       </div>
       <router-view v-else="mostrarContenido"></router-view>
@@ -187,7 +132,7 @@ export default {
           <div class="w-full h-5/6 bg-principal bg-cover bg-center relative "></div>
 
           <!--Parte 1 titulo-->
-          
+
           <div class="w-full h-5/6 absolute ">
             <div class="container mx-auto w-full h-full flex flex-col justify-center">
               <p class="w-2/6 h-1/4 font-Fuente_secundaria text-nonary text-start text-5xl xl:text-6xl ">

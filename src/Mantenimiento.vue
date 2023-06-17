@@ -1,5 +1,11 @@
 <script >
+import MenuLateral from './components/MenuLateral_Cel.vue';
+import Footer_Cel from './components/Footer_Cel.vue';
 export default {
+    components: {
+        MenuLateral,
+        Footer_Cel
+    },
     data() {
         return {
             mostrarMenu: false,
@@ -22,6 +28,12 @@ export default {
         },
         handleScroll() {
             this.showImage = window.scrollY < window.innerHeight
+        },
+        actualizarMenu(nuevoValor) {
+            this.mostrarMenu = nuevoValor;
+        },
+        actualizarContenido(nuevoValor) {
+            this.mostrarContenido = nuevoValor;
         }
     }
 };
@@ -34,41 +46,8 @@ export default {
             <router-view v-if="!mostrarContenido"></router-view>
 
             <div v-if="mostrarContenido">
-                <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
-                    <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
-                        <figure>
-                            <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
-                        </figure>
-                    </button>
-
-                    <figure class="mx-auto w-80 h-28">
-                        <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
-                    </figure>
-                    <ul class="items-center text-center">
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Ingresar" @click="mostrarContenido = !mostrarContenido">Ingresar</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Registrarse"
-                                @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Mantenimiento" @click="mostrarMenu = !mostrarMenu">Mantenimiento</router-link>
-                        </li>
-                        <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                            <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link>
-                        </li>
-                    </ul>
-                </div>
+                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu"
+                    @actualizar-contenido="actualizarContenido" />
 
                 <div v-if="!mostrarMenu" class="dark:bg-gray bg-white">
                     <header class="h-1/7 flex flex-col">
@@ -98,7 +77,8 @@ export default {
                     <main class="bg-white dark:bg-gray w-full h-3/4 relative">
                         <div class="flex items-center flex-col">
                             <figure class="w-full h-1/6">
-                                <img src="./components/img/mantenimineto.jpeg" alt="Mecanico_Reparando" title="Mantenimiento">
+                                <img src="./components/img/mantenimineto.jpeg" alt="Mecanico_Reparando"
+                                    title="Mantenimiento">
                             </figure>
                             <p
                                 class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
@@ -162,44 +142,7 @@ export default {
                         </div>
                     </main>
 
-                    <footer class="w-full h-24">
-                        <nav class="bg-yellow-2 h-full">
-                            <ul class="flex justify-center items-center h-full">
-                                <li class="ml-4 mr-4">
-                                    <router-link to="/Contacto">
-                                        <figure>
-                                            <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326"
-                                                class="w-14 h-14">
-                                        </figure>
-                                    </router-link>
-                                </li>
-                                <li class="ml-4 mr-4">
-                                    <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
-                                        <figure>
-                                            <img src="./components/img/correo_icon_cel.png" alt="correo"
-                                                title="gestion@tecnimontacargasdual.com" class="w-14 h-14">
-                                        </figure>
-                                    </a>
-                                </li>
-                                <li class="ml-4 mr-4">
-                                    <a href="https://www.facebook.com/profile.php?id=100089647335119" target="_blank">
-                                        <figure>
-                                            <img src="./components/img/facebook_icon_cel.png" alt="facebook" title="facebook"
-                                                class="w-12 h-14">
-                                        </figure>
-                                    </a>
-                                </li>
-                                <li class="ml-4 mr-4">
-                                    <a href="https://wa.me/573168770708" target="_blank">
-                                        <figure>
-                                            <img src="./components/img/whatsap_icon_cel.png" alt="whatsapp" title="(+57) 3168770708"
-                                                class="w-14 h-14">
-                                        </figure>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    <Footer_Cel />
                 </div>
             </div>
         </div>
@@ -267,7 +210,9 @@ export default {
 
                             <div class="w-full h-full bg-nonary rounded-md flex flex-col justify-center items-center">
 
-                                <h1 class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">Montacargas</h1>
+                                <h1
+                                    class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">
+                                    Montacargas</h1>
                                 <ul
                                     class="pt-5 list-disc list-outside font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl space-y-2">
                                     <li>Programas de mantenimiento específico para sus necesidades individuales.</li>
@@ -291,11 +236,15 @@ export default {
 
                             <div class="w-full h-full bg-nonary rounded-md flex flex-col justify-center items-center">
 
-                                <h1 class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">Servicio técnico
+                                <h1
+                                    class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">
+                                    Servicio técnico
                                     especialistas en
                                     Jungheinrich
                                 </h1>
-                                <p class="pt-5 font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl  space-y-2 text-center">Apoyamos a
+                                <p
+                                    class="pt-5 font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl  space-y-2 text-center">
+                                    Apoyamos a
                                     nuestros
                                     clientes para mantener sus equipos 100% operativos, seguros y confiables,
                                     asegurándoles respaldo y confiabilidad en la actividad de los mismos.</p>
@@ -330,9 +279,13 @@ export default {
 
                             <div class="w-full h-full bg-nonary rounded-md flex flex-col justify-center items-center">
 
-                                <h1 class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">Servicio técnico
+                                <h1
+                                    class="font-Fuente_terciaria text-septenary text-center text-5xl xl:text-6xl 2xl:text-7xl">
+                                    Servicio técnico
                                     portaestibas</h1>
-                                <p class="pt-5 font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl space-y-2 text-center">Contamos
+                                <p
+                                    class="pt-5 font-Fuente_primaria text-primary text-2xl xl:text-3xl 2xl:text-4xl space-y-2 text-center">
+                                    Contamos
                                     con dos tipos de
                                     mantenimiento preventivo-correctivo y para que su operación no se vea afectada prestamos
                                     nuestros

@@ -1,10 +1,22 @@
 <script >
+import MenuLateral from './components/MenuLateral_Cel.vue';
 export default {
+    components: {
+        MenuLateral
+    },
     data() {
         return {
             mostrarMenu: false,
             mostrarContenido: true
         };
+    },
+    methods: {
+        actualizarMenu(nuevoValor) {
+            this.mostrarMenu = nuevoValor;
+        },
+        actualizarContenido(nuevoValor) {
+            this.mostrarContenido = nuevoValor;
+        }
     },
 };
 </script>
@@ -13,38 +25,8 @@ export default {
     <router-view v-if="!mostrarContenido"></router-view>
 
     <div v-if="mostrarContenido">
-        <div v-if="mostrarMenu" class="bg-yellow-2 w-full h-screen flex flex-col">
-            <button @click="mostrarMenu = !mostrarMenu" class="ml-8 mt-10 w-8 h-8">
-                <figure>
-                    <img src="./components/img/x_icon_cel.png" alt="X" title="salir">
-                </figure>
-            </button>
-
-            <figure class="mx-auto w-80 h-28">
-                <img src="./components/icons/Logo_white.svg" alt="Montacarga" title="logo" class=" w-80 h-28">
-            </figure>
-            <ul class="items-center text-center">
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/" @click="mostrarContenido = !mostrarContenido">Inicio</router-link></li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Ingresar" @click="mostrarMenu = !mostrarMenu">Ingresar</router-link></li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Registrarse" @click="mostrarContenido = !mostrarContenido">Registrarse</router-link>
-                </li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Contacto" @click="mostrarContenido = !mostrarContenido">Contacto</router-link>
-                </li>
-
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Alquiler" @click="mostrarContenido = !mostrarContenido">Alquiler</router-link></li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Mantenimiento"
-                        @click="mostrarContenido = !mostrarContenido">Mantenimiento</router-link></li>
-                <li class="text-black-0 text-2xl py-2 font-serif font-bold transform -skew-x-12 hover:text-gray">
-                    <router-link to="/Venta" @click="mostrarContenido = !mostrarContenido">Venta</router-link></li>
-            </ul>
-        </div>
-
+        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" @actualizar-menu="actualizarMenu"
+            @actualizar-contenido="actualizarContenido" />
         <div v-if="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <header class="h-1/7 flex flex-col">
                 <nav class="bg-black-0 w-full h-full">
@@ -52,7 +34,8 @@ export default {
                         <li class="mr-4">
                             <button @click="mostrarMenu = !mostrarMenu">
                                 <figure>
-                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu" class="w-10 h-1/8">
+                                    <img src="./components/img/menu_lineas_blancas_cel.png" alt="menu" title="menu"
+                                        class="w-10 h-1/8">
                                 </figure>
                             </button>
 
@@ -76,7 +59,8 @@ export default {
                     </h2>
                     <form class="bg-white shadow-md rounded px-3 pt-3 pb-4 mb-4 dark:bg-gray ">
                         <div class="mb-4">
-                            <label class="block text-gray font-serif italic text-xl font-bold mb-2 dark:text-gray-light" for="username">
+                            <label class="block text-gray font-serif italic text-xl font-bold mb-2 dark:text-gray-light"
+                                for="username">
                                 Usuario
                             </label>
                             <input
@@ -84,7 +68,8 @@ export default {
                                 id="username" type="text" placeholder="Ingrese su usuario">
                         </div>
                         <div class="mb-4">
-                            <label class="block text-gray font-serif italic text-xl font-bold mb-2 dark:text-gray-light" for="password">
+                            <label class="block text-gray font-serif italic text-xl font-bold mb-2 dark:text-gray-light"
+                                for="password">
                                 Contraseña
                             </label>
                             <input
