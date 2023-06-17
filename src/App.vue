@@ -44,7 +44,7 @@ export default {
 
 <template>
   <div>
-    <!--350x640-->
+    <!--320x768-->
     <div v-if="windowWidth < 1024">
       <div v-if="mostrarContenido">
         <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
@@ -52,45 +52,29 @@ export default {
         <div v-show="!mostrarMenu" class="w-full h-screen bg-yellow-2">
           <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"
             @actualizar-contenido="actualizarContenido" />
-
-          <!--REDUCIR-->
-          <main v-if="windowWidth < 768"
-            class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col" id="gradiente">
+          <main :class="[
+            'bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col',
+            windowWidth < 768 ? 'gradiente' : 'fondo'
+          ]">
             <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción
-              en
-            </h1>
-            <h1><span
+              en</h1>
+            <h1>
+              <span
                 class="text-yellow-2 text-5xl mix-blend-lighten font-dancing font-extrabold text-center">Montacargas</span>
             </h1>
-            <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">¡Agilizar tu operación
-              de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con
-              servicios de reparación y mantenimiento.</p>
+            <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">
+              ¡Agilizar tu operación de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con servicios de
+              reparación y mantenimiento.
+            </p>
             <Chat_Flotante />
           </main>
-          <main v-if="windowWidth >= 768"
-            class="bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col" id="fondo">
-            <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción
-              en
-            </h1>
-            <h1><span
-                class="text-yellow-2 text-5xl mix-blend-lighten font-dancing font-extrabold text-center">Montacargas</span>
-            </h1>
-            <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">¡Agilizar tu operación
-              de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con
-              servicios de reparación y mantenimiento.</p>
-            <Chat_Flotante />
-          </main>
-          <!--HASTA AQUI-->
-          
           <Footer_Cel />
         </div>
       </div>
       <router-view v-else="mostrarContenido"></router-view>
     </div>
-    <!--1000-->
+    <!--1024-->
     <div v-else>
-
-
       <main class="w-full h-screen " v-if="mostrarContenido">
 
         <!--nav-->
@@ -209,7 +193,7 @@ export default {
 </template>
 
 <style scoped>
-#gradiente {
+.gradiente {
   /*background: #bdc3c7;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url('/src/components/img/jungher.jpg');
   /* Chrome 10-25, Safari 5.1-6 */
@@ -217,10 +201,8 @@ export default {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#fondo {
-  /*background: #bdc3c7;  /* fallback for old browsers */
+.fondo {
   background: -webkit-linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url("/src/components/img/principal_2.jpg");
-  /* Chrome 10-25, Safari 5.1-6 */
   background-image: linear-gradient(to top right, rgba(252, 252, 252, 0.1), rgba(122, 134, 144, 0.5), rgba(120, 151, 176, 0.9)), url("/src/components/img/principal_2.jpg");
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}</style>
+}
+</style>

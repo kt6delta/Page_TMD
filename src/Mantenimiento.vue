@@ -7,13 +7,13 @@ import MenuBarra_PC from './components/MenuBarra_PC.vue';
 import Footer_PC from './components/Footer_PC.vue';
 export default {
     components: {
-    MenuLateral,
-    Footer_Cel,
-    MenuBarra_Cel,
-    Chat_Flotante,
-    MenuBarra_PC,
-    Footer_PC
-},
+        MenuLateral,
+        Footer_Cel,
+        MenuBarra_Cel,
+        Chat_Flotante,
+        MenuBarra_PC,
+        Footer_PC
+    },
     data() {
         return {
             mostrarMenu: false,
@@ -49,20 +49,28 @@ export default {
             <router-view v-if="!mostrarContenido"></router-view>
 
             <div v-if="mostrarContenido">
-                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu"
-                    @actualizar-contenido="actualizarContenido" />
+                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
+                    @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
 
                 <div v-show="!mostrarMenu" class="dark:bg-gray bg-white">
-                    <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"/> 
+                    <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
 
                     <main class="bg-white dark:bg-gray w-full h-3/4 relative">
                         <div class="flex items-center flex-col">
-                            <figure class="w-full h-1/6">
-                                <img src="./components/img/mantenimineto.jpeg" alt="Mecanico_Reparando"
+                            <figure class="w-full h-1/6 relative">
+                                <div class="absolute inset-0 bg-black opacity-50"></div>
+                                <img src="./components/img/mantenimineto.png" alt="Mecanico_Reparando"
                                     title="Mantenimiento">
                             </figure>
-                            <p
-                                class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
+                            <p :class="{
+                                'text-xl': windowWidth <= 400,
+                                'text-4xl': windowWidth > 400 && windowWidth < 575,
+                                'text-5xl': windowWidth >= 575,
+                                'text-black-0 dark:text-gray-light font-serif font-bold text-center': true,
+                                'mr-10 ml-10 mt-4 p-1 bg-nonary opacity-80 absolute rounded-md': windowWidth <= 400,
+                                'mr-14 ml-14 mt-6 p-2 bg-nonary opacity-80 absolute rounded-md': windowWidth > 400 && windowWidth < 575,
+                                'mr-24 ml-24 mt-10 p-5 bg-nonary opacity-80 absolute rounded-md': windowWidth >= 575
+                            }">
                                 Más que un servicio creamos un sistema general de rendimiento para sus equipos.
                             </p>
                             <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
@@ -123,12 +131,12 @@ export default {
                 </div>
             </div>
         </div>
-        <!-- 750x1200-->
+        <!--1200-->
         <div v-else>
 
             <main class="w-full h-screen">
                 <!--nav-->
-                <MenuBarra_PC :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido"/> 
+                <MenuBarra_PC :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido" />
 
                 <!--fondo y frase-->
 
