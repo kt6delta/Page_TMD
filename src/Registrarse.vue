@@ -6,17 +6,19 @@ import Footer_PC from './components/Footer_PC.vue';
 export default {
 
     components: {
-    MenuLateral,
-    MenuBarra_Cel,
-    MenuBarra_PC,
-    Footer_PC
-},
+        MenuLateral,
+        MenuBarra_Cel,
+        MenuBarra_PC,
+        Footer_PC
+    },
     data() {
         return {
             mostrarMenu: false,
             mostrarContenido: true,
             windowWidth: window.innerWidth,
-            padre: 'Registrarse'
+            padre: 'Registrarse',
+            InterfazMedia: 768,
+            InterfazGrand: 1024
         };
     },
     mounted() {
@@ -47,14 +49,23 @@ export default {
             @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
         <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-            <MenuBarra_PC v-else/>
+            <MenuBarra_PC v-else />
 
             <main class="bg-white dark:bg-gray w-full h-5/6 relative my-2">
                 <div class="w-full h-full flex items-center justify-center flex-col">
-                    <h2 class="text-gray dark:text-white text-3xl font-serif font-bold text-center">
+                    <h2 :class="{
+                        'text-5xl font-dancing p-5 mt-32': windowWidth >= 1024,
+                        'text-5xl font-dancing p-5 mt-6': windowWidth < 1024 && windowWidth >= InterfazMedia,
+                        'text-3xl font-serif': windowWidth < InterfazMedia,
+                        'text-gray dark:text-white text-center font-bold': true
+                    }">
                         Registro
                     </h2>
-                    <form class="bg-white dark:bg-gray shadow-md rounded px-3 pt-3 pb-4 mb-4 w-5/6">
+                    <form :class="{
+                        'bg-gray w-1/2 h-1/3 mb-10': windowWidth >= InterfazMedia,
+                        'bg-white w-5/6 mb-4': windowWidth < InterfazMedia,
+                        'dark:bg-gray shadow-md rounded px-3 pt-3 pb-4': true
+                    }">
                         <div class="mb-4">
                             <label class="block text-gray dark:text-gray-light font-serif italic text-xl font-bold mb-2"
                                 for="username">
@@ -69,47 +80,76 @@ export default {
                             </div>
                         </div>
                         <div class="flex items-center justify-center">
-                            <router-link to="/Registro_Correo" tag="button"
-                                    class="bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    Continue con el correo
+                            <router-link to="/Registro_Correo" tag="button" :class="{
+                                'mt-5': windowWidth >= InterfazMedia,
+                                'm-0': windowWidth < InterfazMedia,
+                                'bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
+                            }">
+                                Continue con el correo
                             </router-link>
                         </div>
                     </form>
 
-                    <div class="flex items-center w-full mb-2">
+                    <div :class="{
+                        'mb-10': windowWidth >= InterfazMedia,
+                        'mb-2': windowWidth < InterfazMedia,
+                        'flex items-center w-full mb-2': true
+                    }">
                         <div class="border-t border-black-0 dark:border-white  w-1/2 h-1 ml-4">&nbsp;</div>
                         <div class="px-2 pb-1 text-black-0 dark:text-white">O</div>
                         <div class="border-t border-black-0 dark:border-white  w-1/2 h-1 mr-4">&nbsp;</div>
                     </div>
 
                     <div class="flex flex-col items-center justify-center">
-                        <button
-                            class="inline-flex bg-white dark:bg-yellow-2  py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white  w-full leading-tight focus:shadow-outline"
-                            type="button">
-                            <img class="w-5 h-5" src="./components/img/google_icon_cel.png" alt="google">
-                            <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Google</p>
+                        <button :class="{
+                            'mb-6': windowWidth >= InterfazMedia,
+                            'mb-3': windowWidth < InterfazMedia,
+                            'inline-flex bg-white dark:bg-yellow-2  py-1 px-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white  w-full leading-tight focus:shadow-outline': true
+                        }" type="button">
+                            <img :class="{
+                                'w-7 h-7': windowWidth >= InterfazMedia,
+                                'w-5 h-5': windowWidth < InterfazMedia
+                            }" src="./components/img/google_icon_cel.png" alt="google">
+                            <p :class="{
+                                'text-2xl': windowWidth >= InterfazMedia,
+                                'text-xl': windowWidth < InterfazMedia,
+                                'text-black-0 font-bold font-serif italic ml-2': true
+                            }">Continue con Google</p>
                         </button>
-                        <button
-                            class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
-                            type="button">
-                            <img class="w-5 h-5" src="./components/img/facebook_icon_cel.png" alt="facebook">
-                            <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Facebook
+                        <button :class="{
+                            'mb-6': windowWidth >= InterfazMedia,
+                            'mb-3': windowWidth < InterfazMedia,
+                            'inline-flex bg-white dark:bg-yellow-2 py-1 px-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline': true
+                        }" type="button">
+                            <img :class="{
+                                'w-7 h-7': windowWidth >= InterfazMedia,
+                                'w-5 h-5': windowWidth < InterfazMedia
+                            }" src="./components/img/facebook_icon_cel.png" alt="facebook">
+                            <p :class="{
+                                'text-2xl': windowWidth >= InterfazMedia,
+                                'text-xl': windowWidth < InterfazMedia,
+                                'text-black-0 font-bold font-serif italic ml-2': true
+                            }">Continue con Facebook
                             </p>
                         </button>
                         <button
                             class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
                             type="button">
-                            <img class="w-5 h-5" src="./components/img/apple_icon_cel.png" alt="apple">
-                            <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continua con Apple</p>
+                            <img :class="{
+                                'w-7 h-7': windowWidth >= InterfazMedia,
+                                'w-5 h-5': windowWidth < InterfazMedia
+                            }" src="./components/img/apple_icon_cel.png" alt="apple">
+                            <p :class="{
+                                'text-2xl': windowWidth >= InterfazMedia,
+                                'text-xl': windowWidth < InterfazMedia,
+                                'text-black-0 font-bold font-serif italic ml-2': true
+                            }">Continua con Apple</p>
                         </button>
                     </div>
                 </div>
             </main>
         </div>
     </div>
-
-
-
 </template>
 
 <style scoped></style>
