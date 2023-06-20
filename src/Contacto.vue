@@ -7,13 +7,13 @@ import MenuBarra_PC from './components/MenuBarra_PC.vue';
 import Footer_PC from './components/Footer_PC.vue';
 export default {
     components: {
-    MenuLateral,
-    Footer_Cel,
-    MenuBarra_Cel,
-    Chat_Flotante,
-    MenuBarra_PC,
-    Footer_PC
-},
+        MenuLateral,
+        Footer_Cel,
+        MenuBarra_Cel,
+        Chat_Flotante,
+        MenuBarra_PC,
+        Footer_PC
+    },
     data() {
         return {
             mostrarMenu: false,
@@ -47,21 +47,34 @@ export default {
         <!-- 350x640-->
         <div v-if="windowWidth < 1024">
             <div v-if="mostrarContenido">
-                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu" />
+                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
+                    @actualizar-menu="actualizarMenu" />
                 <div v-show="!mostrarMenu" class=" bg-yellow-2">
-                    <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"/> 
+                    <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
 
                     <main class="bg-white w-full h-3/4 relative dark:bg-gray">
-                        <div class="flex items-center flex-col">
+                        <div class="flex items-center flex-col bg-white">
                             <figure class="w-full h-1/4">
-                                <img src="./components/img/monntacarga_4.jpg" alt="Contacto" title="Contacto"
-                                    class="mx-auto">
+                                <img v-if="this.windowWidth < 768"  src="./components/img/montacarga_1_cel.jpeg" class="mx-auto" alt="Contacto" title="Contacto">
+                                <img v-else src="./components/img/montacarga_1_cel-gris.jpeg" class="mx-auto" alt="Contacto" title="Contacto">
                             </figure>
+                            
                             <p
-                                class="text-black-0 dark:text-gray-light text-2xl font-serif font-bold text-center mr-4 ml-4 mt-4">
-                                Diligencie el formulario y pronto estaremos en contacto con usted
+                                :class="{
+                                    'text-8xl mr-24 ml-24 mt-40 p-5 bg-nonary opacity-80 absolute rounded-md':windowWidth > 600 && windowWidth < 1024 ,
+                                    'text-5xl mr-4 ml-4 mt-4':windowWidth <= 600,
+                                    'text-black-0 dark:text-gray-light font-dancing font-bold text-center':true
+                            }">
+                                Contactenos
                             </p>
-                            <form class="w-64 mt-6">
+                            <div :class="{
+                                'bg-black-0 w-1/2 mt-10 mb-10':windowWidth >= 768,
+                                '':windowWidth < 768
+                            }">
+                            <form :class="{
+                                'p-10':windowWidth >= 768,
+                                'w-64 mt-6':windowWidth < 768
+                                }">
                                 <input
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none  focus:border-gray focus:ring-2 focus:ring-black bg-yellow mb-4"
                                     id="name" type="text" placeholder="Nombre">
@@ -91,7 +104,7 @@ export default {
                                     </div>
                                 </div>
 
-                                <label for="message" class="block text-gray text-xl font-serif italic mb-2">Mensaje:</label>
+                                <label for="message" class="block text-white text-xl font-serif italic mb-2">Mensaje:</label>
                                 <textarea id="message" name="message" rows="4"
                                     class="form-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-black bg-yellow"></textarea>
 
@@ -105,6 +118,8 @@ export default {
                                 </div>
                             </form>
                         </div>
+                        </div>
+                    
                         <div id="focusUser" class="text-center">
                             <figure class=" flex flex-col items-center">
                                 <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326"
@@ -174,7 +189,7 @@ export default {
             <main class="w-full h-screen">
 
                 <!--nav-->
-                <MenuBarra_PC :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido"/> 
+                <MenuBarra_PC :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido" />
 
                 <!--formulario y foto-->
 

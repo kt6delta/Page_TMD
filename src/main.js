@@ -6,7 +6,6 @@ import App from './App.vue'
 import Contacto from './Contacto.vue'
 import Alquiler from './Alquiler.vue'
 import Mantenimiento from './Mantenimiento.vue'
-import Venta from './Venta.vue'
 import Ingresar from './Ingresar.vue'
 import Registrarse from './Registrarse.vue'
 import Registro_Correo from './Registro_Correo.vue'
@@ -17,7 +16,6 @@ const routes = [
     { path: '/Contacto', name: "Contacto", component: Contacto},
     { path: '/Alquiler', name: "Alquiler", component: Alquiler },
     { path: '/Mantenimiento', name: "Mantenimiento", component: Mantenimiento },
-    { path: '/Venta', name: "Venta", component: Venta },
     { path: '/Ingresar', name: "Ingresar", component: Ingresar },
     { path: '/Registrarse', name: "Registrarse", component: Registrarse },
     { path: '/Registro_Correo', name: "Registro_Correo", component: Registro_Correo}
