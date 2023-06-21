@@ -42,3 +42,9 @@ npm run dev
 ```sh
 npm run build
 ```
+## Start Backend
+```sh
+python3 manage.py runserver
+```
+
+
