@@ -21,6 +21,7 @@ npm install tailwindcss --save-dev
 npm install autoprefixer
 npm install vue-router
 npm install --save-dev @rollup/plugin-image
+npm install axios
 ```
 on windows:
 
@@ -45,6 +46,8 @@ npm run build
 ## Start Backend
 ```sh
 python3 manage.py runserver
+pip3 install django-cors-headers
+```
 ```
 
 

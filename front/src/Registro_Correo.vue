@@ -5,6 +5,7 @@ import MenuBarra_PC from './components/MenuBarra_PC.vue';
 import Footer_PC from './components/Footer_PC.vue';
 import Footer_Cel from './components/Footer_Cel.vue';
 
+import axios from 'axios';
 export default {
     components: {
         MenuLateral,
@@ -36,6 +37,15 @@ export default {
         },
         actualizarContenido(nuevoValor) {
             this.mostrarContenido = nuevoValor;
+        },
+        getUser() {
+            axios.get('http://localhost:8000/login/')
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     },
 };
@@ -113,7 +123,7 @@ export default {
                                     placeholder="confirmar Contraseña">
                             </div>
                             <div class="w-full flex items-center justify-center">
-                                <button
+                                <button @click="getUser()"
                                     class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
                                     Enviar!
                                 </button>
