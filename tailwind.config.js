@@ -17,6 +17,8 @@ export default {
         montacarga_2: "url('../src/components/img/montacarga_2.jpg')",
         jungher: "url('../src/components/img/jungher.jpg')",
         portaestiba: "url('../src/components/img/portaestiba_1.jpg')",
+        montacarga_png: "url('../src/components/img/cargas_PNG.png')",
+        montacargas_alquiler: "url('../src/components/img/Alquiler.jpg')",
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),

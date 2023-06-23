@@ -74,6 +74,7 @@ export default {
       <router-view v-else="mostrarContenido"></router-view>
     </div>
     <!--1024-->
+    
     <div v-else>
       <main class="w-full h-screen " v-if="mostrarContenido">
 
