@@ -14,3 +14,9 @@ class User(models.Model):
     REQUIRED_FIELDS = ['email']
     def __str__(self):
         return self.username
+
+#funcionalidad:
+#login y registro => guardar de los usuarios y acceso con google
+#chat, guardar registro
+# enviar notificaciones con formulario de contactenos
+#promocionar (google adds), (code), hosting
