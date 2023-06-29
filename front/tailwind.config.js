@@ -17,6 +17,8 @@ export default {
         montacarga_2: "url('../src/components/img/montacarga_2.jpg')",
         jungher: "url('../src/components/img/jungher.jpg')",
         portaestiba: "url('../src/components/img/portaestiba_1.jpg')",
+        ojoAbierto:"url('../../src/components/img/ojo_abierto.png')",
+        ojoCerrado:"url('../../src/components/img/ojos_cerrado.png')"
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),
@@ -61,5 +63,4 @@ export default {
       },
     },
   },
-  //plugins: [require("@tailwindcss/forms")],
 };

@@ -18,7 +18,9 @@ export default {
             windowWidth: window.innerWidth,
             padre: 'Registrarse',
             InterfazMedia: 768,
-            InterfazGrand: 1024
+            InterfazGrand: 1024,
+            username: '',
+            userInvalid: false
         };
     },
     mounted() {
@@ -36,8 +38,29 @@ export default {
         },
         actualizarContenido(nuevoValor) {
             this.mostrarContenido = nuevoValor;
+        },
+        checkUsername() {
+            if (this.username === '') {
+                this.userInvalid = true
+            }
+            else{
+                this.userInvalid = false
+            }
+            /*else {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                if (!regex.test(this.username)) {
+                    this.userInvalid = true
+                } else {
+                    this.userInvalid = false
+                }
+            }*/
         }
     },
+    watch: {
+        username() {
+            this.checkUsername()
+        }
+    }
 };
 </script>
 
@@ -69,15 +92,18 @@ export default {
                         <div class="mb-4">
                             <label class="block text-gray dark:text-gray-light font-serif italic text-xl font-bold mb-2"
                                 for="username">
-                                Correo
+                                Usuario
                             </label>
                             <div class="relative">
-                                <input
+                                <input v-model="username"
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline dark:placeholder:text-white dark:text-gray-light dark:bg-blue-1"
-                                    id="username" type="text" placeholder="Ingrese su usuario">
+                                    :class="{ 'border-red-500': userInvalid }"
+                                    type="text" placeholder="Ingrese su usuario">
                                 <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1"
                                     src="./components/img/persona_icono_cel.webp" alt="">
                             </div>
+                            <p v-if="userInvalid" class=" text-red-500 text-sm italic font-bold">El nombre de usuario no puede estar vacio.
+                                </p>
                         </div>
                         <div class="flex items-center justify-center">
                             <router-link to="/Registro_Correo" tag="button" :class="{

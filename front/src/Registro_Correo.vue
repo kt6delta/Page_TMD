@@ -19,7 +19,13 @@ export default {
             mostrarMenu: false,
             mostrarContenido: true,
             windowWidth: window.innerWidth,
-            padre: 'Registrarse'
+            padre: 'Registrarse',
+            email: '',
+            emailInvalid: false,
+            password: '',
+            showPassword1: false,
+            showPassword2: false,
+            confirmPassword: ''
         };
     },
     mounted() {
@@ -46,8 +52,25 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
+        },
+        checkEmail() {
+            if (this.email === '') {
+                this.emailInvalid = true
+            } else {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                if (!regex.test(this.email)) {
+                    this.emailInvalid = true
+                } else {
+                    this.emailInvalid = false
+                }
+            }
         }
     },
+    watch: {
+        email() {
+            this.checkEmail()
+        }
+    }
 };
 </script>
 
@@ -93,9 +116,12 @@ export default {
                                     el
                                     correo
                                     electronico</label>
-                                <input type="text"
+                                <input
                                     class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
-                                    placeholder="Correo electronico">
+                                    type="email" placeholder="Correo electronico" v-model="email"
+                                    :class="{ 'border-red-500': emailInvalid }">
+                                <p v-if="emailInvalid" class="text-red-500 text-sm italic font-bold">Porfavor ingrese
+                                    una direccion de correo valida.</p>
                             </div>
                             <div class="mb-5">
                                 <label for="Contraseña" :class="{
@@ -106,9 +132,21 @@ export default {
                                 }">Ingrese
                                     una
                                     contraseña</label>
-                                <input type="password"
-                                    class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
-                                    placeholder="Contraseña">
+                                <div class="relative">
+                                    <input
+                                        class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
+                                        placeholder="Contraseña" v-model="password"
+                                        :type="showPassword1 ? 'text' : 'password'"
+                                        :class="{ 'border-red-500': password.length < 8 }">
+                                    <button @click="showPassword1 = !showPassword1"
+                                        class="ml-2 focus:outline-none ">
+                                        <img class="w-12 h-auto absolute top-0 right-0 mr-2 mt-3"
+                                        :src="showPassword1 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'" alt="mostrar_Contraseña">
+                                    </button>
+                                </div>
+                                <p v-if="password.length < 8" class=" text-red-500 text-sm italic font-bold">La contraseña
+                                    debe tener al menos 8 caracteres.
+                                </p>
                             </div>
                             <div class="mb-5">
                                 <label for="Contraseña" :class="{
@@ -118,9 +156,20 @@ export default {
                                     'block text-nonary font-Fuente_terciaria text-start': true
                                 }">Confirmar
                                     contraseña</label>
-                                <input type="password"
-                                    class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
-                                    placeholder="confirmar Contraseña">
+                                <div class="relative">
+                                    <input
+                                        class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
+                                        placeholder="confirmar Contraseña" v-model="confirmPassword"
+                                        :type="showPassword2 ? 'text' : 'password'"
+                                        :class="{ 'border-red-500': password.length < 8 }">
+                                    <button @click="showPassword2 = !showPassword2"
+                                        class="ml-2 focus:outline-none">
+                                        <img class="w-12 h-auto absolute top-0 right-0 mr-2 mt-3"
+                                        :src="showPassword2 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'" alt="mostrar_Contraseña">
+                                    </button>
+                                </div>
+                                <p v-if="confirmPassword !== password" class=" text-red-500 text-sm italic font-bold">
+                                    Las contraseñas no coinciden.</p>
                             </div>
                             <div class="w-full flex items-center justify-center">
                                 <button @click="getUser()"
