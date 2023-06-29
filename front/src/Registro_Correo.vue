@@ -6,6 +6,7 @@ import Footer_PC from './components/Footer_PC.vue';
 import Footer_Cel from './components/Footer_Cel.vue';
 
 import axios from 'axios';
+
 export default {
     components: {
         MenuLateral,
@@ -25,7 +26,8 @@ export default {
             password: '',
             showPassword1: false,
             showPassword2: false,
-            confirmPassword: ''
+            confirmPassword: '',
+            user: '',
         };
     },
     mounted() {
@@ -44,15 +46,6 @@ export default {
         actualizarContenido(nuevoValor) {
             this.mostrarContenido = nuevoValor;
         },
-        getUser() {
-            axios.get('http://localhost:8000/login/')
-                .then(res => {
-                    console.log(res.data);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-        },
         checkEmail() {
             if (this.email === '') {
                 this.emailInvalid = true
@@ -64,6 +57,33 @@ export default {
                     this.emailInvalid = false
                 }
             }
+        },
+        getUser() {
+            axios.get('http://localhost:8000/login/')
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        },
+        postUser() {
+            this.user = this.$route.params.user
+            const data = {
+                username: this.user,
+                password: this.password,
+                email: this.email,
+                is_active: false,
+                is_superuser: false,
+                is_staff: false
+            };
+            axios.post('http://localhost:8000/login/', data)
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     },
     watch: {
@@ -138,10 +158,10 @@ export default {
                                         placeholder="Contraseña" v-model="password"
                                         :type="showPassword1 ? 'text' : 'password'"
                                         :class="{ 'border-red-500': password.length < 8 }">
-                                    <button @click="showPassword1 = !showPassword1"
-                                        class="ml-2 focus:outline-none ">
+                                    <button @click="showPassword1 = !showPassword1" class="ml-2 focus:outline-none ">
                                         <img class="w-12 h-auto absolute top-0 right-0 mr-2 mt-3"
-                                        :src="showPassword1 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'" alt="mostrar_Contraseña">
+                                            :src="showPassword1 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
+                                            alt="mostrar_Contraseña">
                                     </button>
                                 </div>
                                 <p v-if="password.length < 8" class=" text-red-500 text-sm italic font-bold">La contraseña
@@ -162,17 +182,17 @@ export default {
                                         placeholder="confirmar Contraseña" v-model="confirmPassword"
                                         :type="showPassword2 ? 'text' : 'password'"
                                         :class="{ 'border-red-500': password.length < 8 }">
-                                    <button @click="showPassword2 = !showPassword2"
-                                        class="ml-2 focus:outline-none">
+                                    <button @click="showPassword2 = !showPassword2" class="ml-2 focus:outline-none">
                                         <img class="w-12 h-auto absolute top-0 right-0 mr-2 mt-3"
-                                        :src="showPassword2 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'" alt="mostrar_Contraseña">
+                                            :src="showPassword2 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
+                                            alt="mostrar_Contraseña">
                                     </button>
                                 </div>
                                 <p v-if="confirmPassword !== password" class=" text-red-500 text-sm italic font-bold">
                                     Las contraseñas no coinciden.</p>
                             </div>
                             <div class="w-full flex items-center justify-center">
-                                <button @click="getUser()"
+                                <button @click="postUser()"
                                     class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
                                     Enviar!
                                 </button>

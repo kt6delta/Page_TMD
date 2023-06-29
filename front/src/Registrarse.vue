@@ -25,6 +25,7 @@ export default {
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
+        this.checkUsername()
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.handleResize);
@@ -43,17 +44,9 @@ export default {
             if (this.username === '') {
                 this.userInvalid = true
             }
-            else{
+            else {
                 this.userInvalid = false
             }
-            /*else {
-                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                if (!regex.test(this.username)) {
-                    this.userInvalid = true
-                } else {
-                    this.userInvalid = false
-                }
-            }*/
         }
     },
     watch: {
@@ -77,15 +70,15 @@ export default {
             <main class="bg-white dark:bg-gray w-full h-5/6 relative my-2">
                 <div class="w-full h-full flex items-center justify-center flex-col">
                     <h2 :class="{
-                        'text-5xl font-dancing p-5 mt-32': windowWidth >= 1024,
-                        'text-5xl font-dancing p-5 mt-6': windowWidth < 1024 && windowWidth >= InterfazMedia,
+                        'text-5xl font-dancing p-5 mt-44': windowWidth >= 1024,
+                        'text-5xl font-dancing p-5 mt-10': windowWidth < 1024 && windowWidth >= InterfazMedia,
                         'text-3xl font-serif': windowWidth < InterfazMedia,
                         'text-gray dark:text-white text-center font-bold': true
                     }">
                         Registro
                     </h2>
                     <form :class="{
-                        'bg-gray w-1/2 h-1/3 mb-10': windowWidth >= InterfazMedia,
+                        'bg-gray w-1/2 h-1/2 mb-10': windowWidth >= InterfazMedia,
                         'bg-white w-5/6 mb-4': windowWidth < InterfazMedia,
                         'dark:bg-gray shadow-md rounded px-3 pt-3 pb-4': true
                     }">
@@ -97,22 +90,30 @@ export default {
                             <div class="relative">
                                 <input v-model="username"
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline dark:placeholder:text-white dark:text-gray-light dark:bg-blue-1"
-                                    :class="{ 'border-red-500': userInvalid }"
-                                    type="text" placeholder="Ingrese su usuario">
+                                    :class="{ 'border-red-500': userInvalid }" type="text" placeholder="Ingrese su usuario">
                                 <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1"
                                     src="./components/img/persona_icono_cel.webp" alt="">
                             </div>
-                            <p v-if="userInvalid" class=" text-red-500 text-sm italic font-bold">El nombre de usuario no puede estar vacio.
-                                </p>
+                            <p v-if="userInvalid" class=" text-red-500 text-sm italic font-bold">El nombre de usuario no
+                                puede estar vacio.
+                            </p>
                         </div>
                         <div class="flex items-center justify-center">
-                            <router-link to="/Registro_Correo" tag="button" :class="{
-                                'mt-5': windowWidth >= InterfazMedia,
+                            <router-link v-if="this.username"
+                                :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button" :class="{
+                                    'mt-5': windowWidth >= InterfazMedia,
+                                    'm-0': windowWidth < InterfazMedia,
+                                    'bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
+                                }">
+                                Continue con el correo
+                            </router-link>
+                            <button v-else disabled :class="{
+                                'mt-0': windowWidth >= InterfazMedia,
                                 'm-0': windowWidth < InterfazMedia,
                                 'bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
                             }">
                                 Continue con el correo
-                            </router-link>
+                            </button>
                         </div>
                     </form>
 
