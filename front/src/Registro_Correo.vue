@@ -87,7 +87,6 @@ export default {
                     this.emailInvalid2 = true
                 } else {
                     this.emailInvalid2 = false
-                    console.log(this.email.length)
                     if (this.email.length > 45) {
                         this.emailInvalid3 = true
                     } else {
@@ -265,10 +264,14 @@ export default {
                                     Las contraseñas no coinciden.</p>
                             </div>
                             <div class="w-full flex items-center justify-center">
-                                <button @click="postUser()"
+                                <button @click="postUser()" v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password) "
                                     class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
                                     Enviar!
-                                </button> <!--emailInvalid, password, confirmPassword !== password-->
+                                </button>
+                                <button disabled v-else
+                                    class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
+                                    Enviar!
+                                </button>
                             </div>
                         </div>
                     </div>
