@@ -1,4 +1,5 @@
 <script>
+//CONTRASEÑAS MEJORAR SEGURIDAD
 import MenuLateral from './components/MenuLateral_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
 import MenuBarra_PC from './components/MenuBarra_PC.vue';
@@ -23,7 +24,14 @@ export default {
             padre: 'Registrarse',
             email: '',
             emailInvalid: false,
+            emailInvalid2: false,
+            emailInvalid3: false,
+            emailInvalid4: false,
             password: '',
+            passwordInvalid: false,
+            passwordInvalid2: false,
+            passwordInvalid3: false,
+            passwordInvalid4: false,
             showPassword1: false,
             showPassword2: false,
             confirmPassword: '',
@@ -46,26 +54,66 @@ export default {
         actualizarContenido(nuevoValor) {
             this.mostrarContenido = nuevoValor;
         },
+        checkPassword() {
+            if (this.password === '') {
+                this.passwordInvalid = true
+            } else {
+                this.passwordInvalid = false
+                if (this.password.length < 8) {
+                    this.passwordInvalid2 = true
+                }else{
+                    this.passwordInvalid2 = false
+                    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*+-.]).+$/
+                    if (!regex.test(this.password)) {
+                        this.passwordInvalid3 = true
+                    } else {
+                        this.passwordInvalid3 = false
+                        if (this.password.length > 25) {
+                            this.passwordInvalid4 = true
+                        } else {
+                            this.passwordInvalid4 = false
+                        }
+                    }
+                }
+            }
+        },
         checkEmail() {
             if (this.email === '') {
                 this.emailInvalid = true
             } else {
+                this.emailInvalid = false
                 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
                 if (!regex.test(this.email)) {
-                    this.emailInvalid = true
+                    this.emailInvalid2 = true
                 } else {
-                    this.emailInvalid = false
+                    this.emailInvalid2 = false
+                    console.log(this.email.length)
+                    if (this.email.length > 45) {
+                        this.emailInvalid3 = true
+                    } else {
+                        this.emailInvalid3 = false
+                        axios.get('http://localhost:8000/login/', {
+                            params: {
+                                email: this.email
+                            }
+                        })
+                            .then(res => {
+                                const data = res.data;
+                                for (const obj of data) {
+                                    if (obj.email === this.email) {//bloquea si ya existe
+                                        this.emailInvalid4 = true;
+                                        break;
+                                    } else {
+                                        this.emailInvalid4 = false;
+                                    }
+                                }
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            });
+                    }
                 }
             }
-        },
-        getUser() {
-            axios.get('http://localhost:8000/login/')
-                .then(res => {
-                    console.log(res.data);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
         },
         postUser() {
             this.user = this.$route.params.user
@@ -89,6 +137,9 @@ export default {
     watch: {
         email() {
             this.checkEmail()
+        },
+        password() {
+            this.checkPassword()
         }
     }
 };
@@ -139,9 +190,15 @@ export default {
                                 <input
                                     class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
                                     type="email" placeholder="Correo electronico" v-model="email"
-                                    :class="{ 'border-red-500': emailInvalid }">
-                                <p v-if="emailInvalid" class="text-red-500 text-sm italic font-bold">Porfavor ingrese
+                                    :class="{ 'border-red-500': emailInvalid2 }">
+                                <p v-if="emailInvalid" class="text-red-500 text-sm italic font-bold">La direccion de correo
+                                    no puede estar vacio.</p>
+                                <p v-else-if="emailInvalid4" class="text-red-500 text-sm italic font-bold">Ya tienes una
+                                    cuenta creada</p>
+                                <p v-else-if="emailInvalid2" class="text-red-500 text-sm italic font-bold">Ingrese
                                     una direccion de correo valida.</p>
+                                <p v-if="emailInvalid3" class="text-red-500 text-sm italic font-bold">Porfavor ingrese
+                                    una direccion de correo mas corta</p>
                             </div>
                             <div class="mb-5">
                                 <label for="Contraseña" :class="{
@@ -159,13 +216,25 @@ export default {
                                         :type="showPassword1 ? 'text' : 'password'"
                                         :class="{ 'border-red-500': password.length < 8 }">
                                     <button @click="showPassword1 = !showPassword1" class="ml-2 focus:outline-none ">
-                                        <img class="w-12 h-auto absolute top-0 right-0 mr-2 mt-3"
+                                        <img :class="{
+                                            'mt-3': showPassword1,
+                                            'mt-4': !showPassword1,
+                                            'w-10 h-auto absolute top-0 right-0 mr-2': true
+                                        }"
                                             :src="showPassword1 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
                                             alt="mostrar_Contraseña">
                                     </button>
                                 </div>
-                                <p v-if="password.length < 8" class=" text-red-500 text-sm italic font-bold">La contraseña
+                                <p v-if="passwordInvalid" class=" text-red-500 text-sm italic font-bold">La contraseña no puede estar vacia.
+                                </p>
+                                <p v-else-if="passwordInvalid2" class=" text-red-500 text-sm italic font-bold">La contraseña
                                     debe tener al menos 8 caracteres.
+                                </p>
+                                <p v-else-if="passwordInvalid3" class=" text-red-500 text-sm italic font-bold">La contraseña
+                                    debe tener al menos un numero, una mayuscula y un caracter especial (!@#$%^&*+-.).
+                                </p>
+                                <p v-if="passwordInvalid4" class=" text-red-500 text-sm italic font-bold">La contraseña
+                                    tiene un maximo 25 caracteres.
                                 </p>
                             </div>
                             <div class="mb-5">
@@ -183,7 +252,11 @@ export default {
                                         :type="showPassword2 ? 'text' : 'password'"
                                         :class="{ 'border-red-500': password.length < 8 }">
                                     <button @click="showPassword2 = !showPassword2" class="ml-2 focus:outline-none">
-                                        <img class="w-12 h-auto absolute top-0 right-0 mr-2 mt-3"
+                                        <img :class="{
+                                            'mt-3': showPassword2,
+                                            'mt-4': !showPassword2,
+                                            'w-10 h-auto absolute top-0 right-0 mr-2': true
+                                        }"
                                             :src="showPassword2 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
                                             alt="mostrar_Contraseña">
                                     </button>
@@ -195,7 +268,7 @@ export default {
                                 <button @click="postUser()"
                                     class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
                                     Enviar!
-                                </button>
+                                </button> <!--emailInvalid, password, confirmPassword !== password-->
                             </div>
                         </div>
                     </div>

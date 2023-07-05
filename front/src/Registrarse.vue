@@ -3,6 +3,8 @@ import MenuLateral from './components/MenuLateral_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
 import MenuBarra_PC from './components/MenuBarra_PC.vue';
 import Footer_PC from './components/Footer_PC.vue';
+import axios from 'axios';
+
 export default {
 
     components: {
@@ -20,7 +22,10 @@ export default {
             InterfazMedia: 768,
             InterfazGrand: 1024,
             username: '',
-            userInvalid: false
+            userInvalid: false,
+            userInvalid3: false,
+            userInvalid4: false,
+            userInvalid2: false
         };
     },
     mounted() {
@@ -46,6 +51,36 @@ export default {
             }
             else {
                 this.userInvalid = false
+                if (this.username.length < 3) {
+                    this.userInvalid3 = true
+                } else {
+                    this.userInvalid3 = false
+                    if (this.username.length > 20) {
+                        this.userInvalid4 = true
+                    }
+                    else {
+                        this.userInvalid4 = false
+                        axios.get('http://localhost:8000/login/', {
+                            params: {
+                                username: this.username
+                            }
+                        })
+                            .then(res => {
+                                const data = res.data;
+                                for (const obj of data) {
+                                    if (obj.username === this.username) {//bloquea si ya existe
+                                        this.userInvalid2 = true;
+                                        break;
+                                    } else {
+                                        this.userInvalid2 = false;
+                                    }
+                                }
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            });
+                    }
+                }
             }
         }
     },
@@ -97,9 +132,18 @@ export default {
                             <p v-if="userInvalid" class=" text-red-500 text-sm italic font-bold">El nombre de usuario no
                                 puede estar vacio.
                             </p>
+                            <p v-else-if="userInvalid3" class=" text-red-500 text-sm italic font-bold">Use un nombre de
+                                usuario mas largo.
+                            </p>
+                            <p v-else-if="userInvalid2" class=" text-red-500 text-sm italic font-bold">Ya existe ese nombre de
+                                usuario.
+                            </p>
+                            <p v-if="userInvalid4" class=" text-red-500 text-sm italic font-bold">Use otro nombre de
+                                usuario mas corto.
+                            </p>
                         </div>
                         <div class="flex items-center justify-center">
-                            <router-link v-if="this.username"
+                            <router-link v-if="this.username && !this.userInvalid2 && !this.userInvalid3 && !this.userInvalid4"
                                 :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button" :class="{
                                     'mt-5': windowWidth >= InterfazMedia,
                                     'm-0': windowWidth < InterfazMedia,
