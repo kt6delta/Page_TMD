@@ -102,18 +102,21 @@ export default {
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
             <MenuBarra_PC v-else />
 
-            <main class="bg-white dark:bg-gray w-full h-5/6 relative my-2">
+            <main :class="{
+                'my-2' : windowWidth < InterfazGrand,
+                'fixed z-31' : windowWidth >= InterfazGrand,
+                'bg-white dark:bg-gray w-full h-5/6 relative':true}">
                 <div class="w-full h-full flex items-center justify-center flex-col">
                     <h2 :class="{
-                        'text-5xl font-dancing p-5 mt-44': windowWidth >= 1024,
-                        'text-5xl font-dancing p-5 mt-10': windowWidth < 1024 && windowWidth >= InterfazMedia,
-                        'text-3xl font-serif': windowWidth < InterfazMedia,
-                        'text-gray dark:text-white text-center font-bold': true
+                        'mt-44': windowWidth >= 1024,
+                        'mt-10': windowWidth < 1024 && windowWidth >= InterfazMedia,
+                        'text-4xl': windowWidth < InterfazMedia,
+                        'text-gray dark:text-white text-center text-5xl mb-5 font-serif font-bold p-5': true
                     }">
                         Registro
                     </h2>
                     <form :class="{
-                        'bg-gray w-1/2 h-1/2 mb-10': windowWidth >= InterfazMedia,
+                        'bg-gray w-1/2 h-1/4 mb-10': windowWidth >= InterfazMedia,
                         'bg-white w-5/6 mb-4': windowWidth < InterfazMedia,
                         'dark:bg-gray shadow-md rounded px-3 pt-3 pb-4': true
                     }">

@@ -4,8 +4,8 @@ from django.contrib.auth.models import AbstractUser
 class User(models.Model):
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)
-    email = models.CharField(max_length=50, unique=True)
-    is_active = models.BooleanField(default=True)
+    email = models.EmailField(max_length=50, unique=True)
+    is_active = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -20,3 +20,33 @@ class User(models.Model):
 #chat, guardar registro
 # enviar notificaciones con formulario de contactenos
 #promocionar (google adds), (code), hosting
+
+
+
+""" Imagen por user props: {
+        is_activeProp: {
+            type: Boolean,
+            required: true,
+        }
+    },
+         getIsActive() {
+            axios.get('http://localhost:8000/login/', {
+                params: {
+                    is_active: this.is_active,
+                    username: this.username,
+                }
+            })
+                .then(res => {
+                    const data = res.data;
+                    for (const obj of data) {
+                        if (obj.username === this.username) {
+                            this.is_active = obj.is_active;
+                            break;
+                        }
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+"""

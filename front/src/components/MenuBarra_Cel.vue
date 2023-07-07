@@ -10,13 +10,11 @@
                     </button>
                 </li>
                 <li>
-                    <button>
-                        <router-link to="../">
-                            <figure>
-                                <img src="./icons/Logo_nonary.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
-                            </figure>
-                        </router-link>
-                    </button>
+                    <router-link to="../" tag="button">
+                        <figure>
+                            <img src="./icons/Logo_nonary.svg" alt="Montacarga" title="logo" class="w-64 h-1/8">
+                        </figure>
+                    </router-link>
                 </li>
                 <li v-if="windowWidth >= 500">
                     <img src="./img/persona_icono_cel.png" alt="ImgPersona" title="imgUser"

@@ -6,7 +6,7 @@
             </figure>
         </button>
         <div v-if="windowWidth < 500" class="flex items-center justify-center w-full absolute top-16">
-            <img src="./img/persona_icono_cel.png" alt="ImgPersona" title="imgUser" class="w-24 h-auto" />
+            <img src="./img/persona_icono_cel.webp" alt="ImgPersona" title="imgUser" class="w-24 h-auto" />
         </div>
         <figure :class="{
             ' mt-40': windowWidth < 500,

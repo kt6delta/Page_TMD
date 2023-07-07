@@ -1,19 +1,32 @@
 <script >
 import MenuLateral from './components/MenuLateral_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
+import MenuBarra_PC from './components/MenuBarra_PC.vue';
+
 export default {
     components: {
         MenuLateral,
-        MenuBarra_Cel
+        MenuBarra_Cel,
+        MenuBarra_PC,
     },
     data() {
         return {
             mostrarMenu: false,
             mostrarContenido: true,
-            padre: 'Ingresar'
+            padre: 'Ingresar',
+            windowWidth: window.innerWidth,
         };
     },
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    },
     methods: {
+        handleResize() {
+            this.windowWidth = window.innerWidth;
+        },
         actualizarMenu(nuevoValor) {
             this.mostrarMenu = nuevoValor;
         },
@@ -28,14 +41,21 @@ export default {
     <router-view v-if="!mostrarContenido"></router-view>
 
     <div v-if="mostrarContenido">
-        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre" @actualizar-menu="actualizarMenu"
-            @actualizar-contenido="actualizarContenido" />
+        <MenuBarra_PC v-if="windowWidth >= 1024" />
+        <MenuLateral v-if="windowWidth < 1024" :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
+            @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
         <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
-            <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"/> 
-
-            <main class="bg-white w-full h-5/6 relative my-2 dark:bg-gray">
-                <div class="w-full h-full flex items-center justify-center flex-col">
-                    <h2 class="text-gray text-3xl font-serif font-bold text-center dark:text-gray-light">
+            <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
+            <main class="bg-white w-full h-full relative dark:bg-gray">
+                <div :class="{
+                    'h-full fixed z-31': windowWidth >= 1024,
+                    'h-5/6': windowWidth < 1024,
+                    'w-full flex items-center justify-center flex-col': true
+                }">
+                    <h2 :class="{
+                        'text-5xl' : windowWidth >= 1024,
+                        'text-4xl' : windowWidth < 1024,
+                        'text-gray mb-5 font-serif font-bold text-center dark:text-gray-light':true}">
                         Ingresar
                     </h2>
                     <form class="bg-white shadow-md rounded px-3 pt-3 pb-4 mb-4 dark:bg-gray ">

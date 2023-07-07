@@ -263,14 +263,14 @@ export default {
                                     Las contraseñas no coinciden.</p>
                             </div>
                             <div class="w-full flex items-center justify-center">
-                                <button @click="postUser()" v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password) "
+                                <router-link  to= "/Confirmacion" tag="button" @click="postUser()" v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password) "
                                     class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
                                     Enviar!
-                                </button>
-                                <button disabled v-else
+                                </router-link >
+                                <!--disabled--><router-link  to= "./Confirmacion" tag="button" v-else 
                                     class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
                                     Enviar!
-                                </button>
+                                </router-link >
                             </div>
                         </div>
                     </div>

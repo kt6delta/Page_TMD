@@ -95,8 +95,8 @@ export default {
                 Nos especializamos en soluciones para montacargas
               </p>
               <router-link to="/Contacto" tag="button" @click="mostrarContenido = false"
-                  class="w-28 h-12 xl:h-14 xl:mt-5 bg-septenary font-Fuente_primaria text-sm rounded-md shadow-md ">
-                  Alquila Aquí!
+                  class="w-28 h-14 ml-14 xl:h-14 xl:mt-5 bg-septenary rounded-md shadow-md">
+                  <span  class="font-Fuente_terciaria font-bold text-lg flex items-center justify-center ">Alquila<br>&thinsp;&thinsp;Aquí</span>
               </router-link>
 
             </div>

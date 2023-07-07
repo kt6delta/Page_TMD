@@ -9,6 +9,7 @@ import Mantenimiento from './Mantenimiento.vue'
 import Ingresar from './Ingresar.vue'
 import Registrarse from './Registrarse.vue'
 import Registro_Correo from './Registro_Correo.vue'
+import Confirmacion from './Confirmacion.vue'
 
 
 const routes = [
@@ -18,7 +19,8 @@ const routes = [
     { path: '/Mantenimiento', name: "Mantenimiento", component: Mantenimiento },
     { path: '/Ingresar', name: "Ingresar", component: Ingresar },
     { path: '/Registrarse', name: "Registrarse", component: Registrarse },
-    { path: '/Registro_Correo/:user', name: "Registro_Correo", component: Registro_Correo}
+    { path: '/Registro_Correo/:user', name: "Registro_Correo", component: Registro_Correo},
+    { path: '/Confirmacion', name: "Confirmacion", component: Confirmacion}
 ]
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
