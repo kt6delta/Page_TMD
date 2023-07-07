@@ -1,5 +1,4 @@
 <script>
-//CONTRASEÑAS MEJORAR SEGURIDAD
 import MenuLateral from './components/MenuLateral_Cel.vue';
 import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
 import MenuBarra_PC from './components/MenuBarra_PC.vue';
