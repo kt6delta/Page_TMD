@@ -151,7 +151,7 @@ export default {
         <div v-show="!mostrarMenu" class="w-full h-screen bg-yellow-2">
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"
                 @actualizar-contenido="actualizarContenido" />
-            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido" />
+            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
             <main>
                 <!--formulario-->
                 <section class="w-full h-5/6 bg-nonary flex justify-center align-middle">

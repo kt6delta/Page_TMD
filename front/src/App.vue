@@ -79,7 +79,7 @@ export default {
 
         <!--nav-->
 
-        <MenuBarra_PC :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido" />
+        <MenuBarra_PC :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
 
         <!--seccion 1-->
 
@@ -182,7 +182,7 @@ export default {
 
 
       </main>
-      <router-view v-if="!mostrarContenido">
+      <router-view v-else="mostrarContenido">
       </router-view>
     </div>
   </div>

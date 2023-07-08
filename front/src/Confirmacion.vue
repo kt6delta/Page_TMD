@@ -49,7 +49,7 @@ export default {
             @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
         <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-            <MenuBarra_PC v-else />
+            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
 
             <main :class="{
                 'my-2': windowWidth < InterfazGrand,

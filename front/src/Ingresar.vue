@@ -41,7 +41,7 @@ export default {
     <router-view v-if="!mostrarContenido"></router-view>
 
     <div v-if="mostrarContenido">
-        <MenuBarra_PC v-if="windowWidth >= 1024" />
+        <MenuBarra_PC v-if="windowWidth >= 1024" :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
         <MenuLateral v-if="windowWidth < 1024" :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
             @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
         <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">

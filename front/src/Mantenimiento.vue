@@ -136,7 +136,7 @@ export default {
 
             <main class="w-full h-screen">
                 <!--nav-->
-                <MenuBarra_PC :contenidoProp="mostrarContenido" @actualizar-contenido="actualizarContenido" />
+                <MenuBarra_PC :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
 
                 <!--fondo y frase-->
 
