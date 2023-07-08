@@ -60,7 +60,7 @@ export default {
                 this.passwordInvalid = false
                 if (this.password.length < 8) {
                     this.passwordInvalid2 = true
-                }else{
+                } else {
                     this.passwordInvalid2 = false
                     const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*+-.]).+$/
                     if (!regex.test(this.password)) {
@@ -151,7 +151,8 @@ export default {
         <div v-show="!mostrarMenu" class="w-full h-screen bg-yellow-2">
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu"
                 @actualizar-contenido="actualizarContenido" />
-            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
+            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre
+                @actualizar-contenido="actualizarContenido" />
             <main>
                 <!--formulario-->
                 <section class="w-full h-5/6 bg-nonary flex justify-center align-middle">
@@ -223,7 +224,8 @@ export default {
                                             alt="mostrar_Contraseña">
                                     </button>
                                 </div>
-                                <p v-if="passwordInvalid" class=" text-red-500 text-sm italic font-bold">La contraseña no puede estar vacia.
+                                <p v-if="passwordInvalid" class=" text-red-500 text-sm italic font-bold">La contraseña no
+                                    puede estar vacia.
                                 </p>
                                 <p v-else-if="passwordInvalid2" class=" text-red-500 text-sm italic font-bold">La contraseña
                                     debe tener al menos 8 caracteres.
@@ -263,22 +265,37 @@ export default {
                                     Las contraseñas no coinciden.</p>
                             </div>
                             <div class="w-full flex items-center justify-center">
-                                <router-link  to= "/Confirmacion" tag="button" @click="postUser()" v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password) "
-                                    class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
-                                    Enviar!
-                                </router-link >
-                                <!--disabled--><router-link  to= "./Confirmacion" tag="button" v-else 
-                                    class="w-28 h-14 bg-septenary font-Fuente_primaria text-lg text-primary rounded-md shadow-md active:bg-senary">
-                                    Enviar!
-                                </router-link >
+                                <router-link to="./Confirmacion" tag="button" @click="postUser()"
+                                    v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password)"
+                                    :class="{
+                                        'text-xl w-28 h-14': windowWidth >= 1024,
+                                        'text-lg w-24 h-12': windowWidth < 1024 && windowWidth >= 768,
+                                        'text-base w-20 h-10': windowWidth < 768,
+                                        'mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
+                                    }">
+                                    <span :class="{
+                                        'h-10': WindowWidth >= 1024,
+                                        'h-8': WindowWidth < 1024 && WindowWidth >= 768,
+                                        'h-6': WindowWidth < 768,
+                                        'w-full flex items-center justify-center text-center': true
+                                    }">Enviar!</span>
+                                </router-link>
+                                <!--disabled--><router-link to="./Confirmacion" tag="button" v-else
+                                    class="w-28 h-14 mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    <span :class="{
+                                        'h-10': WindowWidth >= 1024,
+                                        'h-8': WindowWidth < 1024 && WindowWidth >= 768,
+                                        'h-6': WindowWidth < 768,
+                                        'w-full flex items-center justify-center text-center': true
+                                    }">Enviar!</span>
+                                </router-link>
                             </div>
                         </div>
                     </div>
                 </section>
                 <!-- fqa y enlaces extra -->
             </main>
-            <Footer_PC v-if="windowWidth >= 1024" />
+            <Footer_PC v-if="windowWidth >= 768" />
             <Footer_Cel v-else />
         </div>
-    </div>
-</template>
+</div></template>

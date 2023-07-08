@@ -56,13 +56,26 @@ export default {
             'bg-no-repeat bg-cover w-full h-3/4 relative flex items-center justify-center flex-col',
             windowWidth < 768 ? 'gradiente' : 'fondo'
           ]">
-            <h1 class="text-white text-5xl mix-blend-luminosity font-dancing font-extrabold text-center">Su mejor opción
+            <h1 :class="{
+              'text-5xl mb-1': windowWidth <= 375,
+              'text-6xl mb-1': windowWidth < 768 && windowWidth > 375,
+              'text-7xl mb-2': windowWidth >= 768,
+              'text-white  mix-blend-luminosity font-dancing font-extrabold text-center': true
+            }">Su mejor opción
               en</h1>
-            <h1>
-              <span
-                class="text-yellow-2 text-5xl mix-blend-lighten font-dancing font-extrabold text-center">Montacargas</span>
+            <h1 :class="{
+              'text-5xl mb-8': windowWidth <= 375,
+              'text-6xl mb-10': windowWidth < 768 && windowWidth > 375,
+              'text-7xl mb-16': windowWidth >= 768,
+              'text-yellow-2 mix-blend-lighten font-dancing font-extrabold text-center': true
+            }">Montacargas
             </h1>
-            <p class="text-white text-xl mix-blend-plus-lighter font-serif text-center mt-4 mx-4">
+            <p :class="{
+              'text-xl': windowWidth <= 375,
+              'text-2xl': windowWidth < 768 && windowWidth > 375,
+              'text-3xl': windowWidth >= 768,
+              'text-white mix-blend-plus-lighter font-serif text-center  w-3/4': true
+            }">
               ¡Agilizar tu operación de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con servicios de
               reparación y mantenimiento.
             </p>
@@ -79,7 +92,8 @@ export default {
 
         <!--nav-->
 
-        <MenuBarra_PC :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
+        <MenuBarra_PC :contenidoProp="mostrarContenido" :PadreProp=this.padre
+          @actualizar-contenido="actualizarContenido" />
 
         <!--seccion 1-->
 
@@ -95,8 +109,9 @@ export default {
                 Nos especializamos en soluciones para montacargas
               </p>
               <router-link to="/Contacto" tag="button" @click="mostrarContenido = false"
-                  class="w-28 h-14 ml-14 xl:h-14 xl:mt-5 bg-septenary rounded-md shadow-md">
-                  <span  class="font-Fuente_terciaria font-bold text-lg flex items-center justify-center ">Alquila<br>&thinsp;&thinsp;Aquí</span>
+                class="w-28 h-14 ml-14 mt-5 xl:h-14 xl:mt-5 bg-septenary rounded-md shadow-md">
+                <span
+                  class="text-black-0 font-Fuente_terciaria font-bold text-lg flex items-center justify-center ">Alquila<br>&thinsp;&thinsp;Aquí</span>
               </router-link>
 
             </div>

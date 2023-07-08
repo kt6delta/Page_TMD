@@ -23,7 +23,6 @@ export default {
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
-        this.checkUsername()
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.handleResize);
@@ -49,43 +48,50 @@ export default {
             @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
         <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
+            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre
+                @actualizar-contenido="actualizarContenido" />
 
             <main :class="{
-                'my-2': windowWidth < InterfazGrand,
-                'fixed z-31': windowWidth >= InterfazGrand,
-                'bg-white dark:bg-gray w-full h-5/6 relative': true
+                'mb-10': windowWidth < 1024,
+                'fixed z-31': windowWidth >= 1024,
+                'bg-white dark:bg-gray w-full h-3/4 relative flex items-center justify-center flex-col': true
             }">
-                <div class="w-full h-full flex items-center justify-center flex-col">
-                    <img src="./components/img/confirma_correo.png" alt="correoVerificacion" class="w-64 h-auto">
-                    <div :class="{
-                        ' w-1/2 mb-10': windowWidth >= InterfazMedia,
-                        'w-5/6  mb-4': windowWidth < InterfazMedia,
-                        'dark:bg-gray bg-white shadow-md rounded px-3 pt-3 pb-4 flex items-center justify-center flex-col h-1/2': true
+                <!--<div class="w-full h-full">-->
+                <img src="./components/img/confirma_correo.png" alt="correoVerificacion" :class="{
+                    'w-2/4 h-auto': windowWidth >= 768,
+                    'w-auto h-2/5': windowWidth < 768,
+                }">
+                <div :class="{
+                    'w-3/4 mb-10': windowWidth >= 768,
+                    'w-5/6  mb-4': windowWidth < 768,
+                    'h-2/3 dark:bg-gray bg-white shadow-md rounded px-3 pt-3 pb-4 flex items-center justify-center flex-col': true
+                }">
+                    <p :class="{
+                        'text-4xl': windowWidth >= 768,
+                        'text-xl': windowWidth < 768,
+                        'block text-gray dark:text-gray-light font-serif italic': true
                     }">
-                        <p class="block text-gray dark:text-gray-light font-serif italic text-xl mb-2 ">
-                            <span class="font-bold flex items-center justify-center">confirma tu correo
-                                electronico</span><br> Nosotros enviamos una
-                            confirmacion al correo:
-                            <span class="font-bold flex items-center justify-center">XXXX</span>
-                            Si no recibiste el correo, revisa tu carpeta de <br> spam o <a href="#"
-                                class=" font-bold text-yellow-2">intentalo de
-                                nuevo</a>
-                        </p>
-                        <br><br><br><br>
-                        <button :class="{
-                            'mt-0': windowWidth >= InterfazMedia,
-                            'm-0': windowWidth < InterfazMedia,
-                            'dark:text-gray-light bg-yellow-2 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
-                        }">
-                            Regresar
-                        </button>
-                    </div>
+                        <span class="mb-2 font-bold flex items-center justify-center">confirma tu correo
+                            electronico</span> Nosotros enviamos una
+                        confirmacion al correo:
+                        <span class="font-bold flex items-center justify-center">XXXX</span>
+                        Si no recibiste el correo, revisa tu carpeta de <br> spam o <a href="#"
+                            class=" font-bold text-yellow-2">intentalo de
+                            nuevo</a>
+                    </p>
+                    <button :class="{
+                        'mt-16 text-3xl': windowWidth >= 768,
+                        'mt-0': windowWidth < 768,
+                        'dark:text-gray-light bg-yellow-2 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
+                    }">
+                        Regresar
+                    </button>
                 </div>
+                <!--</div>-->
             </main>
+            <Footer_Cel v-if="windowWidth <= 768" />
+            <Footer_PC v-else />
         </div>
-        <Footer_Cel/>
-        <!--<Footer_PC v-else />-->
     </div>
 </template>
 
