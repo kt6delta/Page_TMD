@@ -21,7 +21,7 @@ export default {
             mostrarContenido: true,
             windowWidth: window.innerWidth,
             padre: 'Registrarse',
-            email: 'a',
+            email: '',
             emailInvalid: false,
             emailInvalid2: false,
             emailInvalid3: false,
@@ -276,7 +276,7 @@ export default {
                             </div>
                             <div class="w-full flex items-center justify-center">
                                 <router-link
-                                    v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password)"
+                                    v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && this.email && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password)"
                                     :to="{ name: 'Confirmacion', params: { mail: this.email } }" tag="button"
                                     @click="postUser()" :class="{
                                         'text-xl w-28 h-14': windowWidth >= 1024,
@@ -291,6 +291,7 @@ export default {
                                         'w-full flex items-center justify-center text-center': true
                                     }">Enviar!</span>
                                 </router-link>
+                               
                                 <button disabled v-else
                                     class="w-28 h-14 mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     <span :class="{
