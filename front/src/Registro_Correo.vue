@@ -90,7 +90,7 @@ export default {
                         this.emailInvalid3 = true
                     } else {
                         this.emailInvalid3 = false
-                        axios.get('http://localhost:8000/login/', {
+                        axios.get('http://localhost:8000/login/users', {
                             params: {
                                 email: this.email
                             }
@@ -123,7 +123,7 @@ export default {
                 is_superuser: false,
                 is_staff: false
             };
-            axios.post('http://localhost:8000/login/', data)
+            axios.post('http://localhost:8000/login/users/', data)
                 .then(response => {
                     console.log(response.data);
                 })
@@ -132,13 +132,16 @@ export default {
                 });
         }, // sin provar encio de correos
         async sendVerificationCode() {
+            const data = {
+                subject: 'Asunto',
+                message: 'Mucho contenido XD',
+                recipient: 'kt6delta@outlook.com'
+            };
             try {
-                const response = await axios.post('http://localhost:8000/login/', {
-                    user_id: 1,  // ID del usuario al que quieres enviar el correo
-                });
-                console.log(response.data.message);
+                await axios.post('http://localhost:8000/login/send-email/', data);
+                console.log('Correo enviado exitosamente');
             } catch (error) {
-                console.error(error);
+                console.error('Error al enviar el correo', error);
             }
         },
     },
@@ -278,7 +281,7 @@ export default {
                                 <router-link
                                     v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && this.email && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password)"
                                     :to="{ name: 'Confirmacion', params: { mail: this.email } }" tag="button"
-                                    @click="postUser()" :class="{
+                                    @click="sendVerificationCode()" :class="{
                                         'text-xl w-28 h-14': windowWidth >= 1024,
                                         'text-lg w-24 h-12': windowWidth < 1024 && windowWidth >= 768,
                                         'text-base w-20 h-10': windowWidth < 768,
@@ -291,7 +294,7 @@ export default {
                                         'w-full flex items-center justify-center text-center': true
                                     }">Enviar!</span>
                                 </router-link>
-                               
+
                                 <button disabled v-else
                                     class="w-28 h-14 mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     <span :class="{
