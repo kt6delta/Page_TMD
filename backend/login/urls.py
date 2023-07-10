@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .viewsets import UserViewSet, SendEmailView
+from .viewsets import UserViewSet, send_email
 from django.urls import path, include
 
 router = routers.SimpleRouter()
@@ -8,5 +8,5 @@ router.register(r'', UserViewSet, basename='user')
 
 urlpatterns = [
     path('users', include(router.urls)),
-    path('send-email/', SendEmailView.as_view(), name='send-email')
+    path('send_email/', send_email, name='send_email')
 ]

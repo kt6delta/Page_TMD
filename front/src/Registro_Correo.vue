@@ -138,7 +138,11 @@ export default {
                 recipient: 'kt6delta@outlook.com'
             };
             try {
-                await axios.post('http://localhost:8000/login/send-email/', data);
+                await axios.post('http://localhost:8000/login/send_email/', data , {
+                    headers: {
+                        'Authorization': 'django-insecure-02q124oclq^thn2gkk9nu#dn+m)4n2d1oj*1*l2t_@=4a&fk%7'
+                    }
+                });
                 console.log('Correo enviado exitosamente');
             } catch (error) {
                 console.error('Error al enviar el correo', error);

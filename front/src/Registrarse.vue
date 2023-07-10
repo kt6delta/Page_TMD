@@ -60,7 +60,7 @@ export default {
                     }
                     else {
                         this.userInvalid4 = false
-                        axios.get('http://localhost:8000/login/', {
+                        axios.get('http://localhost:8000/login/users', {
                             params: {
                                 username: this.username
                             }
