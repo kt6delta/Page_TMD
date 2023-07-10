@@ -19,7 +19,7 @@ export default {
             mostrarContenido: true,
             padre: 'Confirmacion',
             windowWidth: window.innerWidth,
-            mail: 'Y'
+            mail: '', //this.$route.params.mail
         };
     },
     mounted() {
@@ -74,7 +74,7 @@ export default {
                         <span class="mb-2 font-bold flex items-center justify-center">confirma tu correo
                             electronico</span> Nosotros enviamos una
                         confirmacion al correo:
-                        <span class="font-bold flex items-center justify-center">{{ mail }}</span>
+                        <span class="font-bold flex items-center justify-center">{{ this.$route.params.mail }}</span>
                         Si no recibiste el correo, revisa tu carpeta de spam o <router-link to="/Registrarse"
                             class=" font-bold text-yellow-2">intentalo de
                             nuevo</router-link>

@@ -100,12 +100,14 @@ export default {
             @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
         <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
+            <MenuBarra_PC v-else :contenidoProp="mostrarContenido" :PadreProp=this.padre
+                @actualizar-contenido="actualizarContenido" />
 
             <main :class="{
-                'my-2' : windowWidth < InterfazGrand,
-                'fixed z-31' : windowWidth >= InterfazGrand,
-                'bg-white dark:bg-gray w-full h-5/6 relative':true}">
+                'my-2': windowWidth < InterfazGrand,
+                'fixed z-31': windowWidth >= InterfazGrand,
+                'bg-white dark:bg-gray w-full h-5/6 relative': true
+            }">
                 <div class="w-full h-full flex items-center justify-center flex-col">
                     <h2 :class="{
                         'mt-44': windowWidth >= 1024,
@@ -138,18 +140,17 @@ export default {
                             <p v-else-if="userInvalid3" class=" text-red-500 text-sm italic font-bold">Use un nombre de
                                 usuario mas largo.
                             </p>
-                            <p v-else-if="userInvalid2" class=" text-red-500 text-sm italic font-bold">Ya existe ese nombre de
-                                usuario.
+                            <p v-else-if="userInvalid2" class=" text-red-500 text-sm italic font-bold">Ya existe ese nombre
+                                de usuario.
                             </p>
                             <p v-if="userInvalid4" class=" text-red-500 text-sm italic font-bold">Use otro nombre de
                                 usuario mas corto.
                             </p>
                         </div>
                         <div class="flex items-center justify-center">
-                            <!-- no funciona el pase de parametros-->
-                            <router-link v-if="this.username && !this.userInvalid2 && !this.userInvalid3 && !this.userInvalid4"
-                                :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button" 
-                                :class="{
+                            <router-link
+                                v-if="this.username && !this.userInvalid2 && !this.userInvalid3 && !this.userInvalid4"
+                                :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button" :class="{
                                     'mt-5': windowWidth >= InterfazMedia,
                                     'm-0': windowWidth < InterfazMedia,
                                     'bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true

@@ -21,7 +21,7 @@ export default {
             mostrarContenido: true,
             windowWidth: window.innerWidth,
             padre: 'Registrarse',
-            email: '',
+            email: 'a',
             emailInvalid: false,
             emailInvalid2: false,
             emailInvalid3: false,
@@ -275,10 +275,10 @@ export default {
                                     Las contraseñas no coinciden.</p>
                             </div>
                             <div class="w-full flex items-center justify-center">
-                                <button :to="{ name: 'Confirmacion', params: { mail: this.email } }" tag="button"
-                                    @click="sendEmail()"
+                                <router-link
                                     v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password)"
-                                    :class="{
+                                    :to="{ name: 'Confirmacion', params: { mail: this.email } }" tag="button"
+                                    @click="postUser()" :class="{
                                         'text-xl w-28 h-14': windowWidth >= 1024,
                                         'text-lg w-24 h-12': windowWidth < 1024 && windowWidth >= 768,
                                         'text-base w-20 h-10': windowWidth < 768,
@@ -290,8 +290,7 @@ export default {
                                         'h-6': windowWidth < 768,
                                         'w-full flex items-center justify-center text-center': true
                                     }">Enviar!</span>
-                                </button>
-
+                                </router-link>
                                 <button disabled v-else
                                     class="w-28 h-14 mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     <span :class="{

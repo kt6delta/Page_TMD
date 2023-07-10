@@ -20,7 +20,7 @@ const routes = [
     { path: '/Ingresar', name: "Ingresar", component: Ingresar },
     { path: '/Registrarse', name: "Registrarse", component: Registrarse },
     { path: '/Registro_Correo/:user', name: "Registro_Correo", component: Registro_Correo},
-    { path: '/Confirmacion', name: "Confirmacion", component: Confirmacion}
+    { path: '/Confirmacion/:mail', name: "Confirmacion", component: Confirmacion}
 ]
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
