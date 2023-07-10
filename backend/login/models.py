@@ -5,7 +5,8 @@ class User(models.Model):
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=50)
     email = models.EmailField(max_length=50, unique=True)
-    is_active = models.BooleanField(default=False)
+    verification_code = models.CharField(max_length=50, blank=True) #comprar cuando haga click
+    is_active = models.BooleanField(default=False) #para activar la cuenta correo
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -14,6 +15,7 @@ class User(models.Model):
     REQUIRED_FIELDS = ['email']
     def __str__(self):
         return self.username
+
 
 #funcionalidad:
 #login y registro => guardar de los usuarios y acceso con google

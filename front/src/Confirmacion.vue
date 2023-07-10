@@ -6,7 +6,6 @@ import Footer_PC from './components/Footer_PC.vue';
 import Footer_Cel from './components/Footer_Cel.vue';
 
 export default {
-
     components: {
         MenuLateral,
         MenuBarra_Cel,
@@ -18,7 +17,9 @@ export default {
         return {
             mostrarMenu: false,
             mostrarContenido: true,
+            padre: 'Confirmacion',
             windowWidth: window.innerWidth,
+            mail: 'Y'
         };
     },
     mounted() {
@@ -44,7 +45,7 @@ export default {
     <router-view v-if="!mostrarContenido"></router-view>
 
     <div v-if="mostrarContenido">
-        <MenuLateral v-if="windowWidth < 1024" :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
+        <MenuLateral v-if="windowWidth < 1024" :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp=padre
             @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
         <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
             <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
@@ -56,7 +57,6 @@ export default {
                 'fixed z-31': windowWidth >= 1024,
                 'bg-white dark:bg-gray w-full h-3/4 relative flex items-center justify-center flex-col': true
             }">
-                <!--<div class="w-full h-full">-->
                 <img src="./components/img/confirma_correo.png" alt="correoVerificacion" :class="{
                     'w-2/4 h-auto': windowWidth >= 768,
                     'w-auto h-2/5': windowWidth < 768,
@@ -74,20 +74,19 @@ export default {
                         <span class="mb-2 font-bold flex items-center justify-center">confirma tu correo
                             electronico</span> Nosotros enviamos una
                         confirmacion al correo:
-                        <span class="font-bold flex items-center justify-center">XXXX</span>
-                        Si no recibiste el correo, revisa tu carpeta de <br> spam o <a href="#"
+                        <span class="font-bold flex items-center justify-center">{{ mail }}</span>
+                        Si no recibiste el correo, revisa tu carpeta de spam o <router-link to="/Registrarse"
                             class=" font-bold text-yellow-2">intentalo de
-                            nuevo</a>
+                            nuevo</router-link>
                     </p>
-                    <button :class="{
+                    <router-link to="/" tag="button" :class="{
                         'mt-16 text-3xl': windowWidth >= 768,
                         'mt-0': windowWidth < 768,
                         'dark:text-gray-light bg-yellow-2 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
                     }">
                         Regresar
-                    </button>
+                    </router-link>
                 </div>
-                <!--</div>-->
             </main>
             <Footer_Cel v-if="windowWidth <= 768" />
             <Footer_PC v-else />

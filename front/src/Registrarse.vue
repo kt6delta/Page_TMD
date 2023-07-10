@@ -146,8 +146,10 @@ export default {
                             </p>
                         </div>
                         <div class="flex items-center justify-center">
+                            <!-- no funciona el pase de parametros-->
                             <router-link v-if="this.username && !this.userInvalid2 && !this.userInvalid3 && !this.userInvalid4"
-                                :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button" :class="{
+                                :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button" 
+                                :class="{
                                     'mt-5': windowWidth >= InterfazMedia,
                                     'm-0': windowWidth < InterfazMedia,
                                     'bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true

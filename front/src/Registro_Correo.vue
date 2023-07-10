@@ -130,7 +130,17 @@ export default {
                 .catch(err => {
                     console.log(err);
                 });
-        }
+        }, // sin provar encio de correos
+        async sendVerificationCode() {
+            try {
+                const response = await axios.post('http://localhost:8000/login/', {
+                    user_id: 1,  // ID del usuario al que quieres enviar el correo
+                });
+                console.log(response.data.message);
+            } catch (error) {
+                console.error(error);
+            }
+        },
     },
     watch: {
         email() {
@@ -265,7 +275,8 @@ export default {
                                     Las contraseñas no coinciden.</p>
                             </div>
                             <div class="w-full flex items-center justify-center">
-                                <router-link to="./Confirmacion" tag="button" @click="postUser()"
+                                <button :to="{ name: 'Confirmacion', params: { mail: this.email } }" tag="button"
+                                    @click="sendEmail()"
                                     v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && !emailInvalid && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password)"
                                     :class="{
                                         'text-xl w-28 h-14': windowWidth >= 1024,
@@ -274,21 +285,22 @@ export default {
                                         'mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
                                     }">
                                     <span :class="{
-                                        'h-10': WindowWidth >= 1024,
-                                        'h-8': WindowWidth < 1024 && WindowWidth >= 768,
-                                        'h-6': WindowWidth < 768,
+                                        'h-10': windowWidth >= 1024,
+                                        'h-8': windowWidth < 1024 && windowWidth >= 768,
+                                        'h-6': windowWidth < 768,
                                         'w-full flex items-center justify-center text-center': true
                                     }">Enviar!</span>
-                                </router-link>
-                                <!--disabled--><router-link to="./Confirmacion" tag="button" v-else
+                                </button>
+
+                                <button disabled v-else
                                     class="w-28 h-14 mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     <span :class="{
-                                        'h-10': WindowWidth >= 1024,
-                                        'h-8': WindowWidth < 1024 && WindowWidth >= 768,
-                                        'h-6': WindowWidth < 768,
+                                        'h-10': windowWidth >= 1024,
+                                        'h-8': windowWidth < 1024 && windowWidth >= 768,
+                                        'h-6': windowWidth < 768,
                                         'w-full flex items-center justify-center text-center': true
                                     }">Enviar!</span>
-                                </router-link>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -298,4 +310,5 @@ export default {
             <Footer_PC v-if="windowWidth >= 768" />
             <Footer_Cel v-else />
         </div>
-</div></template>
+    </div>
+</template>
