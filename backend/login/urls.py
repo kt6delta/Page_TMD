@@ -8,5 +8,5 @@ router.register(r'', UserViewSet, basename='user')
 
 urlpatterns = [
     path('users', include(router.urls)),
-    path('send_email/', send_email, name='send_email')
+    path('send_email/', send_email, name='send_email'),
 ]

@@ -132,17 +132,16 @@ export default {
                 });
         }, // sin provar encio de correos
         async sendVerificationCode() {
+            const headers = {
+                'Authorization': `Basic a3Q2ZGVsdGE6YmFsbGVuYTEy`
+            };
             const data = {
-                subject: 'Asunto',
-                message: 'Mucho contenido XD',
-                recipient: 'kt6delta@outlook.com'
+                subject: 'Confirmacion de correo',
+                message: 'codigo de confirmacion: 123456',
+                destino: this.email
             };
             try {
-                await axios.post('http://localhost:8000/login/send_email/', data , {
-                    headers: {
-                        'Authorization': 'django-insecure-02q124oclq^thn2gkk9nu#dn+m)4n2d1oj*1*l2t_@=4a&fk%7'
-                    }
-                });
+                await axios.post('http://localhost:8000/login/send_email/', data, { headers });
                 console.log('Correo enviado exitosamente');
             } catch (error) {
                 console.error('Error al enviar el correo', error);

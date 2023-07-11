@@ -6,31 +6,35 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication,SessionAuthentication
-
-
-
+from rest_framework.authentication import BasicAuthentication
+import json
 
 
 class UserViewSet (viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
 @api_view(['POST'])
-@authentication_classes([TokenAuthentication]) #autorizacion por token
-@permission_classes([IsAuthenticated]) 
-#@authentication_classes([SessionAuthentication]) #autorizacion por sesion
+@authentication_classes([BasicAuthentication])
+@permission_classes([IsAuthenticated])
 def send_email(request):
+    content = {
+        'user': str(request.user),
+        'auth': str(request.auth),
+    }
     if request.method == 'POST':
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
-        recipient = request.POST.get('recipient')
-        send_mail(
+        data = json.loads(request.body)
+        subject = data.get('subject')
+        message = data.get('message')
+        destino = data.get('destino')
+        from_email= settings.EMAIL_HOST_USER
+        send_mail(  # error al enviar el correo
             subject,
             message,
-            'datapreciado08@gmail.com',
-            [recipient],
-            fail_silently=False,
+            from_email,
+            [destino],
+            fail_silently=False
         )
         return JsonResponse({'mensaje': 'Correo enviado correctamente'})
     else:
