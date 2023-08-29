@@ -8,7 +8,8 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BasicAuthentication
 import json
-
+from django.conf import settings
+from django.core.mail import send_mail
 
 class UserViewSet (viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -28,7 +29,7 @@ def send_email(request):
         subject = data.get('subject')
         message = data.get('message')
         destino = data.get('destino')
-        from_email= settings.EMAIL_HOST_USER
+        from_email = settings.EMAIL_HOST_USER
         send_mail(  # error al enviar el correo
             subject,
             message,

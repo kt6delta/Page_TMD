@@ -1,33 +1,74 @@
 from django.shortcuts import render
+from rest_framework import generics, status, views
+from .serialaizer import RegisterSerializer, EmailVerificationSerializer
 from rest_framework.response import Response
-#import random
-#from django.conf import settings
-#from django.core.mail import send_mail
-#from django.shortcuts import get_object_or_404
+from rest_framework_simplejwt.tokens import RefreshToken
+from .models import User
+from .utils import Util
+from django.contrib.sites.shortcuts import get_current_site
+from django.urls import reverse
+import jwt
+from django.conf import settings
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+from django.contrib.auth.mixins import PermissionRequiredMixin
+# vista generica
 
-# SIn probar
-"""
+class VistaAdmin(PermissionRequiredMixin, generics.GenericAPIView):
+    permission_required = 'admin|log entry.add_logentry'
+    def get(self, request):
+        return Response({"permisos": "hola mundo"}, status=status.HTTP_200_OK)
 
-def send_verification_code(request):
-    user_id = request.data.get('user_id')
+class RegisterView(generics.GenericAPIView):
+    serializer_class = RegisterSerializer
 
-    user = get_object_or_404(User, id=user_id)
-    # Función para generar el código de verificación
-    verification_code = generate_verification_code()
+    def post(self, request):
+        user = request.data
+        serializer = self.serializer_class(data=user)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        user_data = serializer.data
+        user = User.objects.get(email=user_data["email"])
+        token = RefreshToken.for_user(user).access_token
 
-    user.profile.verification_code = verification_code
-    user.profile.save()
+        current_site = get_current_site(request).domain
+        relativeLink = reverse("email-verify")
+        absurl = "http://" + current_site + relativeLink + "?token=" + str(token)
+        email_body = (
+            "Hello "
+            + user.username
+            + " use the link below to verify your email \n"
+            + absurl
+        )
+        data = {
+            "email_body": email_body,
+            "to_email": user.email,
+            "email_subject": "verify your email",
+        }
+        Util.send_email(data)
+        return Response(user_data, status=status.HTTP_201_CREATED)
 
-    subject = 'Código de verificación'
-    message = f'Tu código de verificación es {verification_code}'
 
-    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [user.email])
-
-    return Response({'message': 'Correo enviado'})
-
-"""
-"""
-def generate_verification_code():
-    #Generates a random verification code.
-    return ''.join(random.choice('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') for _ in range(50))
-"""
+class VerifyEmail(views.APIView):#generics.GenericAPIView
+    serializer_class = EmailVerificationSerializer
+    token_param_config = openapi.Parameter('token', in_=openapi.IN_QUERY, description='Description', type=openapi.TYPE_STRING)
+    @swagger_auto_schema(manual_parameters=[token_param_config])
+    def get(self, request):
+        token = request.GET.get("token")
+        try:
+            payload = jwt.decode(token, settings.SECRET_KEY)
+            user = User.objects.get(id=payload["user_id"])
+            if not user.is_verified:
+                user.is_verified = True
+                user.save()
+            return Response(
+                {"email": "successfully activated"}, status=status.HTTP_200_OK
+            )
+        except jwt.ExpiredSignatureError as identifier:
+            return Response(
+                {"error": "activation expired"}, status=status.HTTP_400_BAD_REQUEST
+            )
+        except jwt.exceptions.DecodeError as identifier:
+            return Response(
+                {"error": "invalid token"}, status=status.HTTP_400_BAD_REQUEST
+            )

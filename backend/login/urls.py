@@ -1,12 +1,8 @@
-from rest_framework import routers
-from .viewsets import UserViewSet, send_email
-from django.urls import path, include
-
-router = routers.SimpleRouter()
-router.register(r'', UserViewSet, basename='user')
-# router.register(r'groups', views.GroupViewSet)
+from django.urls import path
+from .views import RegisterView, VerifyEmail
 
 urlpatterns = [
-    path('users', include(router.urls)),
-    path('send_email/', send_email, name='send_email'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('email-verify/', VerifyEmail.as_view(), name='email-verify'),
+    
 ]
