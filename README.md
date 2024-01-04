@@ -1,14 +1,7 @@
 # TecniMontacargasOficial
 
 This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+ ** PASALO A NODE.JS Y UNELO CON VU3 HAS BUILD Y LUEGO SUBE EL DIST **
 
 ## Project Setup
 
@@ -52,25 +45,16 @@ pip3 install django-cors-headers
 ```
 
 # Backend
-<h1 align="center"> Flask - Inicio de sesión y registro </h1>
+Inicio de sesion y registro que utiliza cookies para la sesion. 
 
-Inicio de sesion y registro que utiliza cookies para la sesion. <br>
-
-# Objetivos
-
-✔️ Uso de cookies. <br>
-✔️ Encriptar datos del usuario. <br>
-✔️ Validacion y autenticación. <br>
-![image](https://github.com/Luguitoo/LoginyRegister.Flask-Python/assets/112581880/86ce4a79-bb5f-4501-920a-1cc3bf4fa7ae)
-
-## :hammer:Librerias necesarias:
+## Librerias necesarias:
 
 apt install mysql-server <br>
 _el servicio de mysql_ <br>
 sudo service mysql start <br>
 pip3 install -r requirements.txt
 
-## 🛠️ Importar Base de Datos: </h3>
+## 🛠️ Importar Base de Datos:
 
 mysql -u username -p database < backup.sql
 
