@@ -41,11 +41,13 @@ npm run build
 # Backend
 
 ## Configure .env
+```sh
 HOST= 127.0.0.1
 DB_USER=
 PASSWORD=
 DATABASE=
 PORT=3001
+```
 
 ## 🛠️ Import Data Base:
 mysql -u user -p password < script_base/creacionBD.sql
