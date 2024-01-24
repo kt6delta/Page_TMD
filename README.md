@@ -15,6 +15,8 @@ npm install vue-router
 npm install --save-dev @rollup/plugin-image
 npm install axios
 npm install vue3-google-oauth2
+npm core
+npm express
 ```
 on windows:
 
@@ -56,6 +58,16 @@ pip3 install -r requirements.txt
 
 ## 🛠️ Importar Base de Datos:
 
-mysql -u username -p database < backup.sql
+mysql -u u187294548_TMD -p u187294548_TMD < backup.sql
+
+# configurar .env
+HOST=127.0.0.1
+DB_USER=
+PASSWORD=
+DATABASE=
+PORT=3001
+
+npm start
+
 
 
