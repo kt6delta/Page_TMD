@@ -1,16 +1,11 @@
 <script >
-import MenuBarra from './components/MenuBarra.vue';
-import Chat_Flotante from './components/Chat_Flotante.vue';
-import Footer from './components/Footer.vue';
+
 export default {
   components: {
-    MenuBarra,
-    Chat_Flotante,
-    Footer
+
   },
   data() {
     return {
-      mostrarMenu: false,
       windowWidth: window.innerWidth,
     };
   },
@@ -24,19 +19,15 @@ export default {
     handleResize() {
       this.windowWidth = window.innerWidth;
     },
-    actualizarMenu(nuevoValor) {
-      this.mostrarMenu = nuevoValor;
-    },
   },
 };
 </script>
 
 <template>
   <!--320x768-->
-  <MenuBarra />
 
   <div v-if="windowWidth < 1024">
-    <div v-show="!mostrarMenu" class="w-full h-screen">
+    <div class="w-full h-screen">
       <main :class="[
         'bg-no-repeat bg-cover w-full h-3/4 flex items-center justify-center flex-col',
         windowWidth < 768 ? 'relative bg-jungher' : 'relative bg-principal_2'
@@ -67,7 +58,6 @@ export default {
             ¡Agilizar tu operación de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con servicios de
             reparación y mantenimiento.
           </p>
-          <Chat_Flotante />
         </div>
       </main>
       <!-- <Footer /> -->
@@ -178,5 +168,4 @@ export default {
 
     </main>
   </div>
-  <Footer />
 </template>

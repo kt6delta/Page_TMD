@@ -1,22 +1,11 @@
 <script >
-import MenuLateral from './components/MenuLateral_Cel.vue';
-import Footer_Cel from './components/Footer_Cel.vue';
-import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
-import Chat_Flotante from './components/Chat_Flotante.vue';
-import MenuBarra_PC from './components/MenuBarra_PC.vue';
-import Footer_PC from './components/Footer_PC.vue';
+
 export default {
-    components: {
-        MenuLateral,
-        Footer_Cel,
-        MenuBarra_Cel,
-        Chat_Flotante,
-        MenuBarra_PC,
-        Footer_PC
-    },
+  components: {
+
+  },
     data() {
         return {
-            mostrarMenu: false,
             windowWidth: window.innerWidth,
         };
     },
@@ -30,22 +19,17 @@ export default {
         handleResize() {
             this.windowWidth = window.innerWidth;
         },
-        actualizarMenu(nuevoValor) {
-            this.mostrarMenu = nuevoValor;
-        },
     }
 };
 </script>
 
 <template>
-    <div>
+
         <!-- 350x640-->
         <div v-if="windowWidth < 1024">
-            <MenuLateral :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-
-            <div v-show="!mostrarMenu" class="dark:bg-gray bg-white">
-                <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-
+            
+            <div class="dark:bg-gray bg-white">
+                
                 <main class="bg-white dark:bg-gray w-full h-3/4 relative">
                     <div class="flex items-center flex-col">
                         <figure class="w-full h-1/6 relative">
@@ -114,10 +98,8 @@ export default {
                                 el tiempo que demore la refracción</span>
                         </p>
                     </div>
-                    <Chat_Flotante />
-                </main>
 
-                <Footer_Cel />
+                </main>
             </div>
 
         </div>
@@ -126,7 +108,6 @@ export default {
 
             <main class="w-full h-screen">
                 <!--nav-->
-                <MenuBarra_PC />
 
                 <!--fondo y frase-->
 
@@ -251,8 +232,8 @@ export default {
 
 
                 <!-- fqa y enlaces extra -->
-                <Footer_PC />
+                
             </main>
         </div>
-    </div>
+
 </template>

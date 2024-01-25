@@ -1,33 +1,22 @@
 <script >
-import MenuLateral from './components/MenuLateral_Cel.vue';
-import Footer_Cel from './components/Footer_Cel.vue';
-import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
-import Chat_Flotante from './components/Chat_Flotante.vue';
+
 export default {
-    components: {
-        MenuLateral,
-        Footer_Cel,
-        MenuBarra_Cel,
-        Chat_Flotante
-    },
+  components: {
+
+  },
     data() {
         return {
-            mostrarMenu: false,
+            
         };
     },
     methods: {
-        actualizarMenu(nuevoValor) {
-            this.mostrarMenu = nuevoValor;
-        },
+
     }
 };
 </script>
 
 <template>
-        <MenuLateral :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-        <div v-show="!mostrarMenu" class=" bg-yellow-2">
-            <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-
+        <div  class=" bg-yellow-2">
             <main class="bg-white dark:bg-gray w-full h-3/4 relative">
                 <div class="flex items-center flex-col">
                     <figure class="w-full h-1/6">
@@ -61,9 +50,9 @@ export default {
                             línea de baterías nuevas y seminuevas para la venta y alquiler. 12V 24V 36V 48V 80V.</span>
                     </p>
                 </div>
-                <Chat_Flotante />
+
             </main>
-            <Footer_Cel />
+
         </div>
 
 </template>
