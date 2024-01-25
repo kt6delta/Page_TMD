@@ -1,31 +1,16 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router';
 import './assets/style.css'
-
 import App from './App.vue'
-import Contacto from './Contacto.vue'
-import Alquiler from './Alquiler.vue'
-import Mantenimiento from './Mantenimiento.vue'
-import Ingresar from './Ingresar.vue'
-import Registrarse from './Registrarse.vue'
-import Registro_Correo from './Registro_Correo.vue'
-import Confirmacion from './Confirmacion.vue'
+import routes from './assets/routes'
+import page from './assets/modules/Page'
 
 
-const routes = [
-    { path: '/', name: 'Inicio', component: App },
-    { path: '/Contacto', name: "Contacto", component: Contacto},
-    { path: '/Alquiler', name: "Alquiler", component: Alquiler },
-    { path: '/Mantenimiento', name: "Mantenimiento", component: Mantenimiento },
-    { path: '/Ingresar', name: "Ingresar", component: Ingresar },
-    { path: '/Registrarse', name: "Registrarse", component: Registrarse },
-    { path: '/Registro_Correo/:user', name: "Registro_Correo", component: Registro_Correo},
-    { path: '/Confirmacion/:mail', name: "Confirmacion", component: Confirmacion}
-]
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes
-  })
-
-  export default router
-createApp(App).use(router).mount('#app')
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes
+})
+const app = createApp(App)
+app.use(router)
+app.use(page)
+app.mount('#app')

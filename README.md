@@ -1,28 +1,23 @@
+--Mejorar grafica basica Pc y mobil
+--vuex para guardar el ancho y login
+--menu es necesario?
+--simplifica codigo
+--mira las imagenes de fondo
+--no hacer tantos push (mejor conserva varios commit enlocal 1 push cada bastante)
+--move img y icons a assets
+
 # TecniMontacargasOficial
 
 This template should help get you started developing with Vue 3 in Vite.
-**PASARLO A NODE.JS Y SUBIR LA BD A HOSTINGER**
+
 ## Project Setup
 
-You can see **package.json** or to add the node_modules folder and the previous configurations use the commands in linux:
+You can see **package.json** or to add the node_modules folder and the previous configurations use the commands in terminal:
 
 ```sh
-npm install -g vite
-npm install vite --save-dev
-npm install tailwindcss --save-dev
-npm install autoprefixer
-npm install vue-router
-npm install --save-dev @rollup/plugin-image
-npm install axios
-npm install vue3-google-oauth2
-npm core
-npm express
+npm install
 ```
-on windows:
 
-```sh
-npm install -i
-```
 ### Compile and Hot-Reload for Development
 
 Use the command to run the development version
@@ -40,6 +35,8 @@ npm run build
 ```
 # Backend
 
+URL:https://api-page-tmd.onrender.com
+
 ## Configure .env
 ```sh
 HOST= 127.0.0.1
@@ -50,7 +47,9 @@ PORT=3001
 ```
 
 ## 🛠️ Import Data Base:
+```sh
 mysql -u user -p password < script_base/creacionBD.sql
+```
 
 ## Start Backend
 ```sh

@@ -14,28 +14,28 @@
                     <a href="https://www.facebook.com/profile.php?id=100089647335119">
                         <img src="./icons/facebook.svg" class="w-10">
                     </a>
-                    <a href="mailto:gestion@tecnimontacargasdual.com">
+                    <a href="mailto:comercial1@tecnimontacargasdual.net">
                         <img src="./icons/mail.svg" class="w-11">
                     </a>
 
                 </div>
             </div>
 
-            <div class="w-1/3 text-left text-xl font-Fuente_primaria text-primary">
+            <div class="w-1/3 text-center text-xl font-Fuente_primaria text-primary mr-10">
                 <ul class="">
-                    <li>hola</li>
-                    <li>hola</li>
-                    <li>hola</li>
+                    <li><span class="font-Fuente_terciaria font-black">CONTACTENOS</span></li>
+                    <li>3106734889</li>
+                    <li>comercial1@tecnimontacargasdual.net</li>
                 </ul>
             </div>
 
 
 
-            <div class="order-3 w-1/3 text-right text-xl font-Fuente_primaria text-primary">
+            <div class="order-3 w-1/3 text-center text-xl font-Fuente_primaria text-primary ml-10">
                 <ul>
-                    <li>hola</li>
-                    <li>hola</li>
-                    <li>hola</li>
+                    <li><span class="font-Fuente_terciaria font-black">DIRECCION</span></li>
+                    <li>Carrera 108 # 22F -21</li>
+                    <li>Bogota D.C, Colombia, 110911 </li>
                 </ul>
             </div>
 

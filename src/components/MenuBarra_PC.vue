@@ -9,17 +9,17 @@
             <div
                 class="w-auto lg:w-1/3 font-Fuente_primaria text-center text-septenary text-2xl flex flex-row justify-center space-x-7 py-5 ">
 
-                <router-link @click="Ubicacion('App')" to="../">Inicio</router-link>
-                <router-link @click="Ubicacion('Alquiler')" to="../Alquiler">Alquiler</router-link>
-                <router-link @click="Ubicacion('Mantenimiento')" to="../Mantenimiento">Mantenimiento</router-link>
+                <router-link to="../">Inicio</router-link>
+                <router-link to="../Alquiler">Alquiler</router-link>
+                <router-link to="../Mantenimiento">Mantenimiento</router-link>
 
             </div>
 
             <div
                 class="ml-10 w-auto lg:w-1/3 flex flex-row justify-end font-Fuente_primaria text-center text-septenary text-2xl space-x-7 p-5">
                 <img src="./img/persona_icono_cel.png" class="w-10 ">
-                <router-link @click="Ubicacion('Ingresar')" to="../Ingresar">Ingresar</router-link>
-                <router-link @click="Ubicacion('Registrarse')" to="../Registrarse" class="text-nonary">Registrarse</router-link>
+                <router-link to="../Ingresar">Ingresar</router-link>
+                <router-link to="../Registrarse" class="text-nonary">Registrarse</router-link>
             </div>
 
         </div>
@@ -29,24 +29,10 @@
 <script>
 export default {
     methods: {
-        Ubicacion(texto) {
-            if (texto !== this.PadreProp) {
-                this.ChangeContenido();
-            }
-        },
-        ChangeContenido() {
-            this.$emit('actualizar-contenido', !this.contenidoProp);
-        }
+
     },
     props: {
-        PadreProp: {
-            type: String,
-            required: true,
-        },
-        contenidoProp: {
-            type: Boolean,
-            required: true,
-        }
+
     },
 };
 </script>

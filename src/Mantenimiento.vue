@@ -17,9 +17,7 @@ export default {
     data() {
         return {
             mostrarMenu: false,
-            mostrarContenido: true,
             windowWidth: window.innerWidth,
-            padre: 'Mantenimiento'
         };
     },
     mounted() {
@@ -35,9 +33,6 @@ export default {
         actualizarMenu(nuevoValor) {
             this.mostrarMenu = nuevoValor;
         },
-        actualizarContenido(nuevoValor) {
-            this.mostrarContenido = nuevoValor;
-        }
     }
 };
 </script>
@@ -46,97 +41,92 @@ export default {
     <div>
         <!-- 350x640-->
         <div v-if="windowWidth < 1024">
-            <router-view v-if="!mostrarContenido"></router-view>
+            <MenuLateral :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
 
-            <div v-if="mostrarContenido">
-                <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
-                    @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
+            <div v-show="!mostrarMenu" class="dark:bg-gray bg-white">
+                <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
 
-                <div v-show="!mostrarMenu" class="dark:bg-gray bg-white">
-                    <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
+                <main class="bg-white dark:bg-gray w-full h-3/4 relative">
+                    <div class="flex items-center flex-col">
+                        <figure class="w-full h-1/6 relative">
+                            <div class="absolute inset-0 bg-black opacity-50"></div>
+                            <img src="./components/img/mantenimineto.png" alt="Mecanico_Reparando" title="Mantenimiento">
+                        </figure>
+                        <p :class="{
+                            'text-xl': windowWidth <= 400,
+                            'text-4xl': windowWidth > 400 && windowWidth < 575,
+                            'text-5xl': windowWidth >= 575,
+                            'text-black-0 dark:text-gray-light font-serif font-bold text-center': true,
+                            'mr-10 ml-10 mt-4 p-1 bg-nonary opacity-80 absolute rounded-md': windowWidth <= 400,
+                            'mr-14 ml-14 mt-6 p-2 bg-nonary opacity-80 absolute rounded-md': windowWidth > 400 && windowWidth < 575,
+                            'mr-24 ml-24 mt-10 p-5 bg-nonary opacity-80 absolute rounded-md': windowWidth >= 575
+                        }">
+                            Más que un servicio creamos un sistema general de rendimiento para sus equipos.
+                        </p>
+                        <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
+                            Montacargas
+                        </h2>
+                        <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-2 mb-4">
+                            <span class="transform -skew-x-12 inline-block"> Programas de capacitación que aseguran el
+                                rendimiento del equipo y del colaborador,</span>
+                            <span class="transform -skew-x-12 inline-block">gracias al uso seguro de los equipos y de
+                                las
+                                baterías.</span>
+                        </p>
+                        <ol class="list-disc text-gray dark:text-gray-light text-xl font-serif text-center mx-2 mb-4 ">
+                            <li>
+                                <span class="transform -skew-x-12 inline-block">Programas de mantenimiento
+                                    específico</span>
+                                <br><span class="transform -skew-x-12 inline-block">para sus
+                                    necesidades individuales.</span>
+                            </li>
+                            <li>
+                                <span class="transform -skew-x-12 inline-block">Importación y venta de repuestos.</span>
+                            </li>
+                        </ol>
+                        <figure class="w-full h-1/6">
+                            <img src="./components/img/montacarga_1_cel.jpeg" alt="montacarga_Jungheinrich"
+                                title="montacarga_Jungheinrich">
+                        </figure>
+                        <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
+                            Servicio técnico especialistas en Jungheinrich
+                        </h2>
+                        <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-1 mb-4">
+                            <span class="transform -skew-x-12 inline-block">Apoyamos a nuestros clientes para mantener
+                                sus
+                                equipos 100% operativos, seguros y</span>
+                            <span class="transform -skew-x-12 inline-block">confiables, asegurándoles respaldo y
+                                confiabilidad
+                                en la actividad de los mismos.</span>
+                        </p>
+                        <figure class="w-full h-1/6">
+                            <img src="./components/img/portaestiba_3.jpg" alt="portaestibas" title="portaestibas">
+                        </figure>
+                        <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
+                            Servicio técnico portaestibas
+                        </h2>
+                        <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-1 mb-4">
+                            <span class="transform -skew-x-12 inline-block">Contamos con dos tipos de mantenimiento
+                                preventivo-correctivo y para que su operación</span>
+                            <span class="transform -skew-x-12 inline-block">no se vea afectada prestamos nuestros
+                                portaestibas
+                                por
+                                el tiempo que demore la refracción</span>
+                        </p>
+                    </div>
+                    <Chat_Flotante />
+                </main>
 
-                    <main class="bg-white dark:bg-gray w-full h-3/4 relative">
-                        <div class="flex items-center flex-col">
-                            <figure class="w-full h-1/6 relative">
-                                <div class="absolute inset-0 bg-black opacity-50"></div>
-                                <img src="./components/img/mantenimineto.png" alt="Mecanico_Reparando"
-                                    title="Mantenimiento">
-                            </figure>
-                            <p :class="{
-                                'text-xl': windowWidth <= 400,
-                                'text-4xl': windowWidth > 400 && windowWidth < 575,
-                                'text-5xl': windowWidth >= 575,
-                                'text-black-0 dark:text-gray-light font-serif font-bold text-center': true,
-                                'mr-10 ml-10 mt-4 p-1 bg-nonary opacity-80 absolute rounded-md': windowWidth <= 400,
-                                'mr-14 ml-14 mt-6 p-2 bg-nonary opacity-80 absolute rounded-md': windowWidth > 400 && windowWidth < 575,
-                                'mr-24 ml-24 mt-10 p-5 bg-nonary opacity-80 absolute rounded-md': windowWidth >= 575
-                            }">
-                                Más que un servicio creamos un sistema general de rendimiento para sus equipos.
-                            </p>
-                            <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
-                                Montacargas
-                            </h2>
-                            <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-2 mb-4">
-                                <span class="transform -skew-x-12 inline-block"> Programas de capacitación que aseguran el
-                                    rendimiento del equipo y del colaborador,</span>
-                                <span class="transform -skew-x-12 inline-block">gracias al uso seguro de los equipos y de
-                                    las
-                                    baterías.</span>
-                            </p>
-                            <ol class="list-disc text-gray dark:text-gray-light text-xl font-serif text-center mx-2 mb-4 ">
-                                <li>
-                                    <span class="transform -skew-x-12 inline-block">Programas de mantenimiento
-                                        específico</span>
-                                    <br><span class="transform -skew-x-12 inline-block">para sus
-                                        necesidades individuales.</span>
-                                </li>
-                                <li>
-                                    <span class="transform -skew-x-12 inline-block">Importación y venta de repuestos.</span>
-                                </li>
-                            </ol>
-                            <figure class="w-full h-1/6">
-                                <img src="./components/img/montacarga_1_cel.jpeg" alt="montacarga_Jungheinrich"
-                                    title="montacarga_Jungheinrich">
-                            </figure>
-                            <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
-                                Servicio técnico especialistas en Jungheinrich
-                            </h2>
-                            <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-1 mb-4">
-                                <span class="transform -skew-x-12 inline-block">Apoyamos a nuestros clientes para mantener
-                                    sus
-                                    equipos 100% operativos, seguros y</span>
-                                <span class="transform -skew-x-12 inline-block">confiables, asegurándoles respaldo y
-                                    confiabilidad
-                                    en la actividad de los mismos.</span>
-                            </p>
-                            <figure class="w-full h-1/6">
-                                <img src="./components/img/portaestiba_3.jpg" alt="portaestibas" title="portaestibas">
-                            </figure>
-                            <h2 class="text-yellow-2 text-3xl font-serif text-center mx-4 mt-4 mb-1">
-                                Servicio técnico portaestibas
-                            </h2>
-                            <p class="text-gray dark:text-gray-light text-xl font-serif text-center mx-1 mb-4">
-                                <span class="transform -skew-x-12 inline-block">Contamos con dos tipos de mantenimiento
-                                    preventivo-correctivo y para que su operación</span>
-                                <span class="transform -skew-x-12 inline-block">no se vea afectada prestamos nuestros
-                                    portaestibas
-                                    por
-                                    el tiempo que demore la refracción</span>
-                            </p>
-                        </div>
-                        <Chat_Flotante />
-                    </main>
-
-                    <Footer_Cel />
-                </div>
+                <Footer_Cel />
             </div>
+
         </div>
         <!--1200-->
         <div v-else>
 
             <main class="w-full h-screen">
                 <!--nav-->
-                <MenuBarra_PC :contenidoProp="mostrarContenido" :PadreProp=this.padre @actualizar-contenido="actualizarContenido" />
+                <MenuBarra_PC />
 
                 <!--fondo y frase-->
 
@@ -263,8 +253,6 @@ export default {
                 <!-- fqa y enlaces extra -->
                 <Footer_PC />
             </main>
-            <router-view v-if="!mostrarContenido">
-            </router-view>
         </div>
     </div>
 </template>

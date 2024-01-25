@@ -37,38 +37,38 @@
                 'py-3': windowWidth > 375 && windowWidth < 768,
                 'py-5': windowWidth >= 768,
                 'transform -skew-x-12 hover:text-gray': true
-            }"><router-link to="../" @click="Ubicacion('App')">Inicio</router-link></li>
+            }"><router-link to="../">Inicio</router-link></li>
             <li :class="{
                 'py-2': windowWidth <= 375,
                 'py-3': windowWidth > 375 && windowWidth < 768,
                 'py-5': windowWidth >= 768,
                 'transform -skew-x-12 hover:text-gray': true
-            }"><router-link to="../Ingresar" @click="Ubicacion('Ingresar')">Ingresar</router-link></li>
+            }"><router-link to="../Ingresar">Ingresar</router-link></li>
             <li :class="{
                 'py-2': windowWidth <= 375,
                 'py-3': windowWidth > 375 && windowWidth < 768,
                 'py-5': windowWidth >= 768,
                 'transform -skew-x-12 hover:text-gray': true
-            }"><router-link to="../Registrarse" @click="Ubicacion('Registrarse')">Registrarse</router-link></li>
+            }"><router-link to="../Registrarse">Registrarse</router-link></li>
             <li :class="{
                 'py-2': windowWidth <= 375,
                 'py-3': windowWidth > 375 && windowWidth < 768,
                 'py-5': windowWidth >= 768,
                 'transform -skew-x-12 hover:text-gray': true
-            }"><router-link to="../Contacto" @click="Ubicacion('Contacto')">Contacto</router-link>
+            }"><router-link to="../Contacto">Contacto</router-link>
             </li>
             <li :class="{
                 'py-2': windowWidth <= 375,
                 'py-3': windowWidth > 375 && windowWidth < 768,
                 'py-5': windowWidth >= 768,
                 'transform -skew-x-12 hover:text-gray': true
-            }"><router-link to="../Alquiler" @click="Ubicacion('Alquiler')">Alquiler</router-link></li>
+            }"><router-link to="../Alquiler">Alquiler</router-link></li>
             <li :class="{
                 'py-2': windowWidth <= 375,
                 'py-3': windowWidth > 375 && windowWidth < 768,
                 'py-5': windowWidth >= 768,
                 'transform -skew-x-12 hover:text-gray': true
-            }"><router-link to="../Mantenimiento" @click="Ubicacion('Mantenimiento')">Mantenimiento</router-link></li>
+            }"><router-link to="../Mantenimiento">Mantenimiento</router-link></li>
         </ul>
     </div>
 </template>
@@ -90,16 +90,6 @@ export default {
         handleResize() {
             this.windowWidth = window.innerWidth;
         },
-        Ubicacion(texto) {
-            if (texto === this.PadreProp) {
-                this.OcultarMenu();
-            } else {
-                this.ChangeContenido();
-            }
-        },
-        ChangeContenido() {
-            this.$emit('actualizar-contenido', !this.contenidoProp);
-        },
         OcultarMenu() {
             this.$emit('actualizar-menu', !this.menuProp);
         }
@@ -107,14 +97,6 @@ export default {
     props: {
         menuProp: {
             type: Boolean,
-            required: true,
-        },
-        contenidoProp: {
-            type: Boolean,
-            required: true,
-        },
-        PadreProp: {
-            type: String,
             required: true,
         },
     },

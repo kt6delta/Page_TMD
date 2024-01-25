@@ -13,27 +13,18 @@ export default {
     data() {
         return {
             mostrarMenu: false,
-            mostrarContenido: true,
-            padre: 'Alquiler'
         };
     },
     methods: {
         actualizarMenu(nuevoValor) {
             this.mostrarMenu = nuevoValor;
         },
-        actualizarContenido(nuevoValor) {
-            this.mostrarContenido = nuevoValor;
-        }
     }
 };
 </script>
 
 <template>
-    <router-view v-if="!mostrarContenido"></router-view>
-
-    <div v-if="mostrarContenido">
-        <MenuLateral :menuProp="mostrarMenu" :contenidoProp="mostrarContenido" :PadreProp="padre"
-            @actualizar-menu="actualizarMenu" @actualizar-contenido="actualizarContenido" />
+        <MenuLateral :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
         <div v-show="!mostrarMenu" class=" bg-yellow-2">
             <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
 
@@ -74,5 +65,5 @@ export default {
             </main>
             <Footer_Cel />
         </div>
-    </div>
+
 </template>
