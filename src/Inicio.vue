@@ -1,15 +1,11 @@
 <script >
-import MenuLateral from './components/MenuLateral_Cel.vue';
-import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
+import MenuBarra from './components/MenuBarra.vue';
 import Chat_Flotante from './components/Chat_Flotante.vue';
-import MenuBarra_PC from './components/MenuBarra_PC.vue';
 import Footer from './components/Footer.vue';
 export default {
   components: {
-    MenuLateral,
-    MenuBarra_Cel,
+    MenuBarra,
     Chat_Flotante,
-    MenuBarra_PC,
     Footer
   },
   data() {
@@ -37,10 +33,10 @@ export default {
 
 <template>
   <!--320x768-->
+  <MenuBarra />
+
   <div v-if="windowWidth < 1024">
-    <MenuLateral :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
     <div v-show="!mostrarMenu" class="w-full h-screen">
-      <MenuBarra_Cel :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
       <main :class="[
         'bg-no-repeat bg-cover w-full h-3/4 flex items-center justify-center flex-col',
         windowWidth < 768 ? 'relative bg-jungher' : 'relative bg-principal_2'
@@ -80,11 +76,6 @@ export default {
   <!--1024-->
   <div v-else>
     <main class="w-full h-screen ">
-
-      <!--nav-->
-
-      <MenuBarra_PC />
-
       <!--seccion 1-->
 
       <section class="w-full h-full flex flex-col ">
