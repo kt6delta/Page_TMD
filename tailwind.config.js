@@ -9,6 +9,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
+        principal_2: "url('../src/components/img/principal_2.jpg')",
         principal: "url('../src/components/img/principal.jpg')",
         maquina_E: "url('../src/components/icons/maquina-elevadora.svg')",
         constructor: "url('../src/components/img/constructor.jpg')",
@@ -18,7 +19,7 @@ export default {
         jungher: "url('../src/components/img/jungher.jpg')",
         portaestiba: "url('../src/components/img/portaestiba_1.jpg')",
         ojoAbierto:"url('../../src/components/img/ojo_abierto.png')",
-        ojoCerrado:"url('../../src/components/img/ojos_cerrado.png')"
+        ojoCerrado:"url('../../src/components/img/ojos_cerrado.png')",
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),
@@ -56,6 +57,9 @@ export default {
         "blue-1": "#89939C",
         "blue-2": "#828D96",
         "blue-3": "#7C90A0",
+        'gradient-start': 'rgba(252, 252, 252, 0.2)',
+        'gradient-middle': 'rgba(122, 134, 144, 0.4)',
+        'gradient-end': 'rgba(120, 151, 176, 0.5)',
       },
       fontFamily: {
         dancing: ["Dancing Script", "cursive"],
