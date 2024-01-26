@@ -1,17 +1,13 @@
 <script >
-import MenuLateral from './components/MenuLateral_Cel.vue';
-import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
-import MenuBarra_PC from './components/MenuBarra_PC.vue';
+
 
 export default {
     components: {
-        MenuLateral,
-        MenuBarra_Cel,
-        MenuBarra_PC,
+
     },
     data() {
         return {
-            mostrarMenu: false,
+
             windowWidth: window.innerWidth,
         };
     },
@@ -25,18 +21,15 @@ export default {
         handleResize() {
             this.windowWidth = window.innerWidth;
         },
-        actualizarMenu(nuevoValor) {
-            this.mostrarMenu = nuevoValor;
-        },
+
     },
 };
 </script>
 
 <template>
-    <MenuBarra_PC v-if="windowWidth >= 1024"/>
-    <MenuLateral v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-    <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
-        <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
+   
+    <div class="w-full h-screen dark:bg-gray bg-white">
+
         <main class="bg-white w-full h-full relative dark:bg-gray">
             <div :class="{
                 'h-full fixed z-31': windowWidth >= 1024,

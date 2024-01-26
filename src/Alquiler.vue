@@ -1,19 +1,3 @@
-<script >
-
-export default {
-  components: {
-
-  },
-    data() {
-        return {
-            
-        };
-    },
-    methods: {
-
-    }
-};
-</script>
 
 <template>
         <div  class=" bg-yellow-2">

@@ -1,21 +1,10 @@
 <script>
-import MenuLateral from './components/MenuLateral_Cel.vue';
-import MenuBarra_Cel from './components/MenuBarra_Cel.vue';
-import MenuBarra_PC from './components/MenuBarra_PC.vue';
-import Footer_PC from './components/Footer_PC.vue';
 import axios from 'axios';
-
 export default {
-
     components: {
-        MenuLateral,
-        MenuBarra_Cel,
-        MenuBarra_PC,
-        Footer_PC
     },
     data() {
         return {
-            mostrarMenu: false,
             windowWidth: window.innerWidth,
             InterfazMedia: 768,
             InterfazGrand: 1024,
@@ -37,9 +26,7 @@ export default {
         handleResize() {
             this.windowWidth = window.innerWidth;
         },
-        actualizarMenu(nuevoValor) {
-            this.mostrarMenu = nuevoValor;
-        },
+
         checkUsername() {
             if (this.username === '') {
                 this.userInvalid = true
@@ -88,11 +75,8 @@ export default {
 </script>
 
 <template>
-    <MenuLateral v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-    <div v-show="!mostrarMenu" class="w-full h-screen dark:bg-gray bg-white">
-        <MenuBarra_Cel v-if="windowWidth < 1024" :menuProp="mostrarMenu" @actualizar-menu="actualizarMenu" />
-        <MenuBarra_PC />
-
+   
+    <div  class="w-full h-screen dark:bg-gray bg-white">
         <main :class="{
             'my-2': windowWidth < InterfazGrand,
             'fixed z-31': windowWidth >= InterfazGrand,

@@ -12,12 +12,12 @@
             <img src="./icons/Logo_primary.svg" alt="Montacarga" title="logo" class="w-fit h-fit">
         </figure>
         <ul class="text-2xl items-center text-center text-black-0 font-serif font-bold">
-            <li class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../">Inicio</router-link></li>
-            <li class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Ingresar">Ingresar</router-link></li>
-            <li class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Registrarse">Registrarse</router-link></li>
-            <li class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Contacto">Contacto</router-link></li>
-            <li class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Alquiler">Alquiler</router-link></li>
-            <li class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Mantenimiento">Mantenimiento</router-link></li>
+            <li @click="OcultarMenu()" class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../">Inicio</router-link></li>
+            <li @click="OcultarMenu()" class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Ingresar">Ingresar</router-link></li>
+            <li @click="OcultarMenu()" class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Registrarse">Registrarse</router-link></li>
+            <li @click="OcultarMenu()" class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Contacto">Contacto</router-link></li>
+            <li @click="OcultarMenu()" class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Alquiler">Alquiler</router-link></li>
+            <li @click="OcultarMenu()" class="py-2 transform -skew-x-12 hover:text-gray"><router-link to="../Mantenimiento">Mantenimiento</router-link></li>
         </ul>
     </div>
 </template>

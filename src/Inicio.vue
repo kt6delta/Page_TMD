@@ -1,171 +1,92 @@
-<script >
-
-export default {
-  components: {
-
-  },
-  data() {
-    return {
-      windowWidth: window.innerWidth,
-    };
-  },
-  mounted() {
-    window.addEventListener('resize', this.handleResize);
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  },
-  methods: {
-    handleResize() {
-      this.windowWidth = window.innerWidth;
-    },
-  },
-};
-</script>
-
 <template>
-  <!--320x768-->
-
-  <div v-if="windowWidth < 1024">
-    <div class="w-full h-screen">
-      <main :class="[
-        'bg-no-repeat bg-cover w-full h-3/4 flex items-center justify-center flex-col',
-        windowWidth < 768 ? 'relative bg-jungher' : 'relative bg-principal_2'
-      ]">
-        <div class="absolute inset-0 bg-gradient-to-r from-gradient-start via-gradient-middle to-gradient-end">
-        </div>
-        <div class="relative">
-          <h1 :class="{
-            'text-5xl mb-1': windowWidth <= 375,
-            'text-6xl mb-1': windowWidth < 768 && windowWidth > 375,
-            'text-7xl mb-2': windowWidth >= 768,
-            'text-white  mix-blend-luminosity font-dancing font-black text-center': true
-          }">Su mejor opción
-            en</h1>
-          <h1 :class="{
-            'text-5xl mb-8': windowWidth <= 375,
-            'text-6xl mb-10': windowWidth < 768 && windowWidth > 375,
-            'text-7xl mb-16': windowWidth >= 768,
-            'text-yellow-2 mix-blend-lighten font-dancing font-black text-center': true
-          }">Montacargas
-          </h1>
-          <p :class="{
-            'text-xl': windowWidth <= 375,
-            'text-2xl': windowWidth < 768 && windowWidth > 375,
-            'text-3xl': windowWidth >= 768,
-            'text-white mix-blend-plus-lighter font-serif text-center w-3/4': true
-          }">
-            ¡Agilizar tu operación de carga y descarga! Te ofrecemos montacargas, en alquiler y venta, con servicios de
-            reparación y mantenimiento.
-          </p>
-        </div>
-      </main>
-      <!-- <Footer /> -->
+  <main class="w-full h-screen flex flex-col">
+    <div class="w-full h-5/6 bg-principal bg-cover bg-center relative ">
+      <div class="absolute inset-0 bg-gradient-to-r from-gradient-start via-gradient-middle to-gradient-end"></div>
     </div>
-  </div>
-  <!--1024-->
-  <div v-else>
-    <main class="w-full h-screen ">
-      <!--seccion 1-->
+    <div class="w-full h-5/6 absolute">
+      <div class="container mx-auto w-full h-full flex flex-row justify-center">
+        <!-- Bloque de texto a la izquierda -->
+        <div class="flex-1 flex flex-col justify-center items-center px-4 sm:px-0">
+          <h1
+            class="font-black font-Fuente_secundaria text-white text-center text-4xl sm:text-5xl md:text-7xl lg:text-8xl">
+            Su mejor opción en <br> <span class="text-yellow-2">Montacargas</span>
+          </h1>
+        </div>
+        <!-- Bloque de botones a la derecha -->
+        <div class="flex-1 flex flex-col justify-center items-center px-4 sm:px-0">
+          <router-link to="/Contacto" tag="button"
+            class="w-16 h-10 mt-5 text-sm md:w-36 md:h-20 md:text-3xl font-bold bg-septenary rounded-md shadow-md">
+            <span class="text-black-0 font-Fuente_terciaria flex justify-center ">Alquila<br>&thinsp;&thinsp;Aquí</span>
+          </router-link>
+        </div>
+      </div>
+    </div>
+    <section class="w-full h-auto bg-nonary">
+      <div class="container mx-auto w-full h-full py-10 flex flex-col ">
+        <p class="w-full h-10 text-septenary font-Fuente_primaria text-center text-2xl sm:text-3xl">En TecniMontacargas
+        </p>
+        <p class="w-full h-1/2 text-primary font-Fuente_primaria text-center text-2xl sm:text-3xl">"Más que un servicio
+          creamos
+          un sistema general de rendimiento para sus equipos"</p>
+      </div>
+    </section>
+  </main>
 
-      <section class="w-full h-full flex flex-col ">
+  <!--Seccion dos/tarjetas de servicios (animacion de que se voltean) -->
 
-        <div class="w-full h-5/6 bg-principal bg-cover bg-center relative "></div>
 
-        <!--Parte 1 titulo-->
+  <section class="bg-primary w-full" id=" tarjetas">
+    <div class="container mx-auto w-full">
 
-        <div class="w-full h-5/6 absolute ">
-          <div class="container mx-auto w-full h-full flex flex-col justify-center">
-            <p class="w-2/6 h-1/4 font-Fuente_secundaria text-nonary text-start text-5xl xl:text-6xl ">
-              Nos especializamos en soluciones para montacargas
-            </p>
-            <router-link to="/Contacto" tag="button"
-              class="w-28 h-14 ml-14 mt-5 xl:h-14 xl:mt-5 bg-septenary rounded-md shadow-md">
-              <span
-                class="text-black-0 font-Fuente_terciaria font-bold text-lg flex items-center justify-center ">Alquila<br>&thinsp;&thinsp;Aquí</span>
-            </router-link>
+      <div class="px-58 py-10">
+        <h1 class="text-nonary text-5xl text-center font-Fuente_primaria">nuestros servicios</h1>
+      </div>
+
+      <div class="h-98 pb-32 flex flex-row space-y-0 space-x-4">
+
+        <div class="bg-nonary w-full h-96 flex flex-col items-center rounded-md shadow-md">
+          <div class="pt-32">
+            <img src="../src/components/icons/maquina-elevadora.svg" alt="" class="h-20">
           </div>
+          <p class="font-Fuente_primaria text-2xl text-center">Alquiler de Montacargas</p>
         </div>
 
-        <!-- frase motivadora-->
-        <div class="w-full h-auto bg-nonary">
-          <div class="container mx-auto w-full h-full py-10 flex flex-col ">
-            <p class="w-full h-10  text-septenary font-Fuente_primaria text-center text-3xl">En TecniMontacargas</p>
-            <p class="w-full h-1/2  text-primary font-Fuente_primaria text-center text-3xl">"Más que un servicio creamos
-              un sistema general de
-              rendimiento
-              para sus equipos"</p>
+        <div class="bg-nonary w-full h-96 flex flex-col items-center rounded-md shadow-md">
+          <div class="pt-32">
+            <img src="../src/components/icons/soporte-tecnico.svg" alt="" class="h-20">
           </div>
-
-        </div>
-      </section>
-
-      <!--Seccion dos/tarjetas de servicios (animacion de que se voltean) -->
-
-      <section class="bg-primary w-full" id=" tarjetas">
-
-        <div class="container mx-auto w-full">
-
-          <div class="px-58 py-10">
-            <h1 class="text-nonary text-5xl text-center font-Fuente_primaria">nuestros servicios</h1>
-          </div>
-
-          <div class="h-98 pb-32 flex flex-row space-y-0 space-x-4">
-
-            <div class="bg-nonary w-full h-96 flex flex-col items-center rounded-md shadow-md">
-              <div class="pt-32">
-                <img src="../src/components/icons/maquina-elevadora.svg" alt="" class="h-20">
-              </div>
-              <p class="font-Fuente_primaria text-2xl">Montacargas</p>
-            </div>
-
-            <div class="bg-nonary w-full h-96 flex flex-col items-center rounded-md shadow-md">
-              <div class="pt-32">
-                <img src="../src/components/icons/soporte-tecnico.svg" alt="" class="h-20">
-              </div>
-              <p class="font-Fuente_primaria text-2xl">Soporte tecnico</p>
-            </div>
-
-            <div class="bg-nonary w-full h-96 flex flex-col items-center rounded-md shadow-md">
-              <div class="pt-32">
-                <img src="../src/components/icons/Porta_stibas.svg" alt="" class="h-20">
-              </div>
-              <p class="font-Fuente_primaria text-2xl text-center">Servicio técnico en portaestibas</p>
-            </div>
-          </div>
+          <p class="font-Fuente_primaria text-2xl text-center">venta de repuestos</p>
         </div>
 
-
-      </section>
-
-      <!--Seccion tres/informacion empresa  y contactanos -->
-
-      <section class="bg-nonary w-full flex flex-row justify-center pt-14 xl:pb-14">
-
-        <div class="w-1/2 flex flex-row justify-center relative">
-          <div class="bg-septenary w-28 h-28 z-0"></div>
-          <div class="w-72 h-96"></div>
-          <div class="w-72 h-44 z-10 m-14 absolute">
-            <img src="../src/components/img/constructor.jpg" alt="">
+        <div class="bg-nonary w-full h-96 flex flex-col items-center rounded-md shadow-md">
+          <div class="pt-32">
+            <img src="../src/components/icons/Porta_stibas.svg" alt="" class="h-20">
           </div>
+          <p class="font-Fuente_primaria text-2xl text-center">Soporte tecnico</p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!--texto acerca de nosotros-->
-        <div class="w-1/2 py-14 lg:py-24 pr-20 xl:pr-56 ">
-          <h1 class="pb-5 text-5xl font-Fuente_primaria text-septenary text-center">acerca de nosotros</h1>
-          <p class="py-4 text-justify font-Fuente_terciaria text-primary text-3xl">
-            Nuestra compañía de alquiler de montacargas ofrece soluciones logísticas y de manejo de materiales para
-            empresas de todos los tamaños y sectores. Nos dedicamos a brindar a nuestros clientes la flexibilidad y la
-            eficiencia que necesitan para cumplir con sus objetivos y mejorar su productividad.
-          </p>
-        </div>
+  <section class="bg-nonary w-full flex flex-col md:flex-row justify-center pt-14 xl:pb-14">
 
-      </section>
-      <!-- fqa y enlaces extra -->
-      <!-- <Footer/> -->
-      <!--Seccion uno/imagen y texto -->
+    <div class="w-full md:w-1/2 flex flex-col md:flex-row justify-center relative">
+      <div class="bg-septenary w-28 h-28 z-0"></div>
+      <div class="w-72 h-96"></div>
+      <div class="w-60 md:w-72 h-44 ml-14 md:z-10 md:m-14 absolute">
+        <img src="../src/components/img/constructor.jpg" alt="">
+      </div>
+    </div>
 
+    <!--texto acerca de nosotros-->
+    <div class="w-full pl-14 pr-14 md:pl-0 md:w-1/2 py-14 lg:py-24 md:pr-20 xl:pr-56 ">
+      <h1 class="pb-5 text-3xl md:text-5xl font-Fuente_primaria text-septenary text-center">acerca de nosotros</h1>
+      <p class="py-4 text-justify font-Fuente_terciaria text-primary text-xl md:text-3xl">
+        Nuestra compañía de alquiler de montacargas ofrece soluciones logísticas y de manejo de materiales para
+        empresas de todos los tamaños y sectores. Nos dedicamos a brindar a nuestros clientes la flexibilidad y la
+        eficiencia que necesitan para cumplir con sus objetivos y mejorar su productividad.
+      </p>
+    </div>
 
-    </main>
-  </div>
+  </section>
 </template>
