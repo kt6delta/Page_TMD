@@ -21,7 +21,7 @@
                 <li class="hidden md:flex md:justify-center md:items-center md:space-x-7 md:py-5">
                     <router-link to="../Alquiler">Alquiler</router-link>
                     <router-link to="../Mantenimiento">Mantenimiento</router-link>
-                    <router-link to="../Contactenos">Contactenos</router-link>
+                    <router-link to="../Contacto">Contactenos</router-link>
                 </li>
                 <li class="hidden md:flex md:justify-end md:space-x-7 md:p-5 md:items-center">
                     <img src="./img/persona_icono_cel.png" class="hidden lg:block w-10">
