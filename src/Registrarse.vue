@@ -76,7 +76,7 @@ export default {
     <div class="w-full h-scree bg-white">
         <main class="my-2 bg-white w-full h-5/6 md:h-screen relative">
             <div class="w-full h-full flex items-center justify-center flex-col">
-                <h2 class="text-6xl text-gray text-center md:text-7xl font-dancing font-bold p-5">
+                <h2 class="text-4xl md:text-5xl text-gray mb-5 font-serif font-bold text-center">
                     Registro
                 </h2>
                 <form class="bg-white w-5/6 mb-4 shadow-md rounded px-3 pt-3 pb-4 md:bg-black-0 md:w-1/2 md:h-1/3 md:mb-10 flex flex-col justify-center">

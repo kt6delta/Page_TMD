@@ -9,7 +9,7 @@
                 </p>
             </figure>
         </section>
-        <div class="w-full bg-black-0 sm:w-3/4 md:bg-gray-light md:w-1/2 lg:w-1/3 xl:w-1/4 my-10">
+        <div class="w-full bg-black-0 sm:w-3/4 md:bg-gray-light md:w-1/2 lg:w-1/3 xl:w-1/4">
             <form
                 class="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 container mx-auto h-full flex flex-col justify-center items-center">
                 <div class="w-full font-Fuente_terciaria text-xl text-white md:text-black-0">
