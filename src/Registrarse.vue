@@ -5,9 +5,6 @@ export default {
     },
     data() {
         return {
-            windowWidth: window.innerWidth,
-            InterfazMedia: 768,
-            InterfazGrand: 1024,
             username: '',
             userInvalid: false,
             userInvalid3: false,
@@ -15,18 +12,7 @@ export default {
             userInvalid2: false
         };
     },
-    mounted() {
-        window.addEventListener('resize', this.handleResize);
-        this.checkUsername()
-    },
-    beforeUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    },
     methods: {
-        handleResize() {
-            this.windowWidth = window.innerWidth;
-        },
-
         checkUsername() {
             if (this.username === '') {
                 this.userInvalid = true
@@ -75,27 +61,15 @@ export default {
 </script>
 
 <template>
-   
-    <div  class="w-full h-screen dark:bg-gray bg-white">
-        <main :class="{
-            'my-2': windowWidth < InterfazGrand,
-            'fixed z-31': windowWidth >= InterfazGrand,
-            'bg-white dark:bg-gray w-full h-5/6 relative': true
-        }">
+    <div class="w-full h-screen dark:bg-gray bg-white">
+        <main class="my-2 md:fixed md:z-31 bg-white dark:bg-gray w-full h-5/6 relative">
             <div class="w-full h-full flex items-center justify-center flex-col">
-                <h2 :class="{
-                    'mt-44': windowWidth >= 1024,
-                    'mt-10': windowWidth < 1024 && windowWidth >= InterfazMedia,
-                    'text-4xl': windowWidth < InterfazMedia,
-                    'text-gray dark:text-white text-center text-5xl mb-5 font-serif font-bold p-5': true
-                }">
+                <h2
+                    class="mt-10 text-4xl text-gray dark:text-white text-center md:text-5xl mb-5 font-serif font-bold p-5 md:mt-44">
                     Registro
                 </h2>
-                <form :class="{
-                    'bg-gray w-1/2 h-1/4 mb-10': windowWidth >= InterfazMedia,
-                    'bg-white w-5/6 mb-4': windowWidth < InterfazMedia,
-                    'dark:bg-gray shadow-md rounded px-3 pt-3 pb-4': true
-                }">
+                <form
+                    class="bg-white w-5/6 mb-4 dark:bg-gray shadow-md rounded px-3 pt-3 pb-4 md:bg-gray md:w-1/2 md:h-1/4 md:mb-10">
                     <div class="mb-4">
                         <label class="block text-gray dark:text-gray-light font-serif italic text-xl font-bold mb-2"
                             for="username">
@@ -123,82 +97,45 @@ export default {
                     </div>
                     <div class="flex items-center justify-center">
                         <router-link v-if="this.username && !this.userInvalid2 && !this.userInvalid3 && !this.userInvalid4"
-                            :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button" :class="{
-                                'mt-5': windowWidth >= InterfazMedia,
-                                'm-0': windowWidth < InterfazMedia,
-                                'bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
-                            }">
+                            :to="{ name: 'Registro_Correo', params: { user: this.username } }" tag="button"
+                            class="m-0 md:mt-5 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             Continue con el correo
                         </router-link>
-                        <button v-else disabled :class="{
-                            'mt-0': windowWidth >= InterfazMedia,
-                            'm-0': windowWidth < InterfazMedia,
-                            'bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline': true
-                        }">
+                        <button v-else disabled
+                            class="m-0 md:mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             Continue con el correo
                         </button>
                     </div>
                 </form>
 
-                <div :class="{
-                    'mb-10': windowWidth >= InterfazMedia,
-                    'mb-2': windowWidth < InterfazMedia,
-                    'flex items-center w-full mb-2': true
-                }">
+                <div class="md:mb-10 flex items-center w-full mb-2">
                     <div class="border-t border-black-0 dark:border-white  w-1/2 h-1 ml-4">&nbsp;</div>
                     <div class="px-2 pb-1 text-black-0 dark:text-white">O</div>
                     <div class="border-t border-black-0 dark:border-white  w-1/2 h-1 mr-4">&nbsp;</div>
                 </div>
 
                 <div class="flex flex-col items-center justify-center">
-                    <button :class="{
-                        'mb-6': windowWidth >= InterfazMedia,
-                        'mb-3': windowWidth < InterfazMedia,
-                        'inline-flex bg-white dark:bg-yellow-2  py-1 px-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white  w-full leading-tight focus:shadow-outline': true
-                    }" type="button">
-                        <img :class="{
-                            'w-7 h-7': windowWidth >= InterfazMedia,
-                            'w-5 h-5': windowWidth < InterfazMedia
-                        }" src="./components/img/google_icon_cel.png" alt="google">
-                        <p :class="{
-                            'text-2xl': windowWidth >= InterfazMedia,
-                            'text-xl': windowWidth < InterfazMedia,
-                            'text-black-0 font-bold font-serif italic ml-2': true
-                        }">Continue con Google</p>
+                    <button
+                        class="mb-3 md:mb-6 inline-flex bg-white dark:bg-yellow-2 py-1 px-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
+                        type="button">
+                        <img class="w-5 h-5 md:w-7 md:h-7" src="./components/img/google_icon_cel.png" alt="google">
+                        <p class="text-xl md:text-2xl text-black-0 font-bold font-serif italic ml-2">Continue con Google</p>
                     </button>
-                    <button :class="{
-                        'mb-6': windowWidth >= InterfazMedia,
-                        'mb-3': windowWidth < InterfazMedia,
-                        'inline-flex bg-white dark:bg-yellow-2 py-1 px-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline': true
-                    }" type="button">
-                        <img :class="{
-                            'w-7 h-7': windowWidth >= InterfazMedia,
-                            'w-5 h-5': windowWidth < InterfazMedia
-                        }" src="./components/img/facebook_icon_cel.png" alt="facebook">
-                        <p :class="{
-                            'text-2xl': windowWidth >= InterfazMedia,
-                            'text-xl': windowWidth < InterfazMedia,
-                            'text-black-0 font-bold font-serif italic ml-2': true
-                        }">Continue con Facebook
+                    <button
+                        class="mb-3 md:mb-6 inline-flex bg-white dark:bg-yellow-2 py-1 px-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
+                        type="button">
+                        <img class="w-5 h-5 md:w-7 md:h-7" src="./components/img/facebook_icon_cel.png" alt="facebook">
+                        <p class="text-xl md:text-2xl text-black-0 font-bold font-serif italic ml-2">Continue con Facebook
                         </p>
                     </button>
                     <button
-                        class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
+                        class="mb-3 inline-flex bg-white dark:bg-yellow-2 py-1 px-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
                         type="button">
-                        <img :class="{
-                            'w-7 h-7': windowWidth >= InterfazMedia,
-                            'w-5 h-5': windowWidth < InterfazMedia
-                        }" src="./components/img/apple_icon_cel.png" alt="apple">
-                        <p :class="{
-                            'text-2xl': windowWidth >= InterfazMedia,
-                            'text-xl': windowWidth < InterfazMedia,
-                            'text-black-0 font-bold font-serif italic ml-2': true
-                        }">Continua con Apple</p>
+                        <img class="w-5 h-5 md:w-7 md:h-7" src="./components/img/apple_icon_cel.png" alt="apple">
+                        <p class="text-xl md:text-2xl text-black-0 font-bold font-serif italic ml-2">Continua con Apple</p>
                     </button>
                 </div>
             </div>
         </main>
     </div>
 </template>
-
-<style scoped></style>

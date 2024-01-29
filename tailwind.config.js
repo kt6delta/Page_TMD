@@ -9,17 +9,10 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        principal_2: "url('../src/components/img/principal_2.jpg')",
-        principal: "url('../src/components/img/principal.jpg')",
-        maquina_E: "url('../src/components/icons/maquina-elevadora.svg')",
-        constructor: "url('../src/components/img/constructor.jpg')",
-        montacarga: "url('../src/components/img/montacarga_1.jpeg')",
-        mantenimiento: "url('../src/components/img/montacarga_3.jpeg')",
-        montacarga_2: "url('../src/components/img/montacarga_2.jpg')",
-        jungher: "url('../src/components/img/jungher.jpg')",
-        portaestiba: "url('../src/components/img/portaestiba_1.jpg')",
-        ojoAbierto:"url('../../src/components/img/ojo_abierto.png')",
-        ojoCerrado:"url('../../src/components/img/ojos_cerrado.png')",
+        principal: "url('./principal.jpg')",
+        mantenimiento: "url('./mantenimineto.png')",
+        ojoAbierto:"url('./ojo_abierto.png')",
+        ojoCerrado:"url('./ojos_cerrado.png')",
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),
