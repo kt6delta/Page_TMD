@@ -58,7 +58,7 @@
     </main>
 
 
-    <section id="focusUser" class="text-center dark:bg-gray bg-gray-light md:w-full md:h-5/6 md:bg-primary">
+    <section id="focusUser" class="text-center bg-gray-light md:w-full md:h-5/6 md:bg-primary">
         <div class="container mx-auto md:p-14">
             <h1 class="mb-5 font-Fuente_secundaria text-5xl text-center text-pri text-black-0 md:text-nonary">Informacion
             </h1>
@@ -114,16 +114,10 @@
                         width="350" height="250" style="border:0;" screen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade" class="md:w-full md:h-full md:rounded-e-md"></iframe>
                     <div class="w-1/6 h-1/6 mt-4 md:hidden">
-                        <a class="dark:hidden" href="#">
+                        <a href="#">
                             <svg viewBox="0 0 100 100">
                                 <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
                                 <rect x="0" y="90" width="100" height="10" fill="#EBEBEB" stroke-width="1.4" />
-                            </svg>
-                        </a>
-                        <a class="hidden dark:block" href="#">
-                            <svg viewBox="0 0 100 100">
-                                <polygon points="5,95 50,5 95,95" fill="none" stroke="#f9ba4e" stroke-width="6" />
-                                <rect x="0" y="90" width="100" height="10" fill="#595959" stroke-width="1.4" />
                             </svg>
                         </a>
                     </div>

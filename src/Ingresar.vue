@@ -1,65 +1,27 @@
-<script >
-
-
-export default {
-    components: {
-
-    },
-    data() {
-        return {
-
-            windowWidth: window.innerWidth,
-        };
-    },
-    mounted() {
-        window.addEventListener('resize', this.handleResize);
-    },
-    beforeUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    },
-    methods: {
-        handleResize() {
-            this.windowWidth = window.innerWidth;
-        },
-
-    },
-};
-</script>
-
 <template>
-   
-    <div class="w-full h-screen dark:bg-gray bg-white">
-
-        <main class="bg-white w-full h-full relative dark:bg-gray">
-            <div :class="{
-                'h-full fixed z-31': windowWidth >= 1024,
-                'h-5/6': windowWidth < 1024,
-                'w-full flex items-center justify-center flex-col': true
-            }">
-                <h2 :class="{
-                    'text-5xl': windowWidth >= 1024,
-                    'text-4xl': windowWidth < 1024,
-                    'text-gray mb-5 font-serif font-bold text-center dark:text-gray-light': true
-                }">
+    <div class="w-full h-screen bg-white">
+        <main class="bg-white w-full h-full relative ">
+            <div class="h-5/6 md:h-full w-full flex items-center justify-center flex-col">
+                <h2 class="text-4xl md:text-5xl text-gray mb-5 font-serif font-bold text-center ">
                     Ingresar
                 </h2>
-                <form class="bg-white shadow-md rounded px-3 pt-3 pb-4 mb-4 dark:bg-gray ">
+                <form class="bg-white shadow-md rounded px-3 pt-3 pb-4 mb-4  ">
                     <div class="mb-4">
-                        <label class="block text-gray font-serif italic text-xl font-bold mb-2 dark:text-gray-light"
+                        <label class="block text-gray font-serif italic text-xl font-bold mb-2 "
                             for="username">
                             Usuario
                         </label>
                         <input
-                            class="shadow appearance-none border dark:border-b-blue-3 rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline dark:bg-blue-1 dark:placeholder:text-white dark:text-gray-light"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-base text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outlin "
                             id="username" type="text" placeholder="Ingrese su usuario">
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray font-serif italic text-xl font-bold mb-2 dark:text-gray-light"
+                        <label class="block text-gray font-serif italic text-xl font-bold mb-2 "
                             for="password">
                             Contraseña
                         </label>
                         <input
-                            class="shadow appearance-none border border-yellow-2 rounded w-full py-2 px-3 text-gray font-serif italic text-base mb-3 leading-tight focus:outline-none focus:shadow-outline dark:bg-blue-1 dark:placeholder:text-white dark:text-gray-light"
+                            class="shadow appearance-none border border-yellow-2 rounded w-full py-2 px-3 text-gray font-serif italic text-base mb-3 leading-tight focus:outline-none focus:shadow-outline"
                             id="password" type="password" placeholder="Ingrese su contraseña">
                         <a class="text-yellow-2 text-sm italic" href="#">
                             ¿Olvidó su contraseña?
@@ -67,7 +29,7 @@ export default {
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="bg-yellow-2 hover:bg-blue-3 dark:text-black-0 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            class="bg-yellow-2 hover:bg-blue-3  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="button">
                             Continue con el correo
                         </button>
@@ -75,26 +37,26 @@ export default {
                 </form>
 
                 <div class="flex items-center w-full mb-2">
-                    <div class="border-t border-black-0 dark:border-white  w-1/2 h-1 ml-4">&nbsp;</div>
-                    <div class="px-2 pb-1 text-black-0 dark:text-white">O</div>
-                    <div class="border-t border-black-0 dark:border-white w-1/2 h-1 mr-4">&nbsp;</div>
+                    <div class="border-t border-black-0   w-1/2 h-1 ml-4">&nbsp;</div>
+                    <div class="px-2 pb-1 text-black-0 ">O</div>
+                    <div class="border-t border-black-0 w-1/2 h-1 mr-4">&nbsp;</div>
                 </div>
 
                 <div class="flex flex-col items-center justify-center">
                     <button
-                        class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
+                        class="inline-flex bg-white py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 w-full leading-tight focus:shadow-outline"
                         type="button">
                         <img class="w-5 h-5" src="./components/img/google_icon_cel.png" alt="face">
                         <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Google</p>
                     </button>
                     <button
-                        class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
+                        class="inline-flex bg-white py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 w-full leading-tight focus:shadow-outline"
                         type="button">
                         <img class="w-4 h-6" src="./components/img/facebook_icon_cel.png" alt="face">
                         <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continue con Facebook</p>
                     </button>
                     <button
-                        class="inline-flex bg-white dark:bg-yellow-2 py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 dark:border-white w-full leading-tight focus:shadow-outline"
+                        class="inline-flex bg-white py-1 px-3  mb-3 rounded focus:outline-none focus:shadow-outline shadow appearance-none border border-yellow-2 w-full leading-tight focus:shadow-outline"
                         type="button">
                         <img class="w-5 h-5" src="./components/img/apple_icon_cel.png" alt="face">
                         <p class="text-black-0 font-bold font-serif italic text-xl ml-2">Continua con Apple</p>
@@ -105,4 +67,3 @@ export default {
     </div>
 </template>
 
-<style scoped></style>

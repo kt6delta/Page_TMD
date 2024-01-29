@@ -127,17 +127,17 @@ export default {
 </script>
 
 <template>
-    <div class="w-full h-screen bg-yellow-2">
-        <main class="w-full h-5/6 bg-nonary flex justify-center align-middle">
-            <div class="mt-9 w-2/3 mb-9 bg-primary rounded-md shadow-xl md:mt-32 md:w-2/4 md:mb-14">
-                <div class="px-5 py-5 md:px-10 md:py-10 xl:px-20 xl:py-24 w-full h-full flex flex-col space-y-5">
+    <div class="w-full h-1/2 bg-gray-light flex items-center">
+        <main class="w-full h-auto bg-nonary flex justify-center items-center md:align-middle">
+            <div class="mt-9 w-11/12 md:w-2/3 lg:w-1/2 mb-9 bg-primary rounded-md shadow-xl md:mt-32 md:mb-14">
+                <div class="px-5 py-5 md:px-10 md:py-10 xl:px-20 xl:py-14 w-full h-full flex flex-col space-y-5">
                     <div>
                         <h1
                             class="text-4xl p-1 md:text-5xl md:p-2 xl:text-5xl xl:p-5 text-center text-nonary font-Fuente_secundaria">
                             Registro
                         </h1>
                     </div>
-                    <div>
+                    <div class="xl:text-2xl">
                         <label for="Correo"
                             class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">Ingrese
                             el
@@ -156,12 +156,12 @@ export default {
                         <p v-if="emailInvalid3" class="text-red-500 text-sm italic font-bold">Porfavor ingrese
                             una direccion de correo mas corta</p>
                     </div>
-                    <div class="mb-5">
+                    <div class="xl:text-2xl">
                         <label for="Contraseña"
                             class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">Ingrese
                             una
                             contraseña</label>
-                        <div class="relative">
+                        <div class="relative h-10">
                             <input
                                 class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
                                 placeholder="Contraseña" v-model="password" :type="showPassword1 ? 'text' : 'password'"
@@ -189,7 +189,7 @@ export default {
                             tiene un maximo 25 caracteres.
                         </p>
                     </div>
-                    <div class="mb-5">
+                    <div class="xl:text-2xl">
                         <label for="Contraseña"
                             class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">Confirmar
                             contraseña</label>
