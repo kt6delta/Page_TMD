@@ -12,31 +12,17 @@
                 Ya sea que necesite un montacargas para un proyecto a corto plazo o para complementar su flota existente, el
                 alquiler es una opción económica y flexible.
             </p>
-            <carousel :items-to-show="1.5">
-                <slide v-for="slide in 2" :key="slide">
-            <div class="w-full h-3/4 relative" data-aos="fade-up">
-                <div class="flex flex-col md:flex-row md:my-5">
-                    <!-- izquierda -->
-                    <div class="flex items-center md:w-4/5 mr-5">
-                        <figure class="w-full h-1/6 md:h-auto items-center">
-                            <img src="./components/img/montacarga_6.jpg" alt="montacarga" title="alquiler"
-                                class="rounded-md">
-                        </figure>
+            <Carousel :autoplay="0" :wrap-around="true"><!-- 2000 -->
+                <Slide v-for="fila in range" :key="fila"> <!--0-1 -->
+                    <div class="carousel__item">
+                        <carrusel :images="img[fila]" />
                     </div>
-                    <!-- derecha -->
-                    <div class="hidden md:block items-center md:w-1/6">
-                        <figure class=" mx-auto h-auto md:w-full md:h-1/3 flex md:justify-center md:items-center">
-                            <img src="./components/img/montacarga_3.jpg" alt="bateria de traccion" class="rounded">
-                        </figure>
-                        <figure class="md:mx-auto md:w-full md:h-1/3 flex md:justify-center md:items-end">
-                            <img src="./components/img/montacarga_7.jpg" alt="bateria de traccion" class="rounded">
-                        </figure>
-                        <figure class="md:mx-auto md:w-full md:h-1/3 flex justify-center items-end">
-                            <img src="./components/img/montacarga_5.png" alt="bateria de traccion" class="rounded">
-                        </figure>
-                    </div>
-                </div>
-            </div>
+                </Slide>
+                <template #addons>
+                    <Pagination />
+                    <Navigation />
+                </template>
+            </Carousel>
         </section>
         <section class="flex flex-col md:flex-row md:mx-28" data-aos="fade-up">
             <!-- izquierda 2 -->
@@ -81,3 +67,31 @@
         </section>
     </main>
 </template>
+<script>
+import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css'
+import carrusel from './components/carrusel.vue'
+export default {
+    data() {
+        return {
+            img: [
+                ["src/components/img/montacarga_6.jpg", "src/components/img/montacarga_3.jpg", "src/components/img/montacarga_7.jpg", "src/components/img/montacarga_5.png"],
+                ["src/components/img/bateria3.png", "src/components/img/bateria2.png", "src/components/img/bateria2.jpg", "src/components/img/bateria1.png"]
+            ],
+        }
+    },
+    name: 'Alquiler',
+    components: {
+        Carousel,
+        Slide,
+        Pagination,
+        Navigation,
+        carrusel
+    },
+    computed: {
+        range() {
+            return Array.from({ length: 2 }, (_, i) => i);
+        },
+    }
+}
+</script>
