@@ -9,10 +9,10 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        principal: "url('./principal.jpg')",
-        mantenimiento: "url('./mantenimineto.png')",
-        ojoAbierto:"url('./ojo_abierto.png')",
-        ojoCerrado:"url('./ojos_cerrado.png')",
+        principal: "url('../principal2.jpg')",
+        mantenimiento: "url('../mantenimineto.png')",
+        ojoAbierto:"url('../ojo_abierto.png')",
+        ojoCerrado:"url('../ojos_cerrado.png')",
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),

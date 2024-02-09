@@ -1,5 +1,8 @@
 <template>
-    <header class="flex flex-col h-[calc(100vh/7)] md:h-24 lg:h-38">
+    <header :class="{
+        'sticky top-0 z-50': isShrink,
+        'flex flex-col h-[calc(100vh/7)] md:h-24 lg:h-38': !isShrink,
+    }">
         <nav class="bg-black-0 w-full h-full text-yellow-2">
             <ul class="flex justify-between items-center h-full md:justify-center">
                 <li class="ml-3 md:ml-0">
@@ -43,12 +46,27 @@ export default {
     data() {
         return {
             mostrarMenu: false,
+            isShrink: false,
         };
     },
     methods: {
         updateMenu() {
             this.mostrarMenu = !this.mostrarMenu;
         },
+        handleScroll() {
+            this.isShrink = window.scrollY > 0;
+        }
     },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
 };
 </script>
+<style scoped>
+header {
+    transition: height 0.3s ease;
+}
+</style>

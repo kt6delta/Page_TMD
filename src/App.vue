@@ -18,4 +18,3 @@ export default {
   <Chat_Flotante />
   <Footer />
 </template>
-<style></style>

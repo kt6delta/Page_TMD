@@ -1,15 +1,15 @@
 <template>
-    <main class="w-full md:h-auto bg-nonary flex flex-col md:flex-row justify-center items-center">
+    <main class="w-full md:h-auto bg-nonary flex flex-col md:flex-row justify-center items-center" data-aos="fade-up">
         <section class="flex items-center justify-center w-full h-1/4 lg:h-screen">
             <figure class="relative">
-                <img src="./components/img/montacarga_1_cel-gris.jpeg" class="mx-auto" alt="Contacto" title="Contacto">
+                <img src="./components/img/montacarga_4.jpg" alt="Contacto" title="Contacto">
                 <p
                     class="text-black-0 font-dancing font-bold text-center text-4xl md:text-6xl lg:text-8xl p-5 bg-nonary opacity-80 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-md md:hidden">
                     Contactenos
                 </p>
             </figure>
         </section>
-        <div class="w-full bg-black-0 sm:w-3/4 md:bg-gray-light md:w-1/2 lg:w-1/3 xl:w-1/4">
+        <div class="w-full bg-black-0 sm:w-3/4 md:bg-gray-light md:w-2/3">
             <form
                 class="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 container mx-auto h-full flex flex-col justify-center items-center">
                 <div class="w-full font-Fuente_terciaria text-xl text-white md:text-black-0">
@@ -57,8 +57,7 @@
         </div>
     </main>
 
-
-    <section id="focusUser" class="text-center bg-gray-light md:w-full md:h-5/6 md:bg-primary">
+    <section id="focusUser" class="text-center bg-gray-light md:w-full md:h-5/6 md:bg-primary" data-aos="fade-up">
         <div class="container mx-auto md:p-14">
             <h1 class="mb-5 font-Fuente_secundaria text-5xl text-center text-pri text-black-0 md:text-nonary">Informacion
             </h1>
