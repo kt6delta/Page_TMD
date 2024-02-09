@@ -12,6 +12,8 @@
                 Ya sea que necesite un montacargas para un proyecto a corto plazo o para complementar su flota existente, el
                 alquiler es una opción económica y flexible.
             </p>
+            <carousel :items-to-show="1.5">
+                <slide v-for="slide in 2" :key="slide">
             <div class="w-full h-3/4 relative" data-aos="fade-up">
                 <div class="flex flex-col md:flex-row md:my-5">
                     <!-- izquierda -->
