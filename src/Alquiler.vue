@@ -75,8 +75,8 @@ export default {
     data() {
         return {
             img: [
-                ["src/components/img/montacarga_6.jpg", "src/components/img/montacarga_3.jpg", "src/components/img/montacarga_7.jpg", "src/components/img/montacarga_5.png"],
-                ["src/components/img/bateria3.png", "src/components/img/bateria2.png", "src/components/img/bateria2.jpg", "src/components/img/bateria1.png"]
+                [require("@/components/img/montacarga_6.jpg"), require("@/components/img/montacarga_3.jpg"), require("@/components/img/montacarga_7.jpg"), require("@/components/img/montacarga_5.png")],
+                [require("@/components/img/bateria3.png"), require("@/components/img/bateria2.png"), require("@/components/img/bateria2.jpg"), require("@/components/img/bateria1.png")]
             ],
         }
     },
