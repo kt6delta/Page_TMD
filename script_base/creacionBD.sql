@@ -30,11 +30,12 @@ CREATE TABLE `user` (
   `date_joined` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `verification_code` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
   `is_verified` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Si el correo fue veificado',
-  `is_active` tinyint(1) NOT NULL DEFAULT '1',
+  `is_active` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Si ella cuenta esta activa',
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Si esta cuenta es de administrador',
   `last_login` datetime DEFAULT CURRENT_TIMESTAMP,
   `imagen` longtext,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 
 -- Dumping data for table `user`
