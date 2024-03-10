@@ -1,35 +1,41 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const nodemailer = require('nodemailer');
+import config from './config.js';
+const fs = require('fs');
 
 async function sendEmail(email, username, token) {
-    const name = "Tecnimontacargas Dual";
-    const msg_title = "!Verificacion de correo electronico!";
-    const sender = "noreply@app.com";
-    const msg_body = "Haga clcik en el siguiente boton o en el link para terminar la verificacion de correo eletronico";
-    const url = token;
+    const msg_title = "¡Verifica tu dirección de correo electrónico!";
+    const url = "tecnimontacargasdual.net/auth/"+token;
+    let msg_body = fs.readFileSync('utils/correo.html',{encoding:'utf8'});
+    msg_body = msg_body.replace("{{username}}", username);
+    msg_body = msg_body.replace("{{url}}", url);
+
 
     let transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: config.MAIL_SERVER,
+        port: config.MAIL_PORT,
+        secure: config.MAIL_USE_TLS,
         auth: {
-            user: 'youremail@gmail.com',
-            pass: 'yourpassword'
+            user: config.MAIL_USERNAME,
+            pass: config.MAIL_PASSWORD
         }
     });
 
     let mailOptions = {
-        from: sender,
+        from: config.MAIL_USERNAME,
         to: email,
         subject: msg_title,
-        html: `<h1>${name}</h1><h2>${msg_title}</h2><p>${username}</p><p>${msg_body}</p><p>${url}</p>`
+        html: msg_body
     };
 
     try {
         await transporter.sendMail(mailOptions);
-        res.json({ message: "email sent" });
+        console.log("email sent");
+        return "email sent";
     } catch (e) {
-        console.log(e);
-        res.send(`the email was not sent ${e}`);
+        console.log(`the email was not sent ${e}`);
+        return `the email was not sent ${e}`;
     }
 }
 

@@ -4,8 +4,10 @@ const login = express.Router();
 
 //obterner personas (todos)
 login.get('/', async (req, res) => {
-    res.send('Hello World!')
+
 })
+
+//auth
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
