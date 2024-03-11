@@ -1,23 +1,54 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const jwt = require('jsonwebtoken');
+
 //constantes
 import express from 'express';
+import conexion from "../utils/conexion.js";
 const login = express.Router();
 
-//obterner personas (todos)
-login.get('/', async (req, res) => {
-
+//auth
+login.post('/auth/:token', async (req, res) => {
+    let username;
+    try {
+        username = await ValidateToken(req.params.token);
+    } catch (err) {
+        return res.send(err.message);
+    }
+    let connection;
+    let responseSent = false;
+    try {
+        connection = await conexion.abrirConexion()
+        result = await new Promise((resolve, reject) => {
+            connection.query(`UPDATE user SET is_verified=? , is_active=? WHERE username = ?`, [1, 1, username], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (err) {
+        responseSent = true;
+        return res.send(err.message);
+    } finally {
+        await conexion.cerrarConexion(connection)
+        if (!responseSent) {
+            return res.send('Correo verificado!!')
+        }
+    }
 })
 
-//auth
-
-function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-    if (token == null) return res.send('no hay token')
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err) return res.send('token invalido')
-        req.user = user
-        next()
-    })
+async function ValidateToken(token) {
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+            if (err) {
+                console.log('Token invalid');
+                reject(new Error('Token invalid'));
+            }
+            resolve(user.username);
+        })
+    });
 }
 
 export default login

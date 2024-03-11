@@ -6,7 +6,7 @@ const fs = require('fs');
 
 async function sendEmail(email, username, token) {
     const msg_title = "¡Verifica tu dirección de correo electrónico!";
-    const url = "tecnimontacargasdual.net/auth/"+token;
+    const url = "https://api-page-tmd.onrender.com/login/auth/"+token;
     let msg_body = fs.readFileSync('utils/correo.html',{encoding:'utf8'});
     msg_body = msg_body.replace("{{username}}", username);
     msg_body = msg_body.replace("{{url}}", url);

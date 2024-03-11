@@ -181,13 +181,13 @@ personaRouter.post('/', async (req, res) => {
 })
 
 //actualizar persona
-personaRouter.put('/:id', async (req, res) => {
+personaRouter.put('/:username', async (req, res) => {
     let connection;
     let responseSent = false;
     try {
         connection = await conexion.abrirConexion()
         await new Promise((resolve, reject) => {
-            connection.query(`UPDATE user SET username = ?, email = ?, password = ?, verification_code = ? WHERE id_user = ?`, [req.body.username, req.body.email, req.body.password, req.body.verification_code, req.params.id], (err, results) => {
+            connection.query(`UPDATE user SET email = ?, password = ?, verification_code = ? WHERE username = ?`, [req.body.email, req.body.password, req.body.verification_code, req.body.username], (err, results) => {
                 if (err) {
                     reject(err);
                 } else {
@@ -207,13 +207,13 @@ personaRouter.put('/:id', async (req, res) => {
 })
 
 //eliminar persona
-personaRouter.delete('/:id', async (req, res) => {
+personaRouter.delete('/:username', async (req, res) => {
     let connection;
     let responseSent = false;
     try {
         connection = await conexion.abrirConexion()
         await new Promise((resolve, reject) => {
-            connection.query(`DELETE FROM user WHERE id_user = ?`, [req.params.id], (err, results) => {
+            connection.query(`DELETE FROM user WHERE username = ?`, [req.params.username], (err, results) => {
                 if (err) {
                     reject(err);
                 } else {
