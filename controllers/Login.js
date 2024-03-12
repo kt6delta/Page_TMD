@@ -7,7 +7,7 @@ import express from 'express';
 import conexion from "../utils/conexion.js";
 const login = express.Router();
 
-//autenticate user
+//autenticate user por correo y contraseña
 login.get('/auth/:token', async (req, res) => {
     let username;
     try {

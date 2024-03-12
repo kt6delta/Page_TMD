@@ -18,6 +18,8 @@ const MAIL_USE_TLS = process.env.MAIL_USE_TLS
 const MAIL_USERNAME = process.env.MAIL_USERNAME
 const MAIL_PASSWORD = process.env.MAIL_PASSWORD
 
+const BACKEND_URL= process.env.BACKEND_URL
+
 export default {
     HOST,
     DB_USER,
@@ -32,5 +34,7 @@ export default {
     MAIL_PORT,
     MAIL_USE_TLS,
     MAIL_USERNAME,
-    MAIL_PASSWORD
+    MAIL_PASSWORD,
+
+    BACKEND_URL
 }
