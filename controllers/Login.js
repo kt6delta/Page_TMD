@@ -19,7 +19,7 @@ login.get('/auth/:token', async (req, res) => {
     let responseSent = false;
     try {
         connection = await conexion.abrirConexion()
-        result = await new Promise((resolve, reject) => {
+        await new Promise((resolve, reject) => {
             connection.query(`UPDATE user SET is_verified=? , is_active=? WHERE username = ?`, [1, 1, username], (err, results) => {
                 if (err) {
                     reject(err);
@@ -34,6 +34,7 @@ login.get('/auth/:token', async (req, res) => {
     } finally {
         await conexion.cerrarConexion(connection)
         if (!responseSent) {
+            console.log('Correo verificado!!');
             return res.send('Correo verificado!!')
         }
     }
