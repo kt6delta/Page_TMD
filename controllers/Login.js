@@ -7,8 +7,8 @@ import express from 'express';
 import conexion from "../utils/conexion.js";
 const login = express.Router();
 
-//auth
-login.post('/auth/:token', async (req, res) => {
+//autenticate user
+login.get('/auth/:token', async (req, res) => {
     let username;
     try {
         username = await ValidateToken(req.params.token);
