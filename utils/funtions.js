@@ -47,9 +47,9 @@ function VerificationUniqueMail(email) {
                     reject(err);
                 } else {
                     if (results.length > 0) {
-                        resolve(false) //exite email
+                        resolve(true) //exite email
                     } else {
-                        resolve(true)
+                        resolve(false)
                     }
                 }
             });

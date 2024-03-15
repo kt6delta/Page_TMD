@@ -151,7 +151,7 @@ personaRouter.post('/', async (req, res) => {
             responseSent = true;
             return res.send('El usuario ya está en uso');
         }
-        if (!uniqueMail) {
+        if (uniqueMail) {
             responseSent = true;
             return res.send('El correo ya está en uso');
         }

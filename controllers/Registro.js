@@ -33,7 +33,7 @@ registro.post('/', async (req, res) => {
             return res.send('El usuario ya está en uso');
         }
 
-        if (!uniqueMail) {
+        if (uniqueMail) {
             responseSent = true;
             return res.send('El correo ya está en uso');
         }
@@ -71,7 +71,7 @@ registro.get('/user/:user', async (req, res) => {
         return res.send(result);
     })
 })
-
+//Unique email
 registro.get('/mail/:email', async (req, res) => {
     funtions.VerificationUniqueMail(req.params.email).then((result) => {
         return res.send(result);

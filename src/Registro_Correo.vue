@@ -65,7 +65,7 @@ export default {
                 email: this.email
             })
                 .then(response => {
-                    console.log(response.data);
+                    console.log(response);
                     this.$router.push({ name: 'Confirmacion', params: { mail: this.email } });
                 })
                 .catch(err => {
@@ -74,7 +74,7 @@ export default {
         },
         async Send() {
             if (await this.checkEmail() && await this.checkPassword()) {
-                //this.postUser();
+                this.postUser();
             }
         }
     },
