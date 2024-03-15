@@ -16,113 +16,84 @@ export default {
             showPassword1: false,
             showPassword2: false,
             confirmPassword: '',
-            user: '',
         };
     },
     methods: {
         checkPassword() {
-            if (this.password === '') {
-                this.passwordInvalid = true
-            } else {
-                this.passwordInvalid = false
-                if (this.password.length < 8) {
-                    this.passwordInvalid2 = true
-                } else {
-                    this.passwordInvalid2 = false
-                    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*+-.]).+$/
-                    if (!regex.test(this.password)) {
-                        this.passwordInvalid3 = true
-                    } else {
-                        this.passwordInvalid3 = false
-                        if (this.password.length > 25) {
-                            this.passwordInvalid4 = true
-                        } else {
-                            this.passwordInvalid4 = false
-                        }
-                    }
-                }
-            }
+            this.passwordInvalid = this.password === '';
+            this.passwordInvalid2 = this.password.length < 8;
+            this.passwordInvalid3 = !/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*+-.]).+$/.test(this.password);
+            this.passwordInvalid4 = this.password.length > 25;
+            return !(this.passwordInvalid || this.passwordInvalid2 || this.passwordInvalid3 || this.passwordInvalid4);
         },
         checkEmail() {
-            if (this.email === '') {
-                this.emailInvalid = true
-            } else {
-                this.emailInvalid = false
-                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                if (!regex.test(this.email)) {
-                    this.emailInvalid2 = true
-                } else {
-                    this.emailInvalid2 = false
-                    if (this.email.length > 45) {
-                        this.emailInvalid3 = true
-                    } else {
-                        this.emailInvalid3 = false
-                        axios.get('http://localhost:8000/login/users', {
-                            params: {
-                                email: this.email
-                            }
-                        })
-                            .then(res => {
-                                const data = res.data;
-                                for (const obj of data) {
-                                    if (obj.email === this.email) {//bloquea si ya existe
-                                        this.emailInvalid4 = true;
-                                        break;
-                                    } else {
-                                        this.emailInvalid4 = false;
-                                    }
-                                }
-                            })
-                            .catch(err => {
-                                console.log(err);
-                            });
-                    }
-                }
-            }
+            this.emailInvalid = this.email === '';
+            if (this.emailInvalid) return false;
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            this.emailInvalid2 = !regex.test(this.email);
+            if (this.emailInvalid2) return false;
+            this.emailInvalid3 = this.email.length > 45;
+            if (this.emailInvalid3) return false;
+            return true;
         },
-        postUser() {
-            this.user = this.$route.params.user
-            const data = {
-                username: this.user,
-                password: this.password,
-                email: this.email,
-                is_active: false,
-                is_superuser: false,
-                is_staff: false
-            };
-            axios.post('http://localhost:8000/login/users/', data)
-                .then(response => {
-                    console.log(response.data);
+        checkEmailExists() {
+            axios.get('http://localhost:3001/registro/mail/' + this.email)
+                .then(res => {
+                    this.emailInvalid4 = !res.data; //res.data=false if exits email
+                    if (!this.emailInvalid4 && this.checkPassword()) {
+                        this.postUser();
+                    }
                 })
                 .catch(err => {
                     console.log(err);
                 });
-        }, // sin provar encio de correos
-        async sendVerificationCode() {
-            const headers = {
-                'Authorization': `Basic a3Q2ZGVsdGE6YmFsbGVuYTEy`
-            };
-            const data = {
-                subject: 'Confirmacion de correo',
-                message: 'codigo de confirmacion: 123456',
-                destino: this.email
-            };
-            try {
-                await axios.post('http://localhost:8000/login/send_email/', data, { headers });
-                console.log('Correo enviado exitosamente');
-            } catch (error) {
-                console.error('Error al enviar el correo', error);
+        },
+        postUser() {
+            axios.post('http://localhost:3001/registro/', {
+                username: this.$route.params.user,
+                password: this.password,
+                email: this.email
+            })
+                .then(response => {
+                    console.log(response.data);
+                    this.$router.push({ name: 'Confirmacion', params: { mail: this.email } });
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        },
+        Send() {
+            if (this.checkEmail()) {
+                this.checkEmailExists();
             }
+        }
+    },
+    computed: {
+        isButtonDisabled() {
+            let isPasswordsMatch = this.confirmPassword === this.password;
+            return this.checkEmail() && this.checkPassword() && isPasswordsMatch;
+        },
+        MailInbalidate() {
+            return !this.emailInvalid || this.emailInvalid2 || this.emailInvalid3 || this.emailInvalid4;
+        },
+        PasswordInbalidate() {
+            return !this.passwordInvalid || this.passwordInvalid2 || this.passwordInvalid3 || this.passwordInvalid4;
+        },
+        errorMessage() {
+            if (this.emailInvalid) return 'La direccion de correo no puede estar vacio.';
+            if (this.emailInvalid2) return 'Ingrese una direccion de correo valida.';
+            if (this.emailInvalid3) return 'Porfavor ingrese una direccion de correo mas corta';
+            if (this.emailInvalid4) return 'Ya tienes una cuenta creada';
+            return '';
+        },
+        errorMessage2() {
+            if (this.passwordInvalid) return 'La contraseña no puede estar vacia.';
+            if (this.passwordInvalid2) return 'La contraseña debe tener al menos 8 caracteres.';
+            if (this.passwordInvalid3) return 'La contraseña debe tener al menos un numero, una mayuscula y un caracter especial (!@#$%^&*+-.).';
+            if (this.passwordInvalid4) return 'La contraseña tiene un maximo 25 caracteres.';
+            return '';
         },
     },
-    watch: {
-        email() {
-            this.checkEmail()
-        },
-        password() {
-            this.checkPassword()
-        }
-    }
 };
 </script>
 
@@ -137,24 +108,17 @@ export default {
                             Registro
                         </h1>
                     </div>
+
+
                     <div class="xl:text-2xl">
                         <label for="Correo"
-                            class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">Ingrese
-                            el
-                            correo
-                            electronico</label>
-                        <input
+                            class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">
+                            Ingrese el correo electronico
+                        </label>
+                        <input v-model="email" type="email" placeholder="Correo electronico"
                             class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
-                            type="email" placeholder="Correo electronico" v-model="email"
-                            :class="{ 'border-red-500': emailInvalid2 }">
-                        <p v-if="emailInvalid" class="text-red-500 text-sm italic font-bold">La direccion de correo
-                            no puede estar vacio.</p>
-                        <p v-else-if="emailInvalid4" class="text-red-500 text-sm italic font-bold">Ya tienes una
-                            cuenta creada</p>
-                        <p v-else-if="emailInvalid2" class="text-red-500 text-sm italic font-bold">Ingrese
-                            una direccion de correo valida.</p>
-                        <p v-if="emailInvalid3" class="text-red-500 text-sm italic font-bold">Porfavor ingrese
-                            una direccion de correo mas corta</p>
+                            :class="{ 'border-red-500': MailInbalidate }">
+                        <p v-if="errorMessage" class="text-red-500 text-sm italic font-bold">{{ errorMessage }}</p>
                     </div>
                     <div class="xl:text-2xl">
                         <label for="Contraseña"
@@ -165,28 +129,17 @@ export default {
                             <input
                                 class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
                                 placeholder="Contraseña" v-model="password" :type="showPassword1 ? 'text' : 'password'"
-                                :class="{ 'border-red-500': password.length < 8 }">
+                                :class="{ 'border-red-500': MailInbalidate }">
                             <button @click="showPassword1 = !showPassword1" class="ml-2 focus:outline-none ">
                                 <img :class="{
-                                    'mt-3': showPassword1,
-                                    'mt-4': !showPassword1,
-                                    'w-10 h-auto absolute top-0 right-0 mr-2': true
-                                }"
-                                    :src="showPassword1 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
+                            'mt-3': showPassword1,
+                            'mt-4': !showPassword1,
+                            'w-10 h-auto absolute top-0 right-0 mr-2': true
+                        }" :src="showPassword1 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
                                     alt="mostrar_Contraseña">
                             </button>
                         </div>
-                        <p v-if="passwordInvalid" class=" text-red-500 text-sm italic font-bold">La contraseña no
-                            puede estar vacia.
-                        </p>
-                        <p v-else-if="passwordInvalid2" class=" text-red-500 text-sm italic font-bold">La contraseña
-                            debe tener al menos 8 caracteres.
-                        </p>
-                        <p v-else-if="passwordInvalid3" class=" text-red-500 text-sm italic font-bold">La contraseña
-                            debe tener al menos un numero, una mayuscula y un caracter especial (!@#$%^&*+-.).
-                        </p>
-                        <p v-if="passwordInvalid4" class=" text-red-500 text-sm italic font-bold">La contraseña
-                            tiene un maximo 25 caracteres.
+                        <p v-if="errorMessage2" class=" text-red-500 text-sm italic font-bold">{{ errorMessage2 }}
                         </p>
                     </div>
                     <div class="xl:text-2xl">
@@ -198,14 +151,13 @@ export default {
                                 class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
                                 placeholder="confirmar Contraseña" v-model="confirmPassword"
                                 :type="showPassword2 ? 'text' : 'password'"
-                                :class="{ 'border-red-500': password.length < 8 }">
+                                :class="{ 'border-red-500': this.passwordInvalid2 }">
                             <button @click="showPassword2 = !showPassword2" class="ml-2 focus:outline-none">
                                 <img :class="{
-                                    'mt-3': showPassword2,
-                                    'mt-4': !showPassword2,
-                                    'w-10 h-auto absolute top-0 right-0 mr-2': true
-                                }"
-                                    :src="showPassword2 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
+                            'mt-3': showPassword2,
+                            'mt-4': !showPassword2,
+                            'w-10 h-auto absolute top-0 right-0 mr-2': true
+                        }" :src="showPassword2 ? '/src/components/img/ojos_cerrado.png' : '/src/components/img/ojo_abierto.png'"
                                     alt="mostrar_Contraseña">
                             </button>
                         </div>
@@ -213,17 +165,8 @@ export default {
                             Las contraseñas no coinciden.</p>
                     </div>
                     <div class="w-full flex items-center justify-center">
-                        <router-link
-                            v-if="!passwordInvalid && !passwordInvalid2 && !passwordInvalid3 && !passwordInvalid4 && this.email && !emailInvalid2 && !emailInvalid3 && !emailInvalid4 && !(confirmPassword !== password)"
-                            :to="{ name: 'Confirmacion', params: { mail: this.email } }" tag="button"
-                            @click="sendVerificationCode()"
+                        <button type="button" @click="Send()"
                             class="text-base w-20 h-10 md:text-lg md:w-24 md:h-12 xl:text-xl xl:w-28 xl:h-14 mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            <span
-                                class="h-6 md:h-8 xl:h-10 w-full flex items-center justify-center text-center">Enviar!</span>
-                        </router-link>
-
-                        <button disabled v-else
-                            class="w-28 h-14 mt-0 bg-yellow-2 dark:text-black-0 hover:bg-blue-3 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             <span
                                 class="h-6 md:h-8 xl:h-10 w-full flex items-center justify-center text-center">Enviar!</span>
                         </button>

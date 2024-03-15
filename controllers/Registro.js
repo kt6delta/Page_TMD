@@ -65,4 +65,17 @@ registro.post('/', async (req, res) => {
     }
 })
 
+//Unique username
+registro.get('/user/:user', async (req, res) => {
+    funtions.VerificationUniqueUser(req.params.user).then((result) => {
+        return res.send(result);
+    })
+})
+
+registro.get('/mail/:email', async (req, res) => {
+    funtions.VerificationUniqueMail(req.params.email).then((result) => {
+        return res.send(result);
+    })
+})
+
 export default registro

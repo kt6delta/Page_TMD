@@ -19,7 +19,7 @@ function VerificationUniqueUser(username) {
                     reject(err);
                 } else {
                     if (results.length > 0) {
-                        resolve(false) //exite username
+                        resolve(false) //exits username
                     } else {
                         resolve(true)
                     }
