@@ -13,6 +13,7 @@ export default {
             passwordInvalid2: false,
             passwordInvalid3: false,
             passwordInvalid4: false,
+            passwordInvalid5: false,
             showPassword1: false,
             showPassword2: false,
             confirmPassword: '',
@@ -21,12 +22,19 @@ export default {
     methods: {
         checkPassword() {
             this.passwordInvalid = this.password === '';
+            if (this.passwordInvalid) return false;
             this.passwordInvalid2 = this.password.length < 8;
-            this.passwordInvalid3 = !/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*+-.]).+$/.test(this.password);
+            if (this.passwordInvalid2) return false;
+            const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*+-.]).+$/
+            this.passwordInvalid3 = !regex.test(this.password);
+            if (this.passwordInvalid3) return false;
             this.passwordInvalid4 = this.password.length > 25;
-            return !(this.passwordInvalid || this.passwordInvalid2 || this.passwordInvalid3 || this.passwordInvalid4);
+            if (this.passwordInvalid4) return false;
+            this.passwordInvalid5 = (this.confirmPassword !== this.password);
+            if (this.passwordInvalid5) return false;
+            return true;
         },
-        checkEmail() {
+        async checkEmail() {
             this.emailInvalid = this.email === '';
             if (this.emailInvalid) return false;
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -34,22 +42,24 @@ export default {
             if (this.emailInvalid2) return false;
             this.emailInvalid3 = this.email.length > 45;
             if (this.emailInvalid3) return false;
+            this.emailInvalid4= await this.checkEmailExists();
+            if (this.emailInvalid4) return false;
             return true;
         },
         checkEmailExists() {
-            axios.get('http://localhost:3001/registro/mail/' + this.email)
-                .then(res => {
-                    this.emailInvalid4 = !res.data; //res.data=false if exits email
-                    if (!this.emailInvalid4 && this.checkPassword()) {
-                        this.postUser();
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                });
+            return new Promise((resolve, reject) => {
+                axios.get(this.$store.state.backUrl + "/registro/mail/" + this.email)
+                    .then(res => {
+                        resolve(res.data);//res.data=true if exits email
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        reject(err);
+                    });
+            });
         },
         postUser() {
-            axios.post('http://localhost:3001/registro/', {
+            axios.post(this.$store.state.backUrl + "/registro/", {
                 username: this.$route.params.user,
                 password: this.password,
                 email: this.email
@@ -62,22 +72,18 @@ export default {
                     console.log(err);
                 });
         },
-        Send() {
-            if (this.checkEmail()) {
-                this.checkEmailExists();
+        async Send() {
+            if (await this.checkEmail() && await this.checkPassword()) {
+                //this.postUser();
             }
         }
     },
     computed: {
-        isButtonDisabled() {
-            let isPasswordsMatch = this.confirmPassword === this.password;
-            return this.checkEmail() && this.checkPassword() && isPasswordsMatch;
-        },
         MailInbalidate() {
-            return !this.emailInvalid || this.emailInvalid2 || this.emailInvalid3 || this.emailInvalid4;
+            return (this.emailInvalid || this.emailInvalid2 || this.emailInvalid3 || this.emailInvalid4);
         },
         PasswordInbalidate() {
-            return !this.passwordInvalid || this.passwordInvalid2 || this.passwordInvalid3 || this.passwordInvalid4;
+            return (this.passwordInvalid || this.passwordInvalid2 || this.passwordInvalid3 || this.passwordInvalid4 || this.passwordInvalid5);
         },
         errorMessage() {
             if (this.emailInvalid) return 'La direccion de correo no puede estar vacio.';
@@ -91,6 +97,7 @@ export default {
             if (this.passwordInvalid2) return 'La contraseña debe tener al menos 8 caracteres.';
             if (this.passwordInvalid3) return 'La contraseña debe tener al menos un numero, una mayuscula y un caracter especial (!@#$%^&*+-.).';
             if (this.passwordInvalid4) return 'La contraseña tiene un maximo 25 caracteres.';
+            if (this.passwordInvalid5) return 'Las contraseñas no coinciden.';
             return '';
         },
     },
@@ -115,21 +122,27 @@ export default {
                             class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">
                             Ingrese el correo electronico
                         </label>
-                        <input v-model="email" type="email" placeholder="Correo electronico"
-                            class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
+                        <input v-model.lazy="email" type="email" placeholder="Correo electronico"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-base md:text-2xl text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
                             :class="{ 'border-red-500': MailInbalidate }">
-                        <p v-if="errorMessage" class="text-red-500 text-sm italic font-bold">{{ errorMessage }}</p>
+                        <p v-if="MailInbalidate" class="text-red-500 text-sm italic font-bold">{{ errorMessage }}</p>
                     </div>
                     <div class="xl:text-2xl">
                         <label for="Contraseña"
                             class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">Ingrese
                             una
                             contraseña</label>
-                        <div class="relative h-10">
-                            <input
-                                class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
-                                placeholder="Contraseña" v-model="password" :type="showPassword1 ? 'text' : 'password'"
-                                :class="{ 'border-red-500': MailInbalidate }">
+                        <div :class="{
+                            'h-10': !PasswordInbalidate,
+                            'h-16': PasswordInbalidate,
+                            'relative': true
+                        }">
+                            <input v-model.lazy="password" :type="showPassword1 ? 'text' : 'password'"
+                                placeholder="Contraseña"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-base md:text-2xl text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
+                                :class="{ 'border-red-500': PasswordInbalidate }">
+                            <p v-if="PasswordInbalidate" class=" text-red-500 text-sm italic font-bold">{{ errorMessage2
+                                }}</p>
                             <button @click="showPassword1 = !showPassword1" class="ml-2 focus:outline-none ">
                                 <img :class="{
                             'mt-3': showPassword1,
@@ -139,20 +152,17 @@ export default {
                                     alt="mostrar_Contraseña">
                             </button>
                         </div>
-                        <p v-if="errorMessage2" class=" text-red-500 text-sm italic font-bold">{{ errorMessage2 }}
-                        </p>
                     </div>
                     <div class="xl:text-2xl">
                         <label for="Contraseña"
                             class="text-lg md:text-xl xl:text-2xl block text-nonary font-Fuente_terciaria text-start">Confirmar
                             contraseña</label>
                         <div class="relative">
-                            <input
-                                class="w-full bg-white mt-2 h-10 appearance-none rounded shadow-lg focus:outline-none focus:bg-white"
-                                placeholder="confirmar Contraseña" v-model="confirmPassword"
-                                :type="showPassword2 ? 'text' : 'password'"
-                                :class="{ 'border-red-500': this.passwordInvalid2 }">
-                            <button @click="showPassword2 = !showPassword2" class="ml-2 focus:outline-none">
+                            <input v-model.lazy="confirmPassword" :type="showPassword2 ? 'text' : 'password'"
+                                placeholder="confirmar Contraseña"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-base md:text-2xl text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
+                                :class="{ 'border-red-500': PasswordInbalidate }">
+                            <button @click="showPassword2 = !showPassword2" class="ml-2 focus:outline-none ">
                                 <img :class="{
                             'mt-3': showPassword2,
                             'mt-4': !showPassword2,
@@ -161,8 +171,6 @@ export default {
                                     alt="mostrar_Contraseña">
                             </button>
                         </div>
-                        <p v-if="confirmPassword !== password" class=" text-red-500 text-sm italic font-bold">
-                            Las contraseñas no coinciden.</p>
                     </div>
                     <div class="w-full flex items-center justify-center">
                         <button type="button" @click="Send()"

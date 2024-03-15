@@ -1,8 +1,6 @@
 <script>
 import axios from 'axios';
 export default {
-    components: {
-    },
     data() {
         return {
             username: '',
@@ -28,7 +26,7 @@ export default {
                     }
                     else {
                         this.userInvalid4 = false
-                        axios.get('http://localhost:3001/registro/user/' + this.username, {
+                        axios.get(this.$store.state.backUrl+"/registro/user/"+this.username, {
                         })
                             .then(res => {
                                 this.userInvalid2 = !(res.data); //res.data=false if exits username
@@ -77,7 +75,8 @@ export default {
                         <div class="relative">
                             <input v-model.lazy="username"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-base md:text-2xl text-gray font-serif italic leading-tight focus:outline-none focus:shadow-outline"
-                                :class="{ 'border-red-500': errorMessage }" type="text" placeholder="Ingrese su usuario">
+                                :class="{ 'border-red-500': errorMessage }" type="text"
+                                placeholder="Ingrese su usuario">
                             <img class="w-8 h-8 absolute top-0 right-0 mr-2 mt-1"
                                 src="./components/img/persona_icono_cel.webp" alt="">
                         </div>
