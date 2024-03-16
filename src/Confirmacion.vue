@@ -1,12 +1,3 @@
-<script>
-export default {
-    data() {
-        return {
-            mail: '', //this.$route.params.mail
-        };
-    },
-};
-</script>
 <template>
     <div class="w-full h-scree bg-white">
         <main class="md:mb-10 bg-white  w-full h-3/4 relative flex items-center justify-center flex-col">

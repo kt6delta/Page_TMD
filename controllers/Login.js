@@ -1,5 +1,6 @@
 import { createRequire } from 'module';
 import config from '../utils/config.js';
+import funtions from '../utils/funtions.js';
 const require = createRequire(import.meta.url);
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -16,6 +17,9 @@ login.get('/auth/:token', async (req, res) => {
         username = await ValidateToken(req.params.token);
     } catch (err) {
         return res.send(err.message);
+    }
+    if(NotRepit(username)){
+        return res.send('Ya habias verificado el correo!!');
     }
     let connection;
     let responseSent = false;
@@ -41,6 +45,26 @@ login.get('/auth/:token', async (req, res) => {
         }
     }
 })
+//Si ya se verifico antes
+async function NotRepit(username) {
+    const connection = await conexion.abrirConexion();
+    const result = await new Promise((resolve, reject) => {
+        connection.query(`SELECT * FROM user WHERE username = ?`, [username], (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result);
+            }
+        });
+    });
+    await conexion.cerrarConexion(connection);
+    if (result[0].is_verified === 1) {
+        return true; 
+    } else {
+        return false;
+    }
+
+}
 
 async function ValidateToken(token) {
     return new Promise((resolve, reject) => {
@@ -52,6 +76,30 @@ async function ValidateToken(token) {
             resolve(user.username);
         })
     });
+}
+
+//actuaizar el valor de last_login
+async function updateLastLogin(username) {
+    let connection;
+    let responseSent = false;
+    try {
+        connection = await conexion.abrirConexion()
+        await new Promise((resolve, reject) => {
+            connection.query(`UPDATE user SET last_login=CURRENT_TIMESTAMP WHERE username = ?`,[username], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (err) {
+        responseSent = true;
+        return res.send(err.message);
+    } finally {
+        await conexion.cerrarConexion(connection);
+        console.log('Last login actualizado');
+    }
 }
 
 const authenticateUser = async (username, password) => {
@@ -78,13 +126,18 @@ const authenticateUser = async (username, password) => {
         throw new Error('Contraseña incorrecta');
     }
     if (user.is_admin === 1) {
-        return "Admin logueado";
+        console.log('Admin logueado');
+        updateLastLogin(username);
+        return {token: funtions.generateAccessToken(username), admin: true}; 
     }
     if (user.is_admin === 0 ) {
-        return "Usuario logueado";
+        console.log('Usuario logueado');
+        updateLastLogin(username);
+        return {token: funtions.generateAccessToken(username), admin: false};
     }
 }
 
+//se logean los usuarios
 login.post('/', async (req, res) => {
     try {
         const message = await authenticateUser(req.body.username, req.body.password);

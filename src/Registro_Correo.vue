@@ -73,7 +73,7 @@ export default {
                 });
         },
         async Send() {
-            if (await this.checkEmail() && await this.checkPassword()) {
+            if (await this.checkEmail() && this.checkPassword()) {
                 this.postUser();
             }
         }

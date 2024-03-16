@@ -18,7 +18,7 @@ export default {
 </script>
 <template>
   <main class="w-full h-screen flex flex-col" data-aos="fade-up">
-    <div class="w-full h-5/6 bg-principal bg-cover bg-center relative h-screen">
+    <div class="w-full h-5/6 bg-principal bg-cover bg-center relative">
       <div class="absolute inset-0 bg-gradient-to-r from-gradient-start via-gradient-middle to-gradient-end"></div>
     </div>
     <div class="w-full h-5/6 absolute">
