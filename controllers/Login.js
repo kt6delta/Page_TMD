@@ -14,7 +14,7 @@ const login = express.Router();
 login.get('/auth/:token', async (req, res) => {
     let username;
     try {
-        username = await ValidateToken(req.params.token);
+        username = await funtions.ValidateToken(req.params.token);
     } catch (err) {
         return res.send(err.message);
     }
@@ -64,18 +64,6 @@ async function NotRepit(username) {
         return false;
     }
 
-}
-
-async function ValidateToken(token) {
-    return new Promise((resolve, reject) => {
-        jwt.verify(token, config.ACCESS_TOKEN_SECRET, (err, user) => {
-            if (err) {
-                console.log('Token invalido');
-                reject(new Error('Token invalido'));
-            }
-            resolve(user.username);
-        })
-    });
 }
 
 //actuaizar el valor de last_login
@@ -147,4 +135,5 @@ login.post('/', async (req, res) => {
         res.status(401).send('Credenciales incorrectas');
     }
 });
+
 export default login

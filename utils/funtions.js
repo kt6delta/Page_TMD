@@ -65,8 +65,22 @@ function VerificationUniqueMail(email) {
     })
 }
 
+async function ValidateToken(token) {
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, config.ACCESS_TOKEN_SECRET, (err, user) => {
+            if (err) {
+                console.log('Token invalido');
+                reject(new Error('Token invalido'));
+            }
+            resolve(user.username);
+        })
+    });
+}
+
+
 export default {
     VerificationUniqueUser,
     VerificationUniqueMail,
-    generateAccessToken
+    generateAccessToken,
+    ValidateToken
 }

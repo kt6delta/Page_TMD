@@ -60,9 +60,9 @@ export default {
                         <input v-model="password"
                             class="shadow appearance-none border border-yellow-2 rounded w-full py-2 px-3 text-gray font-serif italic text-base mb-3 leading-tight focus:outline-none focus:shadow-outline"
                             id="password" type="password" placeholder="Ingrese su contraseña">
-                        <a class="text-yellow-2 text-sm italic" href="#">
+                        <router-link to="Recupera_Contraseña" class="text-yellow-2 text-sm italic" >
                             ¿Olvidó su contraseña?
-                        </a>
+                        </router-link>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
