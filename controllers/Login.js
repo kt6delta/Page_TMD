@@ -1,9 +1,7 @@
 import { createRequire } from 'module';
-import config from '../utils/config.js';
 import funtions from '../utils/funtions.js';
 const require = createRequire(import.meta.url);
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 //constantes
 import express from 'express';
