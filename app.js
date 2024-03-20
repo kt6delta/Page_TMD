@@ -6,7 +6,7 @@ import personaRouter from './controllers/Personas.js';
 import login from './controllers/Login.js';
 import registro from './controllers/Registro.js';
 import recuperar from './controllers/Recuperar.js';
-import products from './models/productModel.js';
+import products from './controllers/Product.js';
 
 const app = express();
 

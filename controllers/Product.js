@@ -1,61 +1,152 @@
-// Import function from Product Model
-import { getProducts, getProductById, insertProduct, updateProductById, deleteProductById } from "../models/productModel.js";
-  
+import conexion from "../utils/conexion.js";
+import express from 'express';
+
+const products = express.Router();
+
 // Get All Products
-export const showProducts = (req, res) => {
-    getProducts((err, results) => {
-        if (err){
-            res.send(err);
-        }else{
-            res.json(results);
+products.get('/', async (req, res) => {
+    let result;
+    let connection;
+    let responseSent = false;
+    try {
+        connection = await conexion.abrirConexion()
+        result = await new Promise((resolve, reject) => {
+            connection.query(`SELECT * FROM product`, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (err) {
+        responseSent = true;
+        return res.send(err.message);
+    } finally {
+        await conexion.cerrarConexion(connection)
+        if (!responseSent) {
+            if (result && result.length == 0) {
+                return res.send('No hay respuesta')
+            } else {
+                return res.send(result)
+            }
         }
-    });
-}
-  
+    }
+})
+
 // Get Single Product 
-export const showProductById = (req, res) => {
-    getProductById(req.params.id, (err, results) => {
-        if (err){
-            res.send(err);
-        }else{
-            res.json(results);
+products.get('/:id', async (req, res) => {
+    let result;
+    let connection;
+    let responseSent = false;
+    try {
+        connection = await conexion.abrirConexion()
+        result = await new Promise((resolve, reject) => {
+            connection.query(`SELECT * FROM product WHERE product_id = ?`, [req.params.id], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (err) {
+        responseSent = true;
+        return res.send(err.message);
+    } finally {
+        await conexion.cerrarConexion(connection)
+        if (!responseSent) {
+            if (result && result.length == 0) {
+                return res.send('no hay respuesta')
+            } else {
+                return res.send(result)
+            }
         }
-    });
-}
-  
-// Create New Product
-export const createProduct = (req, res) => {
-    const data = req.body;
-    insertProduct(data, (err, results) => {
-        if (err){
-            res.send(err);
-        }else{
-            res.json(results);
+    }
+})
+
+// // Insert Product to Database
+products.post('/', async (req, res) => {
+    let result;
+    let connection;
+    let responseSent = false;
+    try {
+        console.log(req.body.product_name)
+        connection = await conexion.abrirConexion()
+        result = await new Promise((resolve, reject) => {
+            connection.query("INSERT INTO product (product_name, product_price) VALUES (?, ?)", [req.body.product_name,req.body.product_price], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (err) {
+        responseSent = true;
+        return res.send(err.message);
+    } finally {
+        await conexion.cerrarConexion(connection)
+        if (!responseSent) {
+            if (result && result.length == 0) {
+                return res.send('No hay respuesta')
+            } else {
+                return res.send(result)
+            }
         }
-    });
-}
-  
-// Update Product
-export const updateProduct = (req, res) => {
-    const data  = req.body;
-    const id    = req.params.id;
-    updateProductById(data, id, (err, results) => {
-        if (err){
-            res.send(err);
-        }else{
-            res.json(results);
+    }
+})
+
+// // Update Product to Database
+products.put('/:id', async (req, res) => {
+    let connection;
+    let responseSent = false;
+    try {
+        connection = await conexion.abrirConexion()
+        await new Promise((resolve, reject) => {
+            connection.query(`UPDATE product SET product_name = ?, product_price = ? WHERE product_id = ?`, [req.body.product_name, req.body.product_price, req.params.id], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (err) {
+        responseSent = true;
+        return res.send(err.message);
+    } finally {
+        await conexion.cerrarConexion(connection)
+        if (!responseSent) {
+            return res.send('Producto actualizado')
         }
-    });
-}
-  
-// Delete Product
-export const deleteProduct = (req, res) => {
-    const id = req.params.id;
-    deleteProductById(id, (err, results) => {
-        if (err){
-            res.send(err);
-        }else{
-            res.json(results);
+    }
+});
+
+// Delete Product to Database
+products.delete('/:id', async (req, res) => {
+    let connection;
+    let responseSent = false;
+    try {
+        connection = await conexion.abrirConexion()
+        await new Promise((resolve, reject) => {
+            connection.query(`DELETE FROM product WHERE product_id = ?`, [req.params.id], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    } catch (err) {
+        responseSent = true;
+        return res.send(err.message);
+    } finally {
+        await conexion.cerrarConexion(connection)
+        if (!responseSent) {
+            return res.send('Producto eliminado')
         }
-    });
-}
+    }
+});
+
+export default products;
