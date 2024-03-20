@@ -1,5 +1,5 @@
 <template>
-  <footer class="px-8 bg-septenary md:px-0">
+  <footer style="background: #ffa200;" class="px-8 bg-septenary md:px-0">
     <div class="container mx-auto flex flex-col md:flex-row justify-center items-center py-4 md:py-0">
       <div class="order-1 md:order-2 w-full md:w-1/3 flex flex-col items-center p-2">
         <img src="./icons/Logo_primary.svg" class="w-72">
@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <div class="order-2 md:order-1 w-full md:w-1/3 text-center text-sm md:text-base font-Fuente_primaria text-primary my-4 md:my-0 ">
+      <div class="text_1 order-2 md:order-1 w-full md:w-1/3 text-center text-sm md:text-base font-Fuente_primaria text-primary my-4 md:my-0 ">
         <ul>
           <li><span class="font-Fuente_terciaria font-black">CONTACTENOS</span></li>
           <li>3106734889</li>
@@ -29,9 +29,9 @@
         </ul>
       </div>
 
-      <div class="order-3 w-full md:w-1/3 text-center text-sm md:text-base font-Fuente_primaria text-primary my-4 md:my-0">
+      <div class="text_1 order-3 w-full md:w-1/3 text-center text-sm md:text-base font-Fuente_primaria text-primary my-4 md:my-0">
         <ul>
-          <li><span class="font-Fuente_terciaria font-black">DIRECCION</span></li>
+          <li><span class="font-Fuente_terciaria font-black">DIRECCIÓN</span></li>
           <li>Carrera 108 # 22F -21</li>
           <li>
             <span class="md:hidden">Bogota D.C, Colombia, 110911</span>

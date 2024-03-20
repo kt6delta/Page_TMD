@@ -8,6 +8,11 @@ const Registro_Correo = () => import('../Registro_Correo.vue')
 const Confirmacion = () => import('../Confirmacion.vue')
 const Recupera_Contraseña = () => import('../Recupera_Contraseña.vue')
 const Recuperar = () => import('../Recuperar.vue')
+const ProductList = () => import('../components/ProductList.vue')
+const AddProduct = () => import('../components/AddProduct.vue')
+const EditProduct = () => import('../components/EditProduct.vue')
+
+
 export default [
     { path: '/', name: 'Inicio', component: Inicio },
     { path: '/Contacto', name: "Contacto", component: Contacto },
@@ -18,5 +23,8 @@ export default [
     { path: '/Registro_Correo/:user', name: "Registro_Correo", component: Registro_Correo },
     { path: '/Confirmacion/:mail', name: "Confirmacion", component: Confirmacion },
     { path: '/Recupera_Contraseña', name: "Recupera_Contraseña", component: Recupera_Contraseña },
-    { path: '/recuperar', name: "Recuperar", component:Recuperar }
+    { path: '/recuperar', name: "Recuperar", component:Recuperar },
+    { path: '/Crud', name: "Crud", component: ProductList }, 
+    { path: '/create', name: "Create", component: AddProduct },
+    { path: '/edit/:id', name: "Edit", component: EditProduct }
 ]

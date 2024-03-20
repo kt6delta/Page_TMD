@@ -11,26 +11,26 @@
         </section>
         <div class="w-full bg-black-0 sm:w-3/4 md:bg-gray-light md:w-2/3">
             <form
-                class="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 container mx-auto h-full flex flex-col justify-center items-center">
-                <div class="w-full font-Fuente_terciaria text-xl text-white md:text-black-0">
-                    <h1 class="text-center font-Fuente_secundaria text-4xl hidden md:block md:text-5xl mb-5">
-                        Contactactenos</h1>
+                class=" p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 container mx-auto h-full flex flex-col justify-center items-center">
+                <div class="text_1 w-full font-Fuente_terciaria text-xl text-white md:text-black-0">
+                    <h1 class="sub_title text-center font-Fuente_secundaria text-4xl hidden md:block md:text-5xl mb-5">
+                        CONTACTENOS</h1>
                     <label for="Nombre">Ingrese el nombre</label>
                     <input type="text"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-black-1 text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow mb-4 md:bg-white placeholder-gray"
+                        class="text_1 shadow appearance-none border rounded w-full py-2 px-3 text-black-1 text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow mb-4 md:bg-white placeholder-gray"
                         placeholder="Nombre">
                     <label for="Correo">Ingrese el correo electronico</label>
                     <input type="text"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-black-1 text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white mb-4 placeholder-gray"
+                        class="text_1 shadow appearance-none border rounded w-full py-2 px-3 text-black-1 text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white mb-4 placeholder-gray"
                         placeholder="Correo electronico">
                     <label for="Telefono">Ingresa el telefono</label>
                     <input type="text"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-black-1 text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white mb-4 placeholder-gray"
+                        class="text_1 shadow appearance-none border rounded w-full py-2 px-3 text-black-1 text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white mb-4 placeholder-gray"
                         placeholder="Telefono">
                     <label for="Nombre">Ingrese tipo de servicio</label>
                     <div class="relative">
                         <select
-                            class="text-black-1 block shadow appearance-none border rounded w-full py-2 px-3 text-sm sm:text-base md:text-lg lg:text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white mb-4 focus:bg-white focus:text-black-0">
+                            class="text_1 text-black-1 block shadow appearance-none border rounded w-full py-2 px-3 text-sm sm:text-base md:text-lg lg:text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white mb-4 focus:bg-white focus:text-black-0">
                             <option>Alquiler</option>
                             <option>Mantenimiento</option>
                             <option>Venta</option>
@@ -44,10 +44,10 @@
                     </div>
                     <label for="Correo">Mensaje</label>
                     <textarea id="message" name="message" rows="4"
-                        class="form-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white"></textarea>
+                        class="text_1 form-textarea shadow appearance-none border rounded w-full py-2 px-3 text-gray text-xl font-serif italic leading-tight focus:outline-none focus:border-gray focus:ring-2 focus:ring-gray-light bg-yellow md:bg-white"></textarea>
                     <div class="flex items-center justify-between md:justify-center mt-5">
                         <button
-                            class="bg-black hover:bg-gray text-white text-xl font-serif font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4 md:w-28 h-14 shadow-md active:bg-secondary"
+                            class="bg-black hover:bg-gray text-white text-xl font-josefin-sans font-bold w-full py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4 md:w-28 h-14 shadow-md active:bg-secondary"
                             type="button">
                             Enviar
                         </button>
@@ -59,10 +59,10 @@
 
     <section id="focusUser" class="text-center bg-gray-light md:w-full md:h-5/6 md:bg-primary" data-aos="fade-up">
         <div class="container mx-auto md:p-14">
-            <h1 class="mb-5 font-Fuente_secundaria text-5xl text-center text-pri text-black-0 md:text-nonary">Informacion
+            <h1 class="mb-5 font-ubuntu font-bold text-4xl text-center text-pri text-black-0 md:text-nonary">INFORMACIÓN
             </h1>
-            <div class="md:w-full md:h-4/6 md:flex md:flex-row md:shadow-md md:rounded-md md:bg-septenary">
-                <div class="mx-5 my-5 md:w-1/2 md:h-full md:p-5 md:flex md:flex-col md:space-y-6 md:bg-septenary md:rounded-s-md">
+            <div style="background: #ffa200;"  class="md:w-full md:h-4/6 md:flex md:flex-row md:shadow-md md:rounded-md md:bg-septenary">
+                <div style="background: #ffa200;" class="text_1 mx-5 my-5 md:w-1/2 md:h-full md:p-5 md:flex md:flex-col md:space-y-6 md:bg-septenary md:rounded-s-md">
                     <div class="flex flex-row space-x-3">
                         <a href="https://www.google.com/maps/place/Tecnimontacargas+Dual+Ltda/@4.68237,-74.14496,17z/data=!4m6!3m5!1s0x8e3f9db07b05ee2d:0x7e11bf0a9122222d!8m2!3d4.68237!4d-74.14496!16s%2Fg%2F11gtz7t5y3?hl=es"
                             target="_blank">
@@ -71,8 +71,7 @@
                                     class="w-14 h-14">
                             </figure>
                         </a>
-                        <p class="pt-2 font-Fuente_terciaria text-primary text-xl">Carrera 108 # 22F -21<br>Bogotá DC -
-                            (Colombia)
+                        <p class="text_1 pt-2 font-Fuente_terciaria text-primary text-xl">Carrera 108 # 22F -21<br>Bogotá DC - (Colombia)
                         </p>
                     </div>
                     <div class="flex flex-row space-x-3">
@@ -80,7 +79,7 @@
                             <img src="./components/img/telefono_icon_cel.png" alt="telefono" title="3244298326"
                                 class="w-14 h-14">
                         </figure>
-                        <p class="pt-2 font-Fuente_terciaria text-primary text-xl">
+                        <p class="text_1 pt-2 font-Fuente_terciaria text-primary text-xl">
                             (+57) 601 5408640<br>
                             (+57) 3244298326
                         </p>
@@ -92,7 +91,7 @@
                                     class="w-14 h-14">
                             </figure>
                         </a>
-                        <p class="pt-2 font-Fuente_terciaria text-primary text-xl">(+57) 3168770708</p>
+                        <p class="text_1 pt-2 font-Fuente_terciaria text-primary text-xl">(+57) 3168770708</p>
                     </div>
                     <div class="flex flex-row space-x-3">
                         <a href="mailto:gestion@tecnimontacargasdual.com" target="_blank">
@@ -101,7 +100,7 @@
                                     title="gestion@tecnimontacargasdual.com" class="w-16 h-14">
                             </figure>
                         </a>
-                        <p class="w- pt-2 font-Fuente_terciaria text-primary text-xl break-all">
+                        <p class="text_1 w- pt-2 font-Fuente_terciaria text-primary text-xl break-all">
                             comercial1@tecnimontacargasdual.com
                         </p>
                     </div>
@@ -125,3 +124,31 @@
         </div>
     </section>
 </template>
+<style>
+.text_1 {
+  font-family: 'Josefin Sans', sans-serif;
+font-size: 20px;
+letter-spacing: 0px;
+word-spacing: 0px;
+color: black;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
+.sub_title {
+text-align: center;
+font-family: 'Ubuntu', sans-serif;
+font-size: 30px;
+letter-spacing: 0px;
+word-spacing: 0px;
+color: #ffa200;
+font-weight: bold;
+text-decoration: none;
+font-style: normal;
+font-variant: small-caps;
+text-transform: none;
+}
+</style>

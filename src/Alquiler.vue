@@ -1,30 +1,29 @@
 <template>
     <main class="text-black-0 bg-gray-light text-base font-Fuente_terciaria">
-        <section class="md:mx-28 md:p-0 p-5">
-            <div class="md:flex">
-                <figure
-                    class="w-1/4 h-auto md:w-28 py-2 mx-auto md:my-auto md:mx-0 md:ml-auto md:mr-5 xl:w-1/12 xl:mr-16 md:order-last">
-                    <img src="./components/img/engranaje.png" alt="montacarga" title="alquiler" class="ml-12 md:ml-0">
-                </figure>
-                <h1 class="text-4xl mb-5 font-Fuente_primaria md:text-6xl text-black-0">SERVICIOS DE<br>ALQUILER</h1>
-            </div>
-            <p class="my-5 md:my-0">la solución flexible para sus necesidades de manipulación de materiales.
-                Ya sea que necesite un montacargas para un proyecto a corto plazo o para complementar su flota existente, el
-                alquiler es una opción económica y flexible.
-            </p>
-            <Carousel :autoplay="0" :wrap-around="true"><!-- 2000 -->
-                <Slide v-for="fila in range" :key="fila"> <!--0-1 -->
-                    <div class="carousel__item">
-                        <carrusel :images="img[fila]" />
-                    </div>
-                </Slide>
-                <template #addons>
-                    <Pagination />
-                    <Navigation />
-                </template>
-            </Carousel>
-        </section>
+       
+
+<h1>HOLA</h1>
+<section class="bg-black col-md-6 mx-auto">
+        
+<div class="carousel  col-md-6 mx-auto">
+    <div class="slides " :style="{ transform: 'translateX(' + (-currentIndex * 100) + '%)' }">
+      <div class="slide" v-for="(image, index) in images" :key="index">
+        <img :src="image" alt="Slide" class="col-md-6 mx-auto">
+      </div>
+    </div>
+    <div class="controls">
+      <button @click="prevSlide">Anterior</button> &nbsp; 
+      <button @click="nextSlide">Siguiente</button>
+    </div>
+  </div>
+
+</section>   
+
+
+
+        
         <section class="flex flex-col md:flex-row md:mx-28" data-aos="fade-up">
+            
             <!-- izquierda 2 -->
             <div class="items-center flex-1 px-5 md:px-0">
                 <h2 class="text-yellow-2 text-3xl font-Fuente_primaria text-center">
@@ -67,31 +66,51 @@
         </section>
     </main>
 </template>
+
 <script>
-import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
-import carrusel from './components/carrusel.vue'
 export default {
-    data() {
-        return {
-            img: [
-                [require("@/components/img/montacarga_6.jpg"), require("@/components/img/montacarga_3.jpg"), require("@/components/img/montacarga_7.jpg"), require("@/components/img/montacarga_5.png")],
-                [require("@/components/img/bateria3.png"), require("@/components/img/bateria2.png"), require("@/components/img/bateria2.jpg"), require("@/components/img/bateria1.png")]
-            ],
-        }
+  name: 'ImageCarousel',
+  data() {
+    return {
+      images: [
+        'https://via.placeholder.com/500x400/FF5733/FFFFFF',
+        'https://via.placeholder.com/800x400/33FF57/FFFFFF',
+        'https://via.placeholder.com/800x400/5733FF/FFFFFF'
+      ],
+      currentIndex: 0
+    };
+  },
+  methods: {
+    prevSlide() {
+      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     },
-    name: 'Alquiler',
-    components: {
-        Carousel,
-        Slide,
-        Pagination,
-        Navigation,
-        carrusel
-    },
-    computed: {
-        range() {
-            return Array.from({ length: 2 }, (_, i) => i);
-        },
+    nextSlide() {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
     }
-}
+  }
+};
 </script>
+
+<style scoped>
+.carousel {
+
+  position: relative;
+  width: auto;
+  overflow: hidden;
+}
+.slides {
+
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slide {
+    
+  flex: 0 0 100%;
+}
+.controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>

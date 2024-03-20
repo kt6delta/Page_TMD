@@ -6,6 +6,7 @@ import personaRouter from './controllers/Personas.js';
 import login from './controllers/Login.js';
 import registro from './controllers/Registro.js';
 import recuperar from './controllers/Recuperar.js';
+import products from './models/productModel.js';
 
 const app = express();
 
@@ -20,6 +21,6 @@ app.use('/personas', personaRouter)
 app.use('/login', login)
 app.use('/registro', registro)
 app.use('/recuperar', recuperar)
-
+app.use('/products', products);
 //habilitamos para  usar en  otros archivos
 export default app;
