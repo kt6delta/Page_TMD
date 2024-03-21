@@ -15,7 +15,7 @@ let transporter = nodemailer.createTransport(postmarkTransport({
 
 async function sendEmail(email, username, token) {
     const msg_title = "¡Verifica tu dirección de correo electrónico!";
-    const url = config.BACKEND_URL + "/login/auth/" + token;
+    const url = config.BACK_URL_REMOTO + "/login/auth/" + token;
     let msg_body = fs.readFileSync('utils/correo.html', { encoding: 'utf8' });
     msg_body = msg_body.replace("{{username}}", username).replace("{{username}}", username);
     msg_body = msg_body.replace("{{url}}", url).replace("{{url}}", url).replace("{{url}}", url);
@@ -50,7 +50,7 @@ async function sendEmail(email, username, token) {
 
 async function sendEmailRecuperar(email, username, token) {
     const msg_title = "¡Cambio de Contraseña!";
-    const url = config.BACKEND_URL + "/recuperar/" + token;
+    const url = config.BACK_URL_REMOTO + "/recuperar/" + token;
     let msg_body = fs.readFileSync('utils/recuperar.html', { encoding: 'utf8' });
     msg_body = msg_body.replace("{{username}}", username).replace("{{username}}", username);
     msg_body = msg_body.replace("{{url}}", url).replace("{{url}}", url).replace("{{url}}", url);
