@@ -3,9 +3,15 @@ const require = createRequire(import.meta.url);
 import config from './config.js';
 const fs = require('fs');
 
-'use strict';
 const nodemailer = require('nodemailer');
 const postmarkTransport = require('nodemailer-postmark-transport');
+
+//Servidor SMTP privado
+let transporter = nodemailer.createTransport(postmarkTransport({
+    auth: {
+        apiKey: config.POSTMARK_API_KEY
+    }
+}))
 
 async function sendEmail(email, username, token) {
     const msg_title = "¡Verifica tu dirección de correo electrónico!";
@@ -25,13 +31,6 @@ async function sendEmail(email, username, token) {
     //     }
     // });
 
-    //Servidor SMTP privado
-    let transporter = nodemailer.createTransport(postmarkTransport({
-        auth: {
-            apiKey: config.POSTMARK_API_KEY
-        }
-    }))
-
     let mailOptions = {
         from: config.MAIL_USERNAME,
         to: email,
@@ -40,8 +39,8 @@ async function sendEmail(email, username, token) {
         html: msg_body
     };
     try {
-       const info= await transporter.sendMail(mailOptions);
-        console.log("email sent "+info);
+        const info = await transporter.sendMail(mailOptions);
+        console.log("email sent " + info);
         return "email sent";
     } catch (e) {
         console.log(`the email was not sent ${e}`);
@@ -66,12 +65,6 @@ async function sendEmailRecuperar(email, username, token) {
     //         pass: config.MAIL_PASSWORD
     //     }
     // });
-    console.log(config.POSTMARK_API_KEY);
-    let transporter = nodemailer.createTransport(postmarkTransport({
-        auth: {
-            apiKey: config.POSTMARK_API_KEY
-        }
-    }));
 
     let mailOptions = {
         from: config.MAIL_USERNAME,
@@ -90,7 +83,41 @@ async function sendEmailRecuperar(email, username, token) {
     }
 }
 
+async function sendEmailContactenos(email, username) {
+    const msg_title = "Gracias por Comunicarse con nosotros";
+    let msg_body = fs.readFileSync('utils/contactenos.html', { encoding: 'utf8' });
+    msg_body = msg_body.replace("{{username}}", username).replace("{{username}}", username);
+
+    //Works en local
+    // let transporter = nodemailer.createTransport({
+    //     host: config.MAIL_SERVER,
+    //     port: config.MAIL_PORT,
+    //     secure: config.MAIL_USE_TLS,
+    //     auth: {
+    //         user: config.MAIL_USERNAME,
+    //         pass: config.MAIL_PASSWORD
+    //     }
+    // });
+
+    let mailOptions = {
+        from: config.MAIL_USERNAME,
+        to: email,
+        subject: msg_title,
+        text: msg_title,
+        html: msg_body
+    };
+    try {
+        const info = await transporter.sendMail(mailOptions);
+        console.log("email sent " + info);
+        return "email sent";
+    } catch (e) {
+        console.log(`the email was not sent ${e}`);
+        return `the email was not sent ${e}`;
+    }
+}
+
 export default {
     sendEmail,
-    sendEmailRecuperar
+    sendEmailRecuperar,
+    sendEmailContactenos,
 }

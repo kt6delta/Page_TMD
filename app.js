@@ -7,6 +7,7 @@ import login from './controllers/Login.js';
 import registro from './controllers/Registro.js';
 import recuperar from './controllers/Recuperar.js';
 import products from './controllers/Product.js';
+import contactenos from './controllers/Contactenos.js'
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use('/login', login)
 app.use('/registro', registro)
 app.use('/recuperar', recuperar)
 app.use('/products', products);
+app.use('/contactenos',contactenos);
 //habilitamos para  usar en  otros archivos
 export default app;
