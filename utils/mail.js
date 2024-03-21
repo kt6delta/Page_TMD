@@ -1,10 +1,10 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
-const nodemailer = require('nodemailer');
 import config from './config.js';
 const fs = require('fs');
 
 'use strict';
+const nodemailer = require('nodemailer');
 const postmarkTransport = require('nodemailer-postmark-transport');
 
 async function sendEmail(email, username, token) {
@@ -36,12 +36,12 @@ async function sendEmail(email, username, token) {
         from: config.MAIL_USERNAME,
         to: email,
         subject: msg_title,
+        text: msg_title,
         html: msg_body
     };
-
     try {
-        await transporter.sendMail(mailOptions);
-        console.log("email sent");
+       const info= await transporter.sendMail(mailOptions);
+        console.log("email sent "+info);
         return "email sent";
     } catch (e) {
         console.log(`the email was not sent ${e}`);
@@ -71,8 +71,8 @@ async function sendEmailRecuperar(email, username, token) {
         auth: {
             apiKey: config.POSTMARK_API_KEY
         }
-    })); 
-    
+    }));
+
     let mailOptions = {
         from: config.MAIL_USERNAME,
         to: email,
