@@ -66,7 +66,7 @@ async function sendEmailRecuperar(email, username, token) {
     //         pass: config.MAIL_PASSWORD
     //     }
     // });
-
+    console.log(config.POSTMARK_API_KEY);
     let transporter = nodemailer.createTransport(postmarkTransport({
         auth: {
             apiKey: config.POSTMARK_API_KEY

@@ -20,6 +20,7 @@ const MAIL_PASSWORD = process.env.MAIL_PASSWORD
 
 const BACKEND_URL= process.env.BACKEND_URL
 
+const POSTMARK_API_KEY= process.env.POSTMARK_API_KEY
 export default {
     HOST,
     DB_USER,
@@ -36,5 +37,6 @@ export default {
     MAIL_USERNAME,
     MAIL_PASSWORD,
 
-    BACKEND_URL
+    BACKEND_URL,
+    POSTMARK_API_KEY
 }
