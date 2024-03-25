@@ -9,7 +9,7 @@ const postmarkTransport = require('nodemailer-postmark-transport');
 //Servidor SMTP privado
 let transporter = nodemailer.createTransport(postmarkTransport({
     auth: {
-        apiKey: config.POSTMARK_API_KEY
+        apiKey: 'b5dc0666-413d-45bc-bb55-c8cb0503108d'
     }
 }))
 
