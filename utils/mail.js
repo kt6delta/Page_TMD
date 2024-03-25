@@ -39,10 +39,22 @@ async function sendEmail(email, username, token) {
         html: msg_body
     };
     try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log("email sent " + info);
+        transporter.sendMail(mailOptions);
+        console.log("email sent ");
         return "email sent";
     } catch (e) {
+        //tengo que hacer un cambio en la bd si no se envia el correo
+        connection = await conexion.abrirConexion();
+        await new Promise((resolve, reject) => {
+            connection.query(`UPDATE user SET emal_sent=? WHERE username = ?`, [0, username], (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+        await conexion.cerrarConexion(connection)
         console.log(`the email was not sent ${e}`);
         return `the email was not sent ${e}`;
     }
