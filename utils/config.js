@@ -21,6 +21,7 @@ const MAIL_PASSWORD = process.env.MAIL_PASSWORD
 const BACKEND_URL= process.env.BACKEND_URL
 const BACK_URL_REMOTO=process.env.BACK_URL_REMOTO
 const POSTMARK_API_KEY= process.env.POSTMARK_API_KEY
+const FRONT_URL_REMOTO=process.env.FRONT_URL_REMOTO
 export default {
     HOST,
     DB_USER,
@@ -30,6 +31,7 @@ export default {
 
     ACCESS_TOKEN_SECRET,
     
+    FRONT_URL_REMOTO,
     SECRET_KEY,
     MAIL_SERVER,
     MAIL_PORT,

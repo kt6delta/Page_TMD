@@ -15,8 +15,8 @@ login.get('/auth/:token', async (req, res) => {
         username = await funtions.ValidateToken(req.params.token);
     } catch (err) {
         return res.send(err.message);
-    }
-    if(NotRepit(username)){
+    } 
+    if(!NotRepit(username)){
         return res.send('Ya habias verificado el correo!!');
     }
     let connection;
@@ -57,11 +57,10 @@ async function NotRepit(username) {
     });
     await conexion.cerrarConexion(connection);
     if (result[0].is_verified === 1) {
-        return true; 
-    } else {
         return false;
+    } else {
+        return true; 
     }
-
 }
 
 //actuaizar el valor de last_login

@@ -1,6 +1,7 @@
 import { createRequire } from 'module';
 import funtions from '../utils/funtions.js';
 import mail from '../utils/mail.js';
+import config from '../utils/config.js';
 const require = createRequire(import.meta.url);
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
@@ -15,7 +16,7 @@ recuperar.get('/:token', async (req, res) => {
     try {
         const username = await funtions.ValidateToken(req.params.token);
         if(username) { 
-            return res.redirect('https://tecnimontacargasdual.net/recuperar/' + username);
+            return res.redirect(config.FRONT_URL_REMOTO+'/recuperar/' + username);
         }
         return res.status(400).send('Token inválido');
     } catch (err) {
@@ -35,7 +36,7 @@ recuperar.post('/:username', async (req, res) => {
         const encryPassword = await bcrypt.hash(req.body.password, saltRounds);
         connection = await conexion.abrirConexion();
         await new Promise((resolve, reject) => {
-            connection.query(`UPDATE user SET password = ? WHERE username = ?`, [encryPassword, req.params.username], (err, results) => {
+            connection.query(`UPDATE user SET password = ? WHERE username = ?`, [req.body.password, req.params.username], (err, results) => {
                 if (err) {
                     reject(err);
                 } else {

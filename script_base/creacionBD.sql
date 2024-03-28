@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id_user` int NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `email` 	text NOT NULL,
   `password` longtext NOT NULL,
   `date_joined` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `verification_code` varchar(255) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL,
