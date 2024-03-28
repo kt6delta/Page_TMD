@@ -36,7 +36,7 @@ recuperar.post('/:username', async (req, res) => {
         const encryPassword = await bcrypt.hash(req.body.password, saltRounds);
         connection = await conexion.abrirConexion();
         await new Promise((resolve, reject) => {
-            connection.query(`UPDATE user SET password = ? WHERE username = ?`, [req.body.password, req.params.username], (err, results) => {
+            connection.query(`UPDATE user SET password = ? WHERE username = ?`, [encryPassword, req.params.username], (err, results) => {
                 if (err) {
                     reject(err);
                 } else {
